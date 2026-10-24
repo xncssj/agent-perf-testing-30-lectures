@@ -10,6 +10,7 @@
   <img src="https://img.shields.io/badge/Python-3.x%2B-blue" alt="Python">
   <img src="https://img.shields.io/badge/Docker-compose-blue" alt="Docker">
   <img src="https://img.shields.io/badge/platform-Windows%20%7C%20Linux%20%7C%20macOS-lightgrey" alt="Platform">
+  <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-Hans"><img src="https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-green" alt="License: CC BY-NC-SA 4.0"></a>
 </p>
 
 ## 📌 课程信息
@@ -130,7 +131,16 @@
 1. 在[极客时间专栏](https://time.geekbang.org/column/intro/101193401?tab=intro)阅读正文，按正文中的配套资料提示找到对应讲次目录。
 2. 本仓库只提供可运行或可复用的资产，不重复正文讲解。
 3. 各讲资产以该讲目录内的 README 为准。
-4. 本仓库资料仅限已购学员学习使用，请勿对外传播或用于商业再分发。
+4. 本仓库资料采用 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-Hans) 授权：仅限学习交流等非商业用途，禁止商业再分发；转载需署名 7DGroup，并以相同协议共享。
+
+## ⚖️ 版权与授权
+
+本仓库全部内容（文档、模板、代码与数据集）版权归 **7DGroup（高楼 / zuozewei）** 所有，采用 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-Hans)（署名-非商业性-相同方式共享 4.0 国际）许可协议授权，完整法律文本见 [LICENSE](LICENSE)。
+
+- ✅ 允许：学习、教学与研究等非商业用途的使用、复制与传播
+- ❌ 禁止：未经授权的商业使用与再分发
+- 🔁 条件：转载须署名 7DGroup 并注明本仓库链接，衍生作品须以相同协议共享
+- 📖 课程正文（极客时间专栏文章）不在本授权范围内，版权归极客时间及作者所有
 
 ## 📄 相关链接
 
