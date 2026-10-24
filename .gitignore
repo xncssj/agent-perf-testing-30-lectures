@@ -8,3 +8,8 @@ Thumbs.db
 
 # Local tooling
 .zcode/
+
+# Secrets
+.env
+.env.*
+!.env.example

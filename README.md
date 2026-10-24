@@ -3,12 +3,14 @@
 **Author: 7DGroup**
 
 > 《Agent 性能测试实战30讲》课程配套仓库（拟上架极客时间，链接上架后在此更新；课程动态见微信公众号 7DGroup）。
-> 范围：贯穿案例客服工单系统、测试数据集、k6 压测套件、实验记录与可复用模板——配套资产将随专栏上架逐步开放。
+> 范围：贯穿案例客服工单系统、测试数据集、k6 压测套件、脚本与可复用模板；配套资产按讲次逐步开放，课程正文请在专栏阅读。
 
-![k6](https://img.shields.io/badge/k6-v2.x-orange)
-![Python](https://img.shields.io/badge/Python-3.x%2B-blue)
-![Docker](https://img.shields.io/badge/Docker-compose-blue)
-![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20Linux%20%7C%20macOS-lightgrey)
+<p align="center">
+  <img src="https://img.shields.io/badge/k6-v2.x-orange" alt="k6">
+  <img src="https://img.shields.io/badge/Python-3.x%2B-blue" alt="Python">
+  <img src="https://img.shields.io/badge/Docker-compose-blue" alt="Docker">
+  <img src="https://img.shields.io/badge/platform-Windows%20%7C%20Linux%20%7C%20macOS-lightgrey" alt="Platform">
+</p>
 
 ## 📌 课程信息
 
@@ -18,18 +20,18 @@
 | 课程定位 | 面向测试工程师、Agent 开发工程师和质量负责人的项目实战课：从性能需求到上线验收，用 RESAR 七步法完整做完一个 Agent 性能项目 |
 | 贯穿案例 | 一个客服工单系统 + 两次架构升级：Single Agent → Multi-Agent → Workflow/Flow + RAG，业务为「查询并答复指定订单的配送进度」 |
 | 核心指标 | TTFT、TPOT、Goodput（有效吞吐）、成功业务成本与四级业务判定（请求成功 / 流程完成 / 业务完成 / 结果合格） |
-| 仓库用途 | 存放课程配套资产：案例系统、测试数据集、k6 压测套件、实验记录与可复用模板，按讲组织 |
-| 当前状态 | 占位仓库：配套资产尚未入库，将随专栏上架按讲逐步开放 |
+| 仓库用途 | 存放课程配套资产：案例系统、测试数据集、k6 压测套件、脚本与可复用模板，按讲组织 |
+| 当前状态 | 已开放导学与第 01—03 讲的配套模板；项目源码、测试数据与脚本随对应讲次逐步开放 |
 
 ## 📚 课程篇目
 
 | 讲次 | 标题 | 章节 |
 |---|---|---|
 | 开篇词 | Agent 的性能好不好，要拿证据说话 | 开篇 |
-| 导学 | 为什么这门课要带你完整做完一个 Agent 性能项目？ | 导学 |
-| 01 | 接口返回 200，为什么 Agent 仍然没有完成业务？ | 一、必要知识储备 |
-| 02 | Prompt、Workflow/Flow、Single Agent、Multi-Agent 都是调模型，性能风险为什么完全不同？ | 一、必要知识储备 |
-| 03 | 测一次请求还是测完整业务，Agent 的测试对象怎么确定？ | 一、必要知识储备 |
+| [导学](lectures/00-guide/) | 为什么这门课要带你完整做完一个 Agent 性能项目？ | 导学 |
+| [01](lectures/01-http-200-not-business-done/) | 接口返回 200，为什么 Agent 仍然没有完成业务？ | 一、必要知识储备 |
+| [02](lectures/02-architecture-performance-risks/) | Prompt、Workflow/Flow、Single Agent、Multi-Agent 都是调模型，性能风险为什么完全不同？ | 一、必要知识储备 |
+| [03](lectures/03-test-object-layering/) | 测一次请求还是测完整业务，Agent 的测试对象怎么确定？ | 一、必要知识储备 |
 | 04 | TTFT、TPOT、Goodput、质量和成本指标应该怎么选？ | 一、必要知识储备 |
 | 05 | 同一个 Agent 每次结果都不同，怎样建立可信的性能基线？ | 一、必要知识储备 |
 | 06 | 并发还没有到峰值，为什么 Agent 已经开始退化？ | 一、必要知识储备 |
@@ -60,7 +62,23 @@
 | 结束语 | 工具会变，怎样保留不会过时的项目能力？ | 结语 |
 | 附录 | 术语解释表、指标计算公式表、性能测试方案示例 | 附录 |
 
-配套资产将随专栏上架按讲逐步开放，未发布讲目不提前放置半成品；各讲实际引用的路径以正文为准。
+正文不在本仓库发布。配套资产按讲次逐步开放，未发布讲目不提前放置半成品；各讲实际引用的路径以正文为准。
+
+## 📂 配套资料目录
+
+| 讲次 | 目录 | 已开放资产 |
+|---|---|---|
+| 导学 | [lectures/00-guide](lectures/00-guide/) | 暂无（概念篇） |
+| 01 | [lectures/01-http-200-not-business-done](lectures/01-http-200-not-business-done/) | 四级业务判定表、单笔业务复核记录、Goodput 与成功业务成本台账 |
+| 02 | [lectures/02-architecture-performance-risks](lectures/02-architecture-performance-risks/) | 架构形态与性能风险速查表、风险假设记录 |
+| 03 | [lectures/03-test-object-layering](lectures/03-test-object-layering/) | 分层测试对象表、时延口径自查表、时间口径记录 |
+
+## 🧭 使用方式
+
+1. 在专栏阅读正文，按正文中的配套资料提示找到对应讲次目录。
+2. 本仓库只提供可运行或可复用的资产，不重复正文讲解。
+3. 各讲资产以该讲目录内的 README 为准。
+4. 本仓库资料仅限已购学员学习使用，请勿对外传播或用于商业再分发。
 
 ## 📄 相关链接
 
