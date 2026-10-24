@@ -135,7 +135,7 @@
 
 ## ⚖️ 版权与授权
 
-本仓库全部内容（文档、模板、代码与数据集）版权归 **7DGroup（高楼 / zuozewei）** 所有，采用 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-Hans)（署名-非商业性-相同方式共享 4.0 国际）许可协议授权，完整法律文本见 [LICENSE](LICENSE)。
+本仓库全部内容（文档、模板、代码与数据集）版权归 **7DGroup** 所有，采用 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-Hans)（署名-非商业性-相同方式共享 4.0 国际）许可协议授权，完整法律文本见 [LICENSE](LICENSE)。
 
 - ✅ 允许：学习、教学与研究等非商业用途的使用、复制与传播
 - ❌ 禁止：未经授权的商业使用与再分发
