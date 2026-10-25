@@ -19,12 +19,12 @@
 |------|------|
 | 课程系列 | 《Agent 性能测试实战30讲》：开篇词 + 导学 + 上新直播 + 30 讲正文 + 结束语，共 33 讲，[已上架极客时间](https://time.geekbang.org/column/intro/101193401?tab=intro) |
 | 课程讲师 | 高楼 · 盾山科技 CEO，7DGroup 创始人 |
-| 更新节奏 | 连载中，每周一 / 三 / 五更新，已更新 2 / 33 讲（状态详见下方课程篇目） |
+| 更新节奏 | 连载中，每周一 / 三 / 五更新，已更新 3 / 33 讲（状态详见下方课程篇目） |
 | 课程定位 | 面向测试 / 性能 / 测试开发工程师、Agent 开发工程师、运维工程师与技术管理者的项目实战课：从性能需求到上线验收，用 RESAR 七步法完整做完一个 Agent 性能项目 |
 | 贯穿案例 | 一个客服工单系统 + 两次架构升级：Single Agent → Multi-Agent → Workflow/Flow + RAG，业务为「查询并答复指定订单的配送进度」 |
 | 核心指标 | TTFT、TPOT、Goodput（有效吞吐）、成功业务成本与四级业务判定（请求成功 / 流程完成 / 业务完成 / 结果合格） |
 | 仓库用途 | 存放课程配套资产：案例系统、测试数据集、k6 压测套件、脚本与可复用模板，按讲组织 |
-| 当前状态 | 已开放导学与第 01—03 讲的配套模板；项目源码、测试数据与脚本随对应讲次逐步开放 |
+| 当前状态 | 已开放导学与第 01—03 讲的配套模板及第 02/03 讲引用的实验数据；项目源码、测试数据与脚本随对应讲次逐步开放 |
 
 ## 📖 课程介绍
 
@@ -83,9 +83,9 @@
 | 开篇词 | [Agent 的性能好不好，要拿证据说话](https://time.geekbang.org/column/article/1027150) | 开篇 | ✅ 已更新 |
 | [导学](lectures/00-guide/) | [为什么这门课要带你完整做完一个 Agent 性能项目](https://time.geekbang.org/column/article/1027201) | 导学 | ✅ 已更新 |
 | 上新直播 | 一次 AI Agent 性能测试实战复盘 | 直播 | 未更新 |
-| [01](lectures/01-http-200-not-business-done/) | 接口返回 200，为什么 Agent 仍然没有完成任务 | 第一章 必要知识储备 | 未更新 |
-| [02](lectures/02-architecture-performance-risks/) | 都是调模型，Agent 性能风险为什么完全不同 | 第一章 必要知识储备 | 未更新 |
-| [03](lectures/03-test-object-layering/) | Agent 的测试对象如何确定 | 第一章 必要知识储备 | 未更新 |
+| [01](lectures/01-http-200-not-business-done/) | [接口返回 200，为什么 Agent 仍然没有完成任务](https://time.geekbang.org/column/article/1027290) | 第一章 必要知识储备 | ✅ 已更新 |
+| [02](lectures/02-architecture-performance-risks/) | 都是调模型，不同架构形态，性能风险为什么完全不同？ | 第一章 必要知识储备 | 未更新 |
+| [03](lectures/03-test-object-layering/) | 测一次请求还是测完整业务，Agent 的测试对象怎么确定？ | 第一章 必要知识储备 | 未更新 |
 | 04 | TTFT、TPOT、Goodput、质量和成本指标应该怎么选 | 第一章 必要知识储备 | 未更新 |
 | 05 | 同一个 Agent 每次结果都不同，如何建立可信的性能基线 | 第一章 必要知识储备 | 未更新 |
 | 06 | 并发还没有到峰值，为什么 Agent 已经开始退化 | 第一章 必要知识储备 | 未更新 |
@@ -123,8 +123,8 @@
 |---|---|---|
 | 导学 | [lectures/00-guide](lectures/00-guide/) | 暂无（概念篇） |
 | 01 | [lectures/01-http-200-not-business-done](lectures/01-http-200-not-business-done/) | 四级业务判定表、单笔业务复核记录、Goodput 与成功业务成本台账 |
-| 02 | [lectures/02-architecture-performance-risks](lectures/02-architecture-performance-risks/) | 架构形态与性能风险速查表、风险假设记录 |
-| 03 | [lectures/03-test-object-layering](lectures/03-test-object-layering/) | 分层测试对象表、时延口径自查表、时间口径记录 |
+| 02 | [lectures/02-architecture-performance-risks](lectures/02-architecture-performance-risks/) | 架构形态与性能风险速查表、风险假设记录、案例二实验数据（Multi-Agent） |
+| 03 | [lectures/03-test-object-layering](lectures/03-test-object-layering/) | 分层测试对象表、时延口径自查表、时间口径记录、案例一实验数据（Single Agent） |
 
 ## 🧭 使用方式
 
