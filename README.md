@@ -24,7 +24,7 @@
 | 贯穿案例 | 一个客服工单系统 + 两次架构升级：Single Agent → Multi-Agent → Workflow/Flow + RAG，业务为「查询并答复指定订单的配送进度」 |
 | 核心指标 | TTFT、TPOT、Goodput（有效吞吐）、成功业务成本与四级业务判定（请求成功 / 流程完成 / 业务完成 / 结果合格） |
 | 仓库用途 | 存放课程配套资产：案例系统、测试数据集、k6 压测套件、脚本与可复用模板，按讲组织 |
-| 当前状态 | 已开放导学与第 01—03 讲的配套模板及第 02/03 讲引用的实验数据；项目源码、测试数据与脚本随对应讲次逐步开放 |
+| 当前状态 | 已开放导学与第 01—06 讲的配套模板及第 02/03 讲引用的实验数据；项目源码、测试数据与脚本随对应讲次逐步开放 |
 
 ## 📖 课程介绍
 
@@ -86,9 +86,9 @@
 | [01](lectures/01-http-200-not-business-done/) | [接口返回 200，为什么 Agent 仍然没有完成任务](https://time.geekbang.org/column/article/1027290) | 第一章 必要知识储备 | ✅ 已更新 |
 | [02](lectures/02-architecture-performance-risks/) | [都是调模型，不同架构形态，性能风险为什么完全不同？](https://time.geekbang.org/column/article/1028286) | 第一章 必要知识储备 | ✅ 已更新 |
 | [03](lectures/03-test-object-layering/) | [Agent 的测试对象如何确定](https://time.geekbang.org/column/article/1028525) | 第一章 必要知识储备 | ✅ 已更新 |
-| 04 | TTFT、TPOT、Goodput、质量和成本指标应该怎么选 | 第一章 必要知识储备 | 未更新 |
-| 05 | 同一个 Agent 每次结果都不同，如何建立可信的性能基线 | 第一章 必要知识储备 | 未更新 |
-| 06 | 并发还没有到峰值，为什么 Agent 已经开始退化 | 第一章 必要知识储备 | 未更新 |
+| [04](lectures/04-metrics-selection/) | TTFT、TPOT、Goodput、质量和成本指标应该怎么选 | 第一章 必要知识储备 | 未更新 |
+| [05](lectures/05-baseline-and-fingerprint/) | 同一个 Agent 每次结果都不同，如何建立可信的性能基线 | 第一章 必要知识储备 | 未更新 |
+| [06](lectures/06-concurrency-degradation/) | 并发还没有到峰值，为什么 Agent 已经开始退化 | 第一章 必要知识储备 | 未更新 |
 | 07 | 服务没有报错，如何发现 Agent 稳定性出了问题 | 第一章 必要知识储备 | 未更新 |
 | 08 | 如何把「快稳准省」变成可验收的需求 | 第二章 主项目需求与方案设计 | 未更新 |
 | 09 | 如何设计合适的测试范围 | 第二章 主项目需求与方案设计 | 未更新 |
@@ -125,6 +125,9 @@
 | 01 | [lectures/01-http-200-not-business-done](lectures/01-http-200-not-business-done/) | 四级业务判定表、单笔业务复核记录、Goodput 与成功业务成本台账 |
 | 02 | [lectures/02-architecture-performance-risks](lectures/02-architecture-performance-risks/) | 架构形态与性能风险速查表、风险假设记录、案例二实验数据（Multi-Agent） |
 | 03 | [lectures/03-test-object-layering](lectures/03-test-object-layering/) | 分层测试对象表、时延口径自查表、时间口径记录、案例一实验数据（Single Agent） |
+| 04 | [lectures/04-metrics-selection](lectures/04-metrics-selection/) | Agent 性能指标字典、Goodput 口径表、监控面板核对清单 |
+| 05 | [lectures/05-baseline-and-fingerprint](lectures/05-baseline-and-fingerprint/) | 可复现实验记录、版本指纹、基线与回归判断记录 |
+| 06 | [lectures/06-concurrency-degradation](lectures/06-concurrency-degradation/) | 四层并发定义表、调用放大指标表、负载模型选择表、容量风险判据表、并发换算参数表 |
 
 ## 🧭 使用方式
 
