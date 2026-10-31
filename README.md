@@ -24,7 +24,7 @@
 | 贯穿案例 | 一个客服工单系统 + 两次架构升级：Single Agent → Multi-Agent → Workflow/Flow + RAG，业务为「查询并答复指定订单的配送进度」 |
 | 核心指标 | TTFT、TPOT、Goodput（有效吞吐）、成功业务成本与四级业务判定（请求成功 / 流程完成 / 业务完成 / 结果合格） |
 | 仓库用途 | 存放课程配套资产：案例系统、测试数据集、k6 压测套件、脚本与可复用模板，按讲组织 |
-| 当前状态 | 已开放导学与第 01—06 讲的配套模板及第 02/03 讲引用的实验数据；项目源码、测试数据与脚本随对应讲次逐步开放 |
+| 当前状态 | 已开放第 01—07 讲共 22 份核心模板、4 份补充填写表、第 02/03 讲的 2 份实验记录与第 04—07 讲的 4 张实证图片；导学为概念篇；项目源码、测试数据与脚本随对应讲次逐步开放 |
 
 ## 📖 课程介绍
 
@@ -85,11 +85,11 @@
 | 直播回放 | [一次 AI Agent 的性能实战复盘](https://time.geekbang.org/column/article/1028632) | 直播 | ✅ 已更新 |
 | [01](lectures/01-http-200-not-business-done/) | [接口返回 200，为什么 Agent 仍然没有完成任务](https://time.geekbang.org/column/article/1027290) | 第一章 必要知识储备 | ✅ 已更新 |
 | [02](lectures/02-architecture-performance-risks/) | [都是调模型，不同架构形态，性能风险为什么完全不同？](https://time.geekbang.org/column/article/1028286) | 第一章 必要知识储备 | ✅ 已更新 |
-| [03](lectures/03-test-object-layering/) | [Agent 的测试对象如何确定](https://time.geekbang.org/column/article/1028525) | 第一章 必要知识储备 | ✅ 已更新 |
+| [03](lectures/03-test-object-layering/) | [测一次请求还是测完整业务，Agent 的测试对象怎么确定？](https://time.geekbang.org/column/article/1028525) | 第一章 必要知识储备 | ✅ 已更新 |
 | [04](lectures/04-metrics-selection/) | TTFT、TPOT、Goodput、质量和成本指标应该怎么选 | 第一章 必要知识储备 | 未更新 |
-| [05](lectures/05-baseline-and-fingerprint/) | 同一个 Agent 每次结果都不同，如何建立可信的性能基线 | 第一章 必要知识储备 | 未更新 |
-| [06](lectures/06-concurrency-degradation/) | 并发还没有到峰值，为什么 Agent 已经开始退化 | 第一章 必要知识储备 | 未更新 |
-| 07 | 服务没有报错，如何发现 Agent 稳定性出了问题 | 第一章 必要知识储备 | 未更新 |
+| [05](lectures/05-baseline-and-fingerprint/) | 如何建立可信的 Agent 性能基线？ | 第一章 必要知识储备 | 未更新 |
+| [06](lectures/06-concurrency-degradation/) | 并发还没有到峰值，为什么 Agent 已经开始退化？ | 第一章 必要知识储备 | 未更新 |
+| [07](lectures/07-stability-risk-validation/) | 服务没有报错，如何发现 Agent 稳定性出了问题 | 第一章 必要知识储备 | 未更新 |
 | 08 | 如何把「快稳准省」变成可验收的需求 | 第二章 主项目需求与方案设计 | 未更新 |
 | 09 | 如何设计合适的测试范围 | 第二章 主项目需求与方案设计 | 未更新 |
 | 10 | 如何准备测试方案、数据和环境 | 第二章 主项目需求与方案设计 | 未更新 |
@@ -115,7 +115,7 @@
 | 30 | 运行三个月，如何制定从脚本到门禁和平台的演进路线 | 第七章 项目落地与演进 | 未更新 |
 | 结束语 | 工具会变，如何沉淀不会过时的项目能力 | 结语 | 未更新 |
 
-正文不在本仓库发布。配套资产按讲次逐步开放，未发布讲目不提前放置半成品；各讲实际引用的路径以正文为准。
+第 01—07 讲的配套资料已开放，各讲资料入口和使用说明见下方目录；后续资料随课程进度更新。课程正文请在专栏阅读。
 
 ## 📂 配套资料目录
 
@@ -125,9 +125,12 @@
 | 01 | [lectures/01-http-200-not-business-done](lectures/01-http-200-not-business-done/) | 四级业务判定表、单笔业务复核记录、Goodput 与成功业务成本台账 |
 | 02 | [lectures/02-architecture-performance-risks](lectures/02-architecture-performance-risks/) | 架构形态与性能风险速查表、风险假设记录、案例二实验数据（Multi-Agent） |
 | 03 | [lectures/03-test-object-layering](lectures/03-test-object-layering/) | 分层测试对象表、时延口径自查表、时间口径记录、案例一实验数据（Single Agent） |
-| 04 | [lectures/04-metrics-selection](lectures/04-metrics-selection/) | Agent 性能指标字典、Goodput 口径表、监控面板核对清单 |
-| 05 | [lectures/05-baseline-and-fingerprint](lectures/05-baseline-and-fingerprint/) | 可复现实验记录、版本指纹、基线与回归判断记录 |
-| 06 | [lectures/06-concurrency-degradation](lectures/06-concurrency-degradation/) | 四层并发定义表、调用放大指标表、负载模型选择表、容量风险判据表、并发换算参数表 |
+| 04 | [lectures/04-metrics-selection](lectures/04-metrics-selection/) | 面板口径核对清单、Goodput 口径表、性能指标字典、成本复算实证图 |
+| 05 | [lectures/05-baseline-and-fingerprint](lectures/05-baseline-and-fingerprint/) | 可复现实验记录、版本指纹模板、基线与回归判断补充表、指纹差异实证图 |
+| 06 | [lectures/06-concurrency-degradation](lectures/06-concurrency-degradation/) | 4 层并发定义、调用放大估算、负载模型选择、容量风险、并发换算参数、3 份补充填写表、容量阶梯实证图 |
+| 07 | [lectures/07-stability-risk-validation](lectures/07-stability-risk-validation/) | 稳定性风险与验证目标地图、5 现象检测口径卡、4 层注入矩阵、失效模式表、长稳漂移实证图 |
+
+模板中的空白用于项目填写，“示意”“待测”“未验证”均不代表已完成实验；图片和历史汇总不等同于已提供逐笔原始数据。
 
 ## 🧭 使用方式
 

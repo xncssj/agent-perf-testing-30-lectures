@@ -13,3 +13,6 @@ Thumbs.db
 .env
 .env.*
 !.env.example
+
+# 内部核对资料
+/docs/asset-migration.md
