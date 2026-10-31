@@ -4,9 +4,9 @@
 
 ## 模板
 
-- [分层测试对象表](templates/test-object-layers.md)
-- [时延口径自查表](templates/latency-report-checklist.md)
-- [时间口径记录](templates/time-boundary-record.md)
+- [四层测试对象表](templates/test-object-layers.md)
+- [口径自查表](templates/latency-report-checklist.md)
+- [时间口径填写区](templates/time-boundary-record.md)
 
 ## 实验记录
 

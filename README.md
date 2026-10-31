@@ -24,7 +24,7 @@
 | 贯穿案例 | 一个客服工单系统 + 两次架构升级：Single Agent → Multi-Agent → Workflow/Flow + RAG，业务为「查询并答复指定订单的配送进度」 |
 | 核心指标 | TTFT、TPOT、Goodput（有效吞吐）、成功业务成本与四级业务判定（请求成功 / 流程完成 / 业务完成 / 结果合格） |
 | 仓库用途 | 存放课程配套资产：案例系统、测试数据集、k6 压测套件、脚本与可复用模板，按讲组织 |
-| 当前状态 | 已开放第 01—07 讲共 22 份核心模板、4 份补充填写表、第 02/03 讲的 2 份实验记录与第 04—07 讲的 4 张实证图片；导学为概念篇；项目源码、测试数据与脚本随对应讲次逐步开放 |
+| 当前状态 | 已开放第 01—07 讲共 26 份模板与填写区、第 02/03 讲的 2 份实验记录与第 04—07 讲的 4 张实证图片；导学为概念篇；项目源码、测试数据与脚本随对应讲次逐步开放 |
 
 ## 📖 课程介绍
 
@@ -122,13 +122,13 @@
 | 讲次 | 目录 | 已开放资产 |
 |---|---|---|
 | 导学 | [lectures/00-guide](lectures/00-guide/) | 暂无（概念篇） |
-| 01 | [lectures/01-http-200-not-business-done](lectures/01-http-200-not-business-done/) | 四级业务判定表、单笔业务复核记录、Goodput 与成功业务成本台账 |
-| 02 | [lectures/02-architecture-performance-risks](lectures/02-architecture-performance-risks/) | 架构形态与性能风险速查表、风险假设记录、案例二实验数据（Multi-Agent） |
-| 03 | [lectures/03-test-object-layering](lectures/03-test-object-layering/) | 分层测试对象表、时延口径自查表、时间口径记录、案例一实验数据（Single Agent） |
-| 04 | [lectures/04-metrics-selection](lectures/04-metrics-selection/) | 面板口径核对清单、Goodput 口径表、性能指标字典、成本复算实证图 |
-| 05 | [lectures/05-baseline-and-fingerprint](lectures/05-baseline-and-fingerprint/) | 可复现实验记录、版本指纹模板、基线与回归判断补充表、指纹差异实证图 |
-| 06 | [lectures/06-concurrency-degradation](lectures/06-concurrency-degradation/) | 4 层并发定义、调用放大估算、负载模型选择、容量风险、并发换算参数、3 份补充填写表、容量阶梯实证图 |
-| 07 | [lectures/07-stability-risk-validation](lectures/07-stability-risk-validation/) | 稳定性风险与验证目标地图、5 现象检测口径卡、4 层注入矩阵、失效模式表、长稳漂移实证图 |
+| 01 | [lectures/01-http-200-not-business-done](lectures/01-http-200-not-business-done/) | 四级判定表、逐笔复核表、Goodput 与成功业务成本填写区 |
+| 02 | [lectures/02-architecture-performance-risks](lectures/02-architecture-performance-risks/) | 风险动作表、风险登记表、案例二实验数据（Multi-Agent） |
+| 03 | [lectures/03-test-object-layering](lectures/03-test-object-layering/) | 四层测试对象表、口径自查表、时间口径填写区、案例一实验数据（Single Agent） |
+| 04 | [lectures/04-metrics-selection](lectures/04-metrics-selection/) | 工具读数对照表、成本算式表与四约束检查表、指标字典表、成本复算实证图 |
+| 05 | [lectures/05-baseline-and-fingerprint](lectures/05-baseline-and-fingerprint/) | 配对实验计划表、基线指纹表、基线与回归判断填写区、指纹差异实证图 |
+| 06 | [lectures/06-concurrency-degradation](lectures/06-concurrency-degradation/) | 四层并发定义表、调用放大系数估算表、负载模型选择表、容量风险表、调用放大填写区、容量风险填写区、2 份并发换算参数填写区、容量阶梯实证图 |
+| 07 | [lectures/07-stability-risk-validation](lectures/07-stability-risk-validation/) | 风险与验证目标地图、五现象检测口径卡、四层注入矩阵、失效模式表、长稳漂移实证图 |
 
 模板中的空白用于项目填写，“示意”“待测”“未验证”均不代表已完成实验；图片和历史汇总不等同于已提供逐笔原始数据。
 

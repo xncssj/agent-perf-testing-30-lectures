@@ -8,7 +8,7 @@
 
 | 模板 | 用途 |
 |---|---|
-| [稳定性风险与验证目标地图](templates/stability-risk-validation-map.md) | 按风险、观测、验证相位和证据状态排期，附四状态与六机制 |
+| [风险与验证目标地图](templates/stability-risk-validation-map.md) | 按风险、观测、验证相位和证据状态排期，附四状态与六机制 |
 | [五现象检测口径卡](templates/five-symptom-detection-card.md) | 明确观测位置、阈值、触发动作及失稳筛查边界 |
 | [四层注入矩阵](templates/fault-injection-matrix.md) | 区分模型、工具、编排与基础设施层的注入目标和证据 |
 | [失效模式表](templates/failure-mode-analysis.md) | 按严重度、频度、探测困难度登记风险优先数及评分依据 |

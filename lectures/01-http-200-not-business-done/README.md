@@ -4,15 +4,15 @@
 
 ## 模板
 
-- [4 级业务判定表](templates/four-level-judgment.md)
-- [单笔业务复核记录](templates/business-review-record.md)
-- [Goodput 与成功业务成本台账](templates/goodput-cost-ledger.md)
+- [四级判定表](templates/four-level-judgment.md)
+- [逐笔复核表](templates/business-review-record.md)
+- [Goodput 与成功业务成本填写区](templates/goodput-cost-ledger.md)
 
 ## 来源与使用边界
 
 依据课程第 01 讲“四级判定表”“逐笔复核表”及验收约束说明，3 份模板均含填写区和来源。参考定义可直接复用，示意工单不代表真实运行。
 
-请求、流程、业务、验收分别留证；未验证与失败分开记录。台账按第 04 讲口径计算质量、时延、安全交集的有效吞吐，成本单独判定，完整结果合格与该交集不混用。批次字段和算法示例见[第 04 讲配套资料](../04-metrics-selection/)。
+请求、流程、业务、验收分别留证；未验证与失败分开记录。填写区按第 04 讲口径计算质量、时延、安全交集的有效吞吐，成本单独判定，完整结果合格与该交集不混用。批次字段和算法示例见[第 04 讲配套资料](../04-metrics-selection/)。
 
 实际业务结论以同次运行的结果、验收判据和关联证据为准。
 
