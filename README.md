@@ -19,7 +19,7 @@
 |------|------|
 | 课程系列 | 《Agent 性能测试实战30讲》：开篇词 + 导学 + 直播回放 + 30 讲正文 + 结束语，共 33 讲，[已上架极客时间](https://time.geekbang.org/column/intro/101193401?tab=intro) |
 | 课程讲师 | 高楼 · 盾山科技 CEO，7DGroup 创始人 |
-| 更新节奏 | 连载中，每周一 / 三 / 五更新，已更新 5 / 33 讲 + 直播回放（状态详见下方课程篇目） |
+| 更新节奏 | 连载中，每周一 / 三 / 五更新，已更新 6 / 33 讲 + 直播回放（状态详见下方课程篇目） |
 | 课程定位 | 面向测试 / 性能 / 测试开发工程师、Agent 开发工程师、运维工程师与技术管理者的项目实战课：从性能需求到上线验收，用 RESAR 七步法完整做完一个 Agent 性能项目 |
 | 贯穿案例 | 一个客服工单系统 + 两次架构升级：Single Agent → Multi-Agent → Workflow/Flow + RAG，业务为「查询并答复指定订单的配送进度」 |
 | 核心指标 | TTFT、TPOT、Goodput（有效吞吐）、成功业务成本与四级业务判定（请求成功 / 流程完成 / 业务完成 / 结果合格） |
@@ -86,7 +86,7 @@
 | [01](lectures/01-http-200-not-business-done/) | [接口返回 200，为什么 Agent 仍然没有完成任务](https://time.geekbang.org/column/article/1027290) | 第一章 必要知识储备 | ✅ 已更新 |
 | [02](lectures/02-architecture-performance-risks/) | [都是调模型，不同架构形态，性能风险为什么完全不同？](https://time.geekbang.org/column/article/1028286) | 第一章 必要知识储备 | ✅ 已更新 |
 | [03](lectures/03-test-object-layering/) | [测一次请求还是测完整业务，Agent 的测试对象怎么确定？](https://time.geekbang.org/column/article/1028525) | 第一章 必要知识储备 | ✅ 已更新 |
-| [04](lectures/04-metrics-selection/) | TTFT、TPOT、Goodput、质量和成本指标应该怎么选 | 第一章 必要知识储备 | 未更新 |
+| [04](lectures/04-metrics-selection/) | [TTFT、TPOT、Goodput、质量和成本指标应该怎么选](https://time.geekbang.org/column/article/1030198) | 第一章 必要知识储备 | ✅ 已更新 |
 | [05](lectures/05-baseline-and-fingerprint/) | 如何建立可信的 Agent 性能基线？ | 第一章 必要知识储备 | 未更新 |
 | [06](lectures/06-concurrency-degradation/) | 并发还没有到峰值，为什么 Agent 已经开始退化？ | 第一章 必要知识储备 | 未更新 |
 | [07](lectures/07-stability-risk-validation/) | 服务没有报错，如何发现 Agent 稳定性出了问题 | 第一章 必要知识储备 | 未更新 |
