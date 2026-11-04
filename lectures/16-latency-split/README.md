@@ -19,6 +19,7 @@
 | [S3 时间拆分底稿](references/s3-time-split-20261014v12real1.md) | 看端到端与服务端双口径拆分、关键路径与无法归因项 |
 | [跨环境配对对照表 20261011](references/cross-env-pairing-20261011v11formal2.md) | 看跨环境复刻轮的配对读数 |
 | [正式轮压测报告 20261011](references/formal2-load-test-report-20261011.md) | 看正式轮结论与证据 |
+| [正式轮压测报告 20261001](references/formal-load-test-report-20261001.md) | 看 Mock 正式轮的结论、门禁与实验边界 |
 | [跨环境配对对照表 20261012](references/cross-env-pairing-20261012v11formal3.md) | 看三方对照复刻轮的配对读数 |
 
 ## 使用方式与证据状态

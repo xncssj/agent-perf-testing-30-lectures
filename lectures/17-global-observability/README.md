@@ -19,6 +19,18 @@
 |---|---|
 | [S4 全局观测底稿](references/s4-global-observability-20261014v12real1.md) | 看四层同期观测、疑似范围与监控缺口 |
 
+## 跨讲参考（公开脱敏版）
+
+| 参考 | 用途 |
+|---|---|
+| [S1 压力数据底稿](../13-execution-evidence/references/s1-pressure-data-20261014v12real1.md) | 看七轮运行资格、压力曲线、异常窗与假设清单 |
+| [S2 执行架构底稿](../15-architecture-risk-paths/references/s2-execution-architecture-20261014v12real1.md) | 看异常窗到执行架构节点的风险标记 |
+| [S3 时间拆分底稿](../16-latency-split/references/s3-time-split-20261014v12real1.md) | 看双口径时间恒等式与逐笔时间对账 |
+| [跨环境配对对照表 20261011](../16-latency-split/references/cross-env-pairing-20261011v11formal2.md) | 看跨环境复刻轮的配对读数 |
+| [跨环境配对对照表 20261012](../16-latency-split/references/cross-env-pairing-20261012v11formal3.md) | 看三方对照复刻轮的配对读数 |
+| [三阶段全场景压测报告](../11-scenario-combination/references/three-stage-load-test-report-20260926.md) | 看三阶段场景链的历史结论与证据组织 |
+| [压测收尾阶段交接单](../13-execution-evidence/references/closeout-handoff-20261014v12real1.md) | 看收窗证据、缺口与待办交接 |
+
 ## 使用方式与证据状态
 
 1. 四层同期对照只回答“哪一层跟着时延动”，不回答“哪个调用”。

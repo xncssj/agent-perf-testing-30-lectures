@@ -18,6 +18,7 @@
 | 参考 | 用途 |
 |---|---|
 | [性能分析手册](references/performance-analysis-handbook.md) | RESAR 分析的输入、步骤与判定口径 |
+| [RESAR 七步与专家团编排手册](references/resar-orchestration-handbook.md) | 七步职责、五维度角色、结构化交接、审批路由与停止条件 |
 
 ## 使用方式与证据状态
 
