@@ -1,0 +1,49 @@
+server {
+    listen 80;
+    server_name localhost;
+
+    # 静态文件
+    location / {
+        root /usr/share/nginx/html;
+        index index.html;
+        try_files $uri $uri/ /index.html;
+    }
+
+    # API 代理 → Python Agent（上游经 docker build ARG UPSTREAM_HOST 注入）
+    location /api/ {
+        proxy_pass http://__UPSTREAM__:8000;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+
+        # SSE 支持
+        proxy_http_version 1.1;
+        proxy_set_header Connection "";
+        proxy_buffering off;
+        proxy_cache off;
+        proxy_read_timeout 60s;
+    }
+
+    # 健康检查代理
+    location /health {
+        proxy_pass http://__UPSTREAM__:8000/health;
+    }
+
+    location /version {
+        proxy_pass http://__UPSTREAM__:8000/version;
+    }
+
+    location /metrics {
+        proxy_pass http://__UPSTREAM__:8000/metrics;
+    }
+
+    # OpenAPI 文档代理
+    location /docs {
+        proxy_pass http://__UPSTREAM__:8000/docs;
+    }
+
+    location /openapi.json {
+        proxy_pass http://__UPSTREAM__:8000/openapi.json;
+    }
+}

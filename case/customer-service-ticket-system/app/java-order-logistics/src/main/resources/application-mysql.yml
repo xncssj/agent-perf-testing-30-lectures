@@ -1,0 +1,20 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/order_logistics?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+    username: ${SPRING_DATASOURCE_USERNAME:root}
+    password: ${SPRING_DATASOURCE_PASSWORD:change-me}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 5
+      connection-timeout: 30000
+      idle-timeout: 600000
+      max-lifetime: 1800000
+
+# 测试数据导入开关（DataInitializer 读取的是 sqlite.* 前缀，历史命名如此）
+# MySQL 模式置 false：快照数据由 compose 的 MySQL initdb 导入
+# （app/java-order-logistics/sql/seed-mysql.sql，来源 testing/test-data/ 单一事实源），
+# 避免启动导入与 initdb 种子并存造成两份数据渠道。
+# 若需应用启动导入，须注意 DataInitializer 的建表语句为 SQLite 方言，MySQL 下不适用。
+sqlite:
+  import-test-data: false

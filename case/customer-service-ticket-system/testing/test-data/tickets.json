@@ -1,0 +1,7731 @@
+[
+  {
+    "ticket_id": "T00001",
+    "user_id": "U00001",
+    "user_query": "我的订单 2024010100001 现在到哪了？",
+    "order_id": "2024010100001",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "已发货",
+      "预计",
+      "送达"
+    ],
+    "difficulty": "easy",
+    "expected_facts": {
+      "order_id": "2024010100001",
+      "status": "已发货",
+      "current_location": "上海分拨中心",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "T00002",
+    "user_id": "U00002",
+    "user_query": "帮我查一下订单 2024010100002 的物流状态",
+    "order_id": "2024010100002",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "物流信息",
+      "预计"
+    ],
+    "difficulty": "easy",
+    "expected_facts": {
+      "order_id": "2024010100002",
+      "status": "已发货",
+      "current_location": "广州转运中心",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "T00003",
+    "user_id": "U00003",
+    "user_query": "订单 2024010100003 什么时候能到？",
+    "order_id": "2024010100003",
+    "expected_intent": "delivery_time",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "预计",
+      "送达"
+    ],
+    "difficulty": "easy",
+    "expected_facts": {
+      "order_id": "2024010100003",
+      "status": "已发货",
+      "current_location": "成都集散仓",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "T00004",
+    "user_id": "U00004",
+    "user_query": "查询订单 2024010100004 的配送进度",
+    "order_id": "2024010100004",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "物流信息",
+      "预计"
+    ],
+    "difficulty": "easy",
+    "expected_facts": {
+      "order_id": "2024010100004",
+      "status": "已发货",
+      "current_location": "武汉网关站",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "T00005",
+    "user_id": "U00005",
+    "user_query": "我的件 SF00000005 派送了吗？",
+    "order_id": "2024010100005",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "预计",
+      "送达"
+    ],
+    "difficulty": "easy",
+    "expected_facts": {
+      "order_id": "2024010100005",
+      "status": "已发货",
+      "current_location": "北京中转站",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "T00006",
+    "user_id": "U00006",
+    "user_query": "我的订单 2024010100006 现在到哪了？",
+    "order_id": "2024010100006",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "已发货",
+      "预计",
+      "送达"
+    ],
+    "difficulty": "easy",
+    "expected_facts": {
+      "order_id": "2024010100006",
+      "status": "已发货",
+      "current_location": "上海分拨中心",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "T00007",
+    "user_id": "U00007",
+    "user_query": "帮我查一下订单 2024010100007 的物流状态",
+    "order_id": "2024010100007",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "物流信息",
+      "预计"
+    ],
+    "difficulty": "easy",
+    "expected_facts": {
+      "order_id": "2024010100007",
+      "status": "已发货",
+      "current_location": "广州转运中心",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "T00008",
+    "user_id": "U00008",
+    "user_query": "订单 2024010100008 什么时候能到？",
+    "order_id": "2024010100008",
+    "expected_intent": "delivery_time",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "预计",
+      "送达"
+    ],
+    "difficulty": "easy",
+    "expected_facts": {
+      "order_id": "2024010100008",
+      "status": "已发货",
+      "current_location": "成都集散仓",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "T00009",
+    "user_id": "U00009",
+    "user_query": "查询订单 2024010100009 的配送进度",
+    "order_id": "2024010100009",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "物流信息",
+      "预计"
+    ],
+    "difficulty": "easy",
+    "expected_facts": {
+      "order_id": "2024010100009",
+      "status": "已发货",
+      "current_location": "武汉网关站",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "T00010",
+    "user_id": "U00010",
+    "user_query": "我的件 SF00000010 派送了吗？",
+    "order_id": "2024010100010",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "预计",
+      "送达"
+    ],
+    "difficulty": "easy",
+    "expected_facts": {
+      "order_id": "2024010100010",
+      "status": "已发货",
+      "current_location": "北京中转站",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "T00011",
+    "user_id": "U00011",
+    "user_query": "我的订单 2024010100011 现在到哪了？",
+    "order_id": "2024010100011",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "已发货",
+      "预计",
+      "送达"
+    ],
+    "difficulty": "easy",
+    "expected_facts": {
+      "order_id": "2024010100011",
+      "status": "已发货",
+      "current_location": "上海分拨中心",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "T00012",
+    "user_id": "U00012",
+    "user_query": "帮我查一下订单 2024010100012 的物流状态",
+    "order_id": "2024010100012",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "物流信息",
+      "预计"
+    ],
+    "difficulty": "easy",
+    "expected_facts": {
+      "order_id": "2024010100012",
+      "status": "已发货",
+      "current_location": "广州转运中心",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "T00013",
+    "user_id": "U00013",
+    "user_query": "订单 2024010100013 什么时候能到？",
+    "order_id": "2024010100013",
+    "expected_intent": "delivery_time",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "预计",
+      "送达"
+    ],
+    "difficulty": "easy",
+    "expected_facts": {
+      "order_id": "2024010100013",
+      "status": "已发货",
+      "current_location": "成都集散仓",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "T00014",
+    "user_id": "U00014",
+    "user_query": "查询订单 2024010100014 的配送进度",
+    "order_id": "2024010100014",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "物流信息",
+      "预计"
+    ],
+    "difficulty": "easy",
+    "expected_facts": {
+      "order_id": "2024010100014",
+      "status": "已发货",
+      "current_location": "武汉网关站",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "T00015",
+    "user_id": "U00015",
+    "user_query": "我的件 SF00000015 派送了吗？",
+    "order_id": "2024010100015",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "预计",
+      "送达"
+    ],
+    "difficulty": "easy",
+    "expected_facts": {
+      "order_id": "2024010100015",
+      "status": "已发货",
+      "current_location": "北京中转站",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "T00016",
+    "user_id": "U00016",
+    "user_query": "我的订单 2024010100016 现在到哪了？",
+    "order_id": "2024010100016",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "已发货",
+      "预计",
+      "送达"
+    ],
+    "difficulty": "easy",
+    "expected_facts": {
+      "order_id": "2024010100016",
+      "status": "已发货",
+      "current_location": "上海分拨中心",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "T00017",
+    "user_id": "U00017",
+    "user_query": "帮我查一下订单 2024010100017 的物流状态",
+    "order_id": "2024010100017",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "物流信息",
+      "预计"
+    ],
+    "difficulty": "easy",
+    "expected_facts": {
+      "order_id": "2024010100017",
+      "status": "已发货",
+      "current_location": "广州转运中心",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "T00018",
+    "user_id": "U00018",
+    "user_query": "订单 2024010100018 什么时候能到？",
+    "order_id": "2024010100018",
+    "expected_intent": "delivery_time",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "预计",
+      "送达"
+    ],
+    "difficulty": "easy",
+    "expected_facts": {
+      "order_id": "2024010100018",
+      "status": "已发货",
+      "current_location": "成都集散仓",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "T00019",
+    "user_id": "U00019",
+    "user_query": "查询订单 2024010100019 的配送进度",
+    "order_id": "2024010100019",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "物流信息",
+      "预计"
+    ],
+    "difficulty": "easy",
+    "expected_facts": {
+      "order_id": "2024010100019",
+      "status": "已发货",
+      "current_location": "武汉网关站",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "T00020",
+    "user_id": "U00020",
+    "user_query": "我的件 SF00000020 派送了吗？",
+    "order_id": "2024010100020",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "预计",
+      "送达"
+    ],
+    "difficulty": "easy",
+    "expected_facts": {
+      "order_id": "2024010100020",
+      "status": "已发货",
+      "current_location": "北京中转站",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "T00021",
+    "user_id": "U00021",
+    "user_query": "我的订单 2024010100021 现在到哪了？",
+    "order_id": "2024010100021",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "已发货",
+      "预计",
+      "送达"
+    ],
+    "difficulty": "easy",
+    "expected_facts": {
+      "order_id": "2024010100021",
+      "status": "已发货",
+      "current_location": "上海分拨中心",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "T00022",
+    "user_id": "U00022",
+    "user_query": "帮我查一下订单 2024010100022 的物流状态",
+    "order_id": "2024010100022",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "物流信息",
+      "预计"
+    ],
+    "difficulty": "easy",
+    "expected_facts": {
+      "order_id": "2024010100022",
+      "status": "已发货",
+      "current_location": "广州转运中心",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "T00023",
+    "user_id": "U00023",
+    "user_query": "订单 2024010100023 什么时候能到？",
+    "order_id": "2024010100023",
+    "expected_intent": "delivery_time",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "预计",
+      "送达"
+    ],
+    "difficulty": "easy",
+    "expected_facts": {
+      "order_id": "2024010100023",
+      "status": "已发货",
+      "current_location": "成都集散仓",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "T00024",
+    "user_id": "U00024",
+    "user_query": "查询订单 2024010100024 的配送进度",
+    "order_id": "2024010100024",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "物流信息",
+      "预计"
+    ],
+    "difficulty": "easy",
+    "expected_facts": {
+      "order_id": "2024010100024",
+      "status": "已发货",
+      "current_location": "武汉网关站",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "T00025",
+    "user_id": "U00025",
+    "user_query": "我的件 SF00000025 派送了吗？",
+    "order_id": "2024010100025",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "预计",
+      "送达"
+    ],
+    "difficulty": "easy",
+    "expected_facts": {
+      "order_id": "2024010100025",
+      "status": "已发货",
+      "current_location": "北京中转站",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "T00026",
+    "user_id": "U00026",
+    "user_query": "我的订单 2024010100026 现在到哪了？",
+    "order_id": "2024010100026",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "已发货",
+      "预计",
+      "送达"
+    ],
+    "difficulty": "easy",
+    "expected_facts": {
+      "order_id": "2024010100026",
+      "status": "已发货",
+      "current_location": "上海分拨中心",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "T00027",
+    "user_id": "U00027",
+    "user_query": "帮我查一下订单 2024010100027 的物流状态",
+    "order_id": "2024010100027",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "物流信息",
+      "预计"
+    ],
+    "difficulty": "easy",
+    "expected_facts": {
+      "order_id": "2024010100027",
+      "status": "已发货",
+      "current_location": "广州转运中心",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "T00028",
+    "user_id": "U00028",
+    "user_query": "订单 2024010100028 什么时候能到？",
+    "order_id": "2024010100028",
+    "expected_intent": "delivery_time",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "预计",
+      "送达"
+    ],
+    "difficulty": "easy",
+    "expected_facts": {
+      "order_id": "2024010100028",
+      "status": "已发货",
+      "current_location": "成都集散仓",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "T00029",
+    "user_id": "U00029",
+    "user_query": "查询订单 2024010100029 的配送进度",
+    "order_id": "2024010100029",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "物流信息",
+      "预计"
+    ],
+    "difficulty": "easy",
+    "expected_facts": {
+      "order_id": "2024010100029",
+      "status": "已发货",
+      "current_location": "武汉网关站",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "T00030",
+    "user_id": "U00030",
+    "user_query": "我的件 SF00000030 派送了吗？",
+    "order_id": "2024010100030",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "预计",
+      "送达"
+    ],
+    "difficulty": "easy",
+    "expected_facts": {
+      "order_id": "2024010100030",
+      "status": "已发货",
+      "current_location": "北京中转站",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "T00031",
+    "user_id": "U00031",
+    "user_query": "我的订单 2024010100031 现在到哪了？",
+    "order_id": "2024010100031",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "已发货",
+      "预计",
+      "送达"
+    ],
+    "difficulty": "easy",
+    "expected_facts": {
+      "order_id": "2024010100031",
+      "status": "已发货",
+      "current_location": "上海分拨中心",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "T00032",
+    "user_id": "U00032",
+    "user_query": "帮我查一下订单 2024010100032 的物流状态",
+    "order_id": "2024010100032",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "物流信息",
+      "预计"
+    ],
+    "difficulty": "easy",
+    "expected_facts": {
+      "order_id": "2024010100032",
+      "status": "已发货",
+      "current_location": "广州转运中心",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "T00033",
+    "user_id": "U00033",
+    "user_query": "订单 2024010100033 什么时候能到？",
+    "order_id": "2024010100033",
+    "expected_intent": "delivery_time",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "预计",
+      "送达"
+    ],
+    "difficulty": "easy",
+    "expected_facts": {
+      "order_id": "2024010100033",
+      "status": "已发货",
+      "current_location": "成都集散仓",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "T00034",
+    "user_id": "U00034",
+    "user_query": "查询订单 2024010100034 的配送进度",
+    "order_id": "2024010100034",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "物流信息",
+      "预计"
+    ],
+    "difficulty": "easy",
+    "expected_facts": {
+      "order_id": "2024010100034",
+      "status": "已发货",
+      "current_location": "武汉网关站",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "T00035",
+    "user_id": "U00035",
+    "user_query": "我的件 SF00000035 派送了吗？",
+    "order_id": "2024010100035",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "预计",
+      "送达"
+    ],
+    "difficulty": "easy",
+    "expected_facts": {
+      "order_id": "2024010100035",
+      "status": "已发货",
+      "current_location": "北京中转站",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "T00036",
+    "user_id": "U00036",
+    "user_query": "我的订单 2024010100036 现在到哪了？",
+    "order_id": "2024010100036",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "已发货",
+      "预计",
+      "送达"
+    ],
+    "difficulty": "easy",
+    "expected_facts": {
+      "order_id": "2024010100036",
+      "status": "已发货",
+      "current_location": "上海分拨中心",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "T00037",
+    "user_id": "U00037",
+    "user_query": "帮我查一下订单 2024010100037 的物流状态",
+    "order_id": "2024010100037",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "物流信息",
+      "预计"
+    ],
+    "difficulty": "easy",
+    "expected_facts": {
+      "order_id": "2024010100037",
+      "status": "已发货",
+      "current_location": "广州转运中心",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "T00038",
+    "user_id": "U00038",
+    "user_query": "订单 2024010100038 什么时候能到？",
+    "order_id": "2024010100038",
+    "expected_intent": "delivery_time",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "预计",
+      "送达"
+    ],
+    "difficulty": "easy",
+    "expected_facts": {
+      "order_id": "2024010100038",
+      "status": "已发货",
+      "current_location": "成都集散仓",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "T00039",
+    "user_id": "U00039",
+    "user_query": "查询订单 2024010100039 的配送进度",
+    "order_id": "2024010100039",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "物流信息",
+      "预计"
+    ],
+    "difficulty": "easy",
+    "expected_facts": {
+      "order_id": "2024010100039",
+      "status": "已发货",
+      "current_location": "武汉网关站",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "T00040",
+    "user_id": "U00040",
+    "user_query": "我的件 SF00000040 派送了吗？",
+    "order_id": "2024010100040",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "预计",
+      "送达"
+    ],
+    "difficulty": "easy",
+    "expected_facts": {
+      "order_id": "2024010100040",
+      "status": "已发货",
+      "current_location": "北京中转站",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "T00041",
+    "user_id": "U00041",
+    "user_query": "我的订单 2024010100041 现在到哪了？",
+    "order_id": "2024010100041",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "已发货",
+      "预计",
+      "送达"
+    ],
+    "difficulty": "easy",
+    "expected_facts": {
+      "order_id": "2024010100041",
+      "status": "已发货",
+      "current_location": "上海分拨中心",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "T00042",
+    "user_id": "U00042",
+    "user_query": "帮我查一下订单 2024010100042 的物流状态",
+    "order_id": "2024010100042",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "物流信息",
+      "预计"
+    ],
+    "difficulty": "easy",
+    "expected_facts": {
+      "order_id": "2024010100042",
+      "status": "已发货",
+      "current_location": "广州转运中心",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "T00043",
+    "user_id": "U00043",
+    "user_query": "订单 2024010100043 什么时候能到？",
+    "order_id": "2024010100043",
+    "expected_intent": "delivery_time",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "预计",
+      "送达"
+    ],
+    "difficulty": "easy",
+    "expected_facts": {
+      "order_id": "2024010100043",
+      "status": "已发货",
+      "current_location": "成都集散仓",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "T00044",
+    "user_id": "U00044",
+    "user_query": "查询订单 2024010100044 的配送进度",
+    "order_id": "2024010100044",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "物流信息",
+      "预计"
+    ],
+    "difficulty": "easy",
+    "expected_facts": {
+      "order_id": "2024010100044",
+      "status": "已发货",
+      "current_location": "武汉网关站",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "T00045",
+    "user_id": "U00045",
+    "user_query": "我的件 SF00000045 派送了吗？",
+    "order_id": "2024010100045",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "预计",
+      "送达"
+    ],
+    "difficulty": "easy",
+    "expected_facts": {
+      "order_id": "2024010100045",
+      "status": "已发货",
+      "current_location": "北京中转站",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "T00046",
+    "user_id": "U00046",
+    "user_query": "我的订单 2024010100046 现在到哪了？",
+    "order_id": "2024010100046",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "已发货",
+      "预计",
+      "送达"
+    ],
+    "difficulty": "easy",
+    "expected_facts": {
+      "order_id": "2024010100046",
+      "status": "已发货",
+      "current_location": "上海分拨中心",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "T00047",
+    "user_id": "U00047",
+    "user_query": "帮我查一下订单 2024010100047 的物流状态",
+    "order_id": "2024010100047",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "物流信息",
+      "预计"
+    ],
+    "difficulty": "easy",
+    "expected_facts": {
+      "order_id": "2024010100047",
+      "status": "已发货",
+      "current_location": "广州转运中心",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "T00048",
+    "user_id": "U00048",
+    "user_query": "订单 2024010100048 什么时候能到？",
+    "order_id": "2024010100048",
+    "expected_intent": "delivery_time",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "预计",
+      "送达"
+    ],
+    "difficulty": "easy",
+    "expected_facts": {
+      "order_id": "2024010100048",
+      "status": "已发货",
+      "current_location": "成都集散仓",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "T00049",
+    "user_id": "U00049",
+    "user_query": "查询订单 2024010100049 的配送进度",
+    "order_id": "2024010100049",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "物流信息",
+      "预计"
+    ],
+    "difficulty": "easy",
+    "expected_facts": {
+      "order_id": "2024010100049",
+      "status": "已发货",
+      "current_location": "武汉网关站",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "T00050",
+    "user_id": "U00050",
+    "user_query": "我的件 SF00000050 派送了吗？",
+    "order_id": "2024010100050",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "预计",
+      "送达"
+    ],
+    "difficulty": "easy",
+    "expected_facts": {
+      "order_id": "2024010100050",
+      "status": "已发货",
+      "current_location": "北京中转站",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "T00051",
+    "user_id": "U00051",
+    "user_query": "我的订单 2024010100051 现在到哪了？",
+    "order_id": "2024010100051",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "已发货",
+      "预计",
+      "送达"
+    ],
+    "difficulty": "easy",
+    "expected_facts": {
+      "order_id": "2024010100051",
+      "status": "已发货",
+      "current_location": "上海分拨中心",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "T00052",
+    "user_id": "U00052",
+    "user_query": "帮我查一下订单 2024010100052 的物流状态",
+    "order_id": "2024010100052",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "物流信息",
+      "预计"
+    ],
+    "difficulty": "easy",
+    "expected_facts": {
+      "order_id": "2024010100052",
+      "status": "已发货",
+      "current_location": "广州转运中心",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "T00053",
+    "user_id": "U00053",
+    "user_query": "订单 2024010100053 什么时候能到？",
+    "order_id": "2024010100053",
+    "expected_intent": "delivery_time",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "预计",
+      "送达"
+    ],
+    "difficulty": "easy",
+    "expected_facts": {
+      "order_id": "2024010100053",
+      "status": "已发货",
+      "current_location": "成都集散仓",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "T00054",
+    "user_id": "U00054",
+    "user_query": "查询订单 2024010100054 的配送进度",
+    "order_id": "2024010100054",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "物流信息",
+      "预计"
+    ],
+    "difficulty": "easy",
+    "expected_facts": {
+      "order_id": "2024010100054",
+      "status": "已发货",
+      "current_location": "武汉网关站",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "T00055",
+    "user_id": "U00055",
+    "user_query": "我的件 SF00000055 派送了吗？",
+    "order_id": "2024010100055",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "预计",
+      "送达"
+    ],
+    "difficulty": "easy",
+    "expected_facts": {
+      "order_id": "2024010100055",
+      "status": "已发货",
+      "current_location": "北京中转站",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "T00056",
+    "user_id": "U00056",
+    "user_query": "我的订单 2024010100056 现在到哪了？",
+    "order_id": "2024010100056",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "已发货",
+      "预计",
+      "送达"
+    ],
+    "difficulty": "easy",
+    "expected_facts": {
+      "order_id": "2024010100056",
+      "status": "已发货",
+      "current_location": "上海分拨中心",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "T00057",
+    "user_id": "U00057",
+    "user_query": "帮我查一下订单 2024010100057 的物流状态",
+    "order_id": "2024010100057",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "物流信息",
+      "预计"
+    ],
+    "difficulty": "easy",
+    "expected_facts": {
+      "order_id": "2024010100057",
+      "status": "已发货",
+      "current_location": "广州转运中心",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "T00058",
+    "user_id": "U00058",
+    "user_query": "订单 2024010100058 什么时候能到？",
+    "order_id": "2024010100058",
+    "expected_intent": "delivery_time",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "预计",
+      "送达"
+    ],
+    "difficulty": "easy",
+    "expected_facts": {
+      "order_id": "2024010100058",
+      "status": "已发货",
+      "current_location": "成都集散仓",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "T00059",
+    "user_id": "U00059",
+    "user_query": "查询订单 2024010100059 的配送进度",
+    "order_id": "2024010100059",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "物流信息",
+      "预计"
+    ],
+    "difficulty": "easy",
+    "expected_facts": {
+      "order_id": "2024010100059",
+      "status": "已发货",
+      "current_location": "武汉网关站",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "T00060",
+    "user_id": "U00060",
+    "user_query": "我的件 SF00000060 派送了吗？",
+    "order_id": "2024010100060",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "预计",
+      "送达"
+    ],
+    "difficulty": "easy",
+    "expected_facts": {
+      "order_id": "2024010100060",
+      "status": "已发货",
+      "current_location": "北京中转站",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "T00061",
+    "user_id": "U00061",
+    "user_query": "我的订单 2024010100061 现在到哪了？",
+    "order_id": "2024010100061",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "已发货",
+      "预计",
+      "送达"
+    ],
+    "difficulty": "easy",
+    "expected_facts": {
+      "order_id": "2024010100061",
+      "status": "已发货",
+      "current_location": "上海分拨中心",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "T00062",
+    "user_id": "U00062",
+    "user_query": "帮我查一下订单 2024010100062 的物流状态",
+    "order_id": "2024010100062",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "物流信息",
+      "预计"
+    ],
+    "difficulty": "easy",
+    "expected_facts": {
+      "order_id": "2024010100062",
+      "status": "已发货",
+      "current_location": "广州转运中心",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "T00063",
+    "user_id": "U00063",
+    "user_query": "订单 2024010100063 什么时候能到？",
+    "order_id": "2024010100063",
+    "expected_intent": "delivery_time",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "预计",
+      "送达"
+    ],
+    "difficulty": "easy",
+    "expected_facts": {
+      "order_id": "2024010100063",
+      "status": "已发货",
+      "current_location": "成都集散仓",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "T00064",
+    "user_id": "U00064",
+    "user_query": "查询订单 2024010100064 的配送进度",
+    "order_id": "2024010100064",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "物流信息",
+      "预计"
+    ],
+    "difficulty": "easy",
+    "expected_facts": {
+      "order_id": "2024010100064",
+      "status": "已发货",
+      "current_location": "武汉网关站",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "T00065",
+    "user_id": "U00065",
+    "user_query": "我的件 SF00000065 派送了吗？",
+    "order_id": "2024010100065",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "预计",
+      "送达"
+    ],
+    "difficulty": "easy",
+    "expected_facts": {
+      "order_id": "2024010100065",
+      "status": "已发货",
+      "current_location": "北京中转站",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "T00066",
+    "user_id": "U00066",
+    "user_query": "我的订单 2024010100066 现在到哪了？",
+    "order_id": "2024010100066",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "已发货",
+      "预计",
+      "送达"
+    ],
+    "difficulty": "easy",
+    "expected_facts": {
+      "order_id": "2024010100066",
+      "status": "已发货",
+      "current_location": "上海分拨中心",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "T00067",
+    "user_id": "U00067",
+    "user_query": "帮我查一下订单 2024010100067 的物流状态",
+    "order_id": "2024010100067",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "物流信息",
+      "预计"
+    ],
+    "difficulty": "easy",
+    "expected_facts": {
+      "order_id": "2024010100067",
+      "status": "已发货",
+      "current_location": "广州转运中心",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "T00068",
+    "user_id": "U00068",
+    "user_query": "订单 2024010100068 什么时候能到？",
+    "order_id": "2024010100068",
+    "expected_intent": "delivery_time",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "预计",
+      "送达"
+    ],
+    "difficulty": "easy",
+    "expected_facts": {
+      "order_id": "2024010100068",
+      "status": "已发货",
+      "current_location": "成都集散仓",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "T00069",
+    "user_id": "U00069",
+    "user_query": "查询订单 2024010100069 的配送进度",
+    "order_id": "2024010100069",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "物流信息",
+      "预计"
+    ],
+    "difficulty": "easy",
+    "expected_facts": {
+      "order_id": "2024010100069",
+      "status": "已发货",
+      "current_location": "武汉网关站",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "T00070",
+    "user_id": "U00070",
+    "user_query": "我的件 SF00000070 派送了吗？",
+    "order_id": "2024010100070",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "预计",
+      "送达"
+    ],
+    "difficulty": "easy",
+    "expected_facts": {
+      "order_id": "2024010100070",
+      "status": "已发货",
+      "current_location": "北京中转站",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "T00071",
+    "user_id": "U00071",
+    "user_query": "我的订单 2024010100071 现在到哪了？",
+    "order_id": "2024010100071",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "已发货",
+      "预计",
+      "送达"
+    ],
+    "difficulty": "easy",
+    "expected_facts": {
+      "order_id": "2024010100071",
+      "status": "已发货",
+      "current_location": "上海分拨中心",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "T00072",
+    "user_id": "U00072",
+    "user_query": "帮我查一下订单 2024010100072 的物流状态",
+    "order_id": "2024010100072",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "物流信息",
+      "预计"
+    ],
+    "difficulty": "easy",
+    "expected_facts": {
+      "order_id": "2024010100072",
+      "status": "已发货",
+      "current_location": "广州转运中心",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "T00073",
+    "user_id": "U00073",
+    "user_query": "订单 2024010100073 什么时候能到？",
+    "order_id": "2024010100073",
+    "expected_intent": "delivery_time",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "预计",
+      "送达"
+    ],
+    "difficulty": "easy",
+    "expected_facts": {
+      "order_id": "2024010100073",
+      "status": "已发货",
+      "current_location": "成都集散仓",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "T00074",
+    "user_id": "U00074",
+    "user_query": "查询订单 2024010100074 的配送进度",
+    "order_id": "2024010100074",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "物流信息",
+      "预计"
+    ],
+    "difficulty": "easy",
+    "expected_facts": {
+      "order_id": "2024010100074",
+      "status": "已发货",
+      "current_location": "武汉网关站",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "T00075",
+    "user_id": "U00075",
+    "user_query": "我的件 SF00000075 派送了吗？",
+    "order_id": "2024010100075",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "预计",
+      "送达"
+    ],
+    "difficulty": "easy",
+    "expected_facts": {
+      "order_id": "2024010100075",
+      "status": "已发货",
+      "current_location": "北京中转站",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "T00076",
+    "user_id": "U00076",
+    "user_query": "我的订单 2024010100076 现在到哪了？",
+    "order_id": "2024010100076",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "已发货",
+      "预计",
+      "送达"
+    ],
+    "difficulty": "easy",
+    "expected_facts": {
+      "order_id": "2024010100076",
+      "status": "已发货",
+      "current_location": "上海分拨中心",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "T00077",
+    "user_id": "U00077",
+    "user_query": "帮我查一下订单 2024010100077 的物流状态",
+    "order_id": "2024010100077",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "物流信息",
+      "预计"
+    ],
+    "difficulty": "easy",
+    "expected_facts": {
+      "order_id": "2024010100077",
+      "status": "已发货",
+      "current_location": "广州转运中心",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "T00078",
+    "user_id": "U00078",
+    "user_query": "订单 2024010100078 什么时候能到？",
+    "order_id": "2024010100078",
+    "expected_intent": "delivery_time",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "预计",
+      "送达"
+    ],
+    "difficulty": "easy",
+    "expected_facts": {
+      "order_id": "2024010100078",
+      "status": "已发货",
+      "current_location": "成都集散仓",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "T00079",
+    "user_id": "U00079",
+    "user_query": "查询订单 2024010100079 的配送进度",
+    "order_id": "2024010100079",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "物流信息",
+      "预计"
+    ],
+    "difficulty": "easy",
+    "expected_facts": {
+      "order_id": "2024010100079",
+      "status": "已发货",
+      "current_location": "武汉网关站",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "T00080",
+    "user_id": "U00080",
+    "user_query": "我的件 SF00000080 派送了吗？",
+    "order_id": "2024010100080",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "预计",
+      "送达"
+    ],
+    "difficulty": "easy",
+    "expected_facts": {
+      "order_id": "2024010100080",
+      "status": "已发货",
+      "current_location": "北京中转站",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "T00081",
+    "user_id": "U00081",
+    "user_query": "我的订单 2024010100081 现在到哪了？",
+    "order_id": "2024010100081",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "已发货",
+      "预计",
+      "送达"
+    ],
+    "difficulty": "easy",
+    "expected_facts": {
+      "order_id": "2024010100081",
+      "status": "已发货",
+      "current_location": "上海分拨中心",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "T00082",
+    "user_id": "U00082",
+    "user_query": "帮我查一下订单 2024010100082 的物流状态",
+    "order_id": "2024010100082",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "物流信息",
+      "预计"
+    ],
+    "difficulty": "easy",
+    "expected_facts": {
+      "order_id": "2024010100082",
+      "status": "已发货",
+      "current_location": "广州转运中心",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "T00083",
+    "user_id": "U00083",
+    "user_query": "订单 2024010100083 什么时候能到？",
+    "order_id": "2024010100083",
+    "expected_intent": "delivery_time",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "预计",
+      "送达"
+    ],
+    "difficulty": "easy",
+    "expected_facts": {
+      "order_id": "2024010100083",
+      "status": "已发货",
+      "current_location": "成都集散仓",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "T00084",
+    "user_id": "U00084",
+    "user_query": "查询订单 2024010100084 的配送进度",
+    "order_id": "2024010100084",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "物流信息",
+      "预计"
+    ],
+    "difficulty": "easy",
+    "expected_facts": {
+      "order_id": "2024010100084",
+      "status": "已发货",
+      "current_location": "武汉网关站",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "T00085",
+    "user_id": "U00085",
+    "user_query": "我的件 SF00000085 派送了吗？",
+    "order_id": "2024010100085",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "预计",
+      "送达"
+    ],
+    "difficulty": "easy",
+    "expected_facts": {
+      "order_id": "2024010100085",
+      "status": "已发货",
+      "current_location": "北京中转站",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "T00086",
+    "user_id": "U00086",
+    "user_query": "我的订单 2024010100086 现在到哪了？",
+    "order_id": "2024010100086",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "已发货",
+      "预计",
+      "送达"
+    ],
+    "difficulty": "easy",
+    "expected_facts": {
+      "order_id": "2024010100086",
+      "status": "已发货",
+      "current_location": "上海分拨中心",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "T00087",
+    "user_id": "U00087",
+    "user_query": "帮我查一下订单 2024010100087 的物流状态",
+    "order_id": "2024010100087",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "物流信息",
+      "预计"
+    ],
+    "difficulty": "easy",
+    "expected_facts": {
+      "order_id": "2024010100087",
+      "status": "已发货",
+      "current_location": "广州转运中心",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "T00088",
+    "user_id": "U00088",
+    "user_query": "订单 2024010100088 什么时候能到？",
+    "order_id": "2024010100088",
+    "expected_intent": "delivery_time",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "预计",
+      "送达"
+    ],
+    "difficulty": "easy",
+    "expected_facts": {
+      "order_id": "2024010100088",
+      "status": "已发货",
+      "current_location": "成都集散仓",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "T00089",
+    "user_id": "U00089",
+    "user_query": "查询订单 2024010100089 的配送进度",
+    "order_id": "2024010100089",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "物流信息",
+      "预计"
+    ],
+    "difficulty": "easy",
+    "expected_facts": {
+      "order_id": "2024010100089",
+      "status": "已发货",
+      "current_location": "武汉网关站",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "T00090",
+    "user_id": "U00090",
+    "user_query": "我的件 SF00000090 派送了吗？",
+    "order_id": "2024010100090",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "预计",
+      "送达"
+    ],
+    "difficulty": "easy",
+    "expected_facts": {
+      "order_id": "2024010100090",
+      "status": "已发货",
+      "current_location": "北京中转站",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "T00091",
+    "user_id": "U00091",
+    "user_query": "我的订单 2024010100091 现在到哪了？",
+    "order_id": "2024010100091",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "已发货",
+      "预计",
+      "送达"
+    ],
+    "difficulty": "easy",
+    "expected_facts": {
+      "order_id": "2024010100091",
+      "status": "已发货",
+      "current_location": "上海分拨中心",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "T00092",
+    "user_id": "U00092",
+    "user_query": "帮我查一下订单 2024010100092 的物流状态",
+    "order_id": "2024010100092",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "物流信息",
+      "预计"
+    ],
+    "difficulty": "easy",
+    "expected_facts": {
+      "order_id": "2024010100092",
+      "status": "已发货",
+      "current_location": "广州转运中心",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "T00093",
+    "user_id": "U00093",
+    "user_query": "订单 2024010100093 什么时候能到？",
+    "order_id": "2024010100093",
+    "expected_intent": "delivery_time",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "预计",
+      "送达"
+    ],
+    "difficulty": "easy",
+    "expected_facts": {
+      "order_id": "2024010100093",
+      "status": "已发货",
+      "current_location": "成都集散仓",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "T00094",
+    "user_id": "U00094",
+    "user_query": "查询订单 2024010100094 的配送进度",
+    "order_id": "2024010100094",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "物流信息",
+      "预计"
+    ],
+    "difficulty": "easy",
+    "expected_facts": {
+      "order_id": "2024010100094",
+      "status": "已发货",
+      "current_location": "武汉网关站",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "T00095",
+    "user_id": "U00095",
+    "user_query": "我的件 SF00000095 派送了吗？",
+    "order_id": "2024010100095",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "预计",
+      "送达"
+    ],
+    "difficulty": "easy",
+    "expected_facts": {
+      "order_id": "2024010100095",
+      "status": "已发货",
+      "current_location": "北京中转站",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "T00096",
+    "user_id": "U00096",
+    "user_query": "我的订单 2024010100096 现在到哪了？",
+    "order_id": "2024010100096",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "已发货",
+      "预计",
+      "送达"
+    ],
+    "difficulty": "easy",
+    "expected_facts": {
+      "order_id": "2024010100096",
+      "status": "已发货",
+      "current_location": "上海分拨中心",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "T00097",
+    "user_id": "U00097",
+    "user_query": "帮我查一下订单 2024010100097 的物流状态",
+    "order_id": "2024010100097",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "物流信息",
+      "预计"
+    ],
+    "difficulty": "easy",
+    "expected_facts": {
+      "order_id": "2024010100097",
+      "status": "已发货",
+      "current_location": "广州转运中心",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "T00098",
+    "user_id": "U00098",
+    "user_query": "订单 2024010100098 什么时候能到？",
+    "order_id": "2024010100098",
+    "expected_intent": "delivery_time",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "预计",
+      "送达"
+    ],
+    "difficulty": "easy",
+    "expected_facts": {
+      "order_id": "2024010100098",
+      "status": "已发货",
+      "current_location": "成都集散仓",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "T00099",
+    "user_id": "U00099",
+    "user_query": "查询订单 2024010100099 的配送进度",
+    "order_id": "2024010100099",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "物流信息",
+      "预计"
+    ],
+    "difficulty": "easy",
+    "expected_facts": {
+      "order_id": "2024010100099",
+      "status": "已发货",
+      "current_location": "武汉网关站",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "T00100",
+    "user_id": "U00100",
+    "user_query": "我的件 SF00000100 派送了吗？",
+    "order_id": "2024010100100",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "预计",
+      "送达"
+    ],
+    "difficulty": "easy",
+    "expected_facts": {
+      "order_id": "2024010100100",
+      "status": "已发货",
+      "current_location": "北京中转站",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "C001",
+    "user_id": "U00200",
+    "user_query": "订单 2024010100200 购物车里有多件商品，现在分别到哪了？",
+    "order_id": "2024010100200",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "已发货",
+      "预计"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {
+      "order_id": "2024010100200",
+      "status": "已发货",
+      "current_location": "北京中转站",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "C002",
+    "user_id": "U00201",
+    "user_query": "订单 2024010100201 购物车里有多件商品，现在分别到哪了？",
+    "order_id": "2024010100201",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order"
+    ],
+    "expected_answer_keywords": [
+      "待发货"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {
+      "order_id": "2024010100201",
+      "status": "待发货"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "C003",
+    "user_id": "U00202",
+    "user_query": "订单 2024010100202 购物车里有多件商品，现在分别到哪了？",
+    "order_id": "2024010100202",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "已发货",
+      "预计"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {
+      "order_id": "2024010100202",
+      "status": "已发货",
+      "current_location": "广州转运中心",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "C004",
+    "user_id": "U00203",
+    "user_query": "订单 2024010100203 购物车里有多件商品，现在分别到哪了？",
+    "order_id": "2024010100203",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "已发货",
+      "预计"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {
+      "order_id": "2024010100203",
+      "status": "已发货",
+      "current_location": "成都集散仓",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "C005",
+    "user_id": "U00204",
+    "user_query": "订单 2024010100204 购物车里有多件商品，现在分别到哪了？",
+    "order_id": "2024010100204",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order"
+    ],
+    "expected_answer_keywords": [
+      "待发货"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {
+      "order_id": "2024010100204",
+      "status": "待发货"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "C006",
+    "user_id": "U00205",
+    "user_query": "订单 2024010100205 购物车里有多件商品，现在分别到哪了？",
+    "order_id": "2024010100205",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "已发货",
+      "预计"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {
+      "order_id": "2024010100205",
+      "status": "已发货",
+      "current_location": "北京中转站",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "C007",
+    "user_id": "U00206",
+    "user_query": "订单 2024010100206 购物车里有多件商品，现在分别到哪了？",
+    "order_id": "2024010100206",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "已发货",
+      "预计"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {
+      "order_id": "2024010100206",
+      "status": "已发货",
+      "current_location": "上海分拨中心",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "C008",
+    "user_id": "U00207",
+    "user_query": "订单 2024010100207 购物车里有多件商品，现在分别到哪了？",
+    "order_id": "2024010100207",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order"
+    ],
+    "expected_answer_keywords": [
+      "待发货"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {
+      "order_id": "2024010100207",
+      "status": "待发货"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "C009",
+    "user_id": "U00208",
+    "user_query": "订单 2024010100208 购物车里有多件商品，现在分别到哪了？",
+    "order_id": "2024010100208",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "已发货",
+      "预计"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {
+      "order_id": "2024010100208",
+      "status": "已发货",
+      "current_location": "成都集散仓",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "C010",
+    "user_id": "U00209",
+    "user_query": "订单 2024010100209 购物车里有多件商品，现在分别到哪了？",
+    "order_id": "2024010100209",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "已发货",
+      "预计"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {
+      "order_id": "2024010100209",
+      "status": "已发货",
+      "current_location": "武汉网关站",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "C011",
+    "user_id": "U00210",
+    "user_query": "订单 2024010100210 购物车里有多件商品，现在分别到哪了？",
+    "order_id": "2024010100210",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order"
+    ],
+    "expected_answer_keywords": [
+      "待发货"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {
+      "order_id": "2024010100210",
+      "status": "待发货"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "C012",
+    "user_id": "U00211",
+    "user_query": "订单 2024010100211 购物车里有多件商品，现在分别到哪了？",
+    "order_id": "2024010100211",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "已发货",
+      "预计"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {
+      "order_id": "2024010100211",
+      "status": "已发货",
+      "current_location": "上海分拨中心",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "C013",
+    "user_id": "U00212",
+    "user_query": "订单 2024010100212 购物车里有多件商品，现在分别到哪了？",
+    "order_id": "2024010100212",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "已发货",
+      "预计"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {
+      "order_id": "2024010100212",
+      "status": "已发货",
+      "current_location": "广州转运中心",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "C014",
+    "user_id": "U00213",
+    "user_query": "订单 2024010100213 购物车里有多件商品，现在分别到哪了？",
+    "order_id": "2024010100213",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order"
+    ],
+    "expected_answer_keywords": [
+      "待发货"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {
+      "order_id": "2024010100213",
+      "status": "待发货"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "C015",
+    "user_id": "U00214",
+    "user_query": "订单 2024010100214 购物车里有多件商品，现在分别到哪了？",
+    "order_id": "2024010100214",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "已发货",
+      "预计"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {
+      "order_id": "2024010100214",
+      "status": "已发货",
+      "current_location": "武汉网关站",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "C016",
+    "user_id": "U00215",
+    "user_query": "订单 2024010100215 购物车里有多件商品，现在分别到哪了？",
+    "order_id": "2024010100215",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "已发货",
+      "预计"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {
+      "order_id": "2024010100215",
+      "status": "已发货",
+      "current_location": "北京中转站",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "C017",
+    "user_id": "U00216",
+    "user_query": "订单 2024010100216 购物车里有多件商品，现在分别到哪了？",
+    "order_id": "2024010100216",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order"
+    ],
+    "expected_answer_keywords": [
+      "待发货"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {
+      "order_id": "2024010100216",
+      "status": "待发货"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "C018",
+    "user_id": "U00217",
+    "user_query": "订单 2024010100217 购物车里有多件商品，现在分别到哪了？",
+    "order_id": "2024010100217",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "已发货",
+      "预计"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {
+      "order_id": "2024010100217",
+      "status": "已发货",
+      "current_location": "广州转运中心",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "C019",
+    "user_id": "U00218",
+    "user_query": "订单 2024010100218 购物车里有多件商品，现在分别到哪了？",
+    "order_id": "2024010100218",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "已发货",
+      "预计"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {
+      "order_id": "2024010100218",
+      "status": "已发货",
+      "current_location": "成都集散仓",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "C020",
+    "user_id": "U00219",
+    "user_query": "订单 2024010100219 购物车里有多件商品，现在分别到哪了？",
+    "order_id": "2024010100219",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order"
+    ],
+    "expected_answer_keywords": [
+      "待发货"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {
+      "order_id": "2024010100219",
+      "status": "待发货"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "C021",
+    "user_id": "U00220",
+    "user_query": "订单 2024010100220 购物车里有多件商品，现在分别到哪了？",
+    "order_id": "2024010100220",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "已发货",
+      "预计"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {
+      "order_id": "2024010100220",
+      "status": "已发货",
+      "current_location": "北京中转站",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "C022",
+    "user_id": "U00221",
+    "user_query": "订单 2024010100221 购物车里有多件商品，现在分别到哪了？",
+    "order_id": "2024010100221",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "已发货",
+      "预计"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {
+      "order_id": "2024010100221",
+      "status": "已发货",
+      "current_location": "上海分拨中心",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "C023",
+    "user_id": "U00222",
+    "user_query": "订单 2024010100222 购物车里有多件商品，现在分别到哪了？",
+    "order_id": "2024010100222",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order"
+    ],
+    "expected_answer_keywords": [
+      "待发货"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {
+      "order_id": "2024010100222",
+      "status": "待发货"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "C024",
+    "user_id": "U00223",
+    "user_query": "订单 2024010100223 购物车里有多件商品，现在分别到哪了？",
+    "order_id": "2024010100223",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "已发货",
+      "预计"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {
+      "order_id": "2024010100223",
+      "status": "已发货",
+      "current_location": "成都集散仓",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "C025",
+    "user_id": "U00224",
+    "user_query": "订单 2024010100224 购物车里有多件商品，现在分别到哪了？",
+    "order_id": "2024010100224",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "已发货",
+      "预计"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {
+      "order_id": "2024010100224",
+      "status": "已发货",
+      "current_location": "武汉网关站",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "C026",
+    "user_id": "U00225",
+    "user_query": "订单 2024010100225 购物车里有多件商品，现在分别到哪了？",
+    "order_id": "2024010100225",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order"
+    ],
+    "expected_answer_keywords": [
+      "待发货"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {
+      "order_id": "2024010100225",
+      "status": "待发货"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "C027",
+    "user_id": "U00226",
+    "user_query": "订单 2024010100226 购物车里有多件商品，现在分别到哪了？",
+    "order_id": "2024010100226",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "已发货",
+      "预计"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {
+      "order_id": "2024010100226",
+      "status": "已发货",
+      "current_location": "上海分拨中心",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "C028",
+    "user_id": "U00227",
+    "user_query": "订单 2024010100227 购物车里有多件商品，现在分别到哪了？",
+    "order_id": "2024010100227",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "已发货",
+      "预计"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {
+      "order_id": "2024010100227",
+      "status": "已发货",
+      "current_location": "广州转运中心",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "C029",
+    "user_id": "U00228",
+    "user_query": "订单 2024010100228 购物车里有多件商品，现在分别到哪了？",
+    "order_id": "2024010100228",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order"
+    ],
+    "expected_answer_keywords": [
+      "待发货"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {
+      "order_id": "2024010100228",
+      "status": "待发货"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "C030",
+    "user_id": "U00229",
+    "user_query": "订单 2024010100229 购物车里有多件商品，现在分别到哪了？",
+    "order_id": "2024010100229",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "已发货",
+      "预计"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {
+      "order_id": "2024010100229",
+      "status": "已发货",
+      "current_location": "武汉网关站",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "C031",
+    "user_id": "U00230",
+    "user_query": "订单 2024010100230 购物车里有多件商品，现在分别到哪了？",
+    "order_id": "2024010100230",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "已发货",
+      "预计"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {
+      "order_id": "2024010100230",
+      "status": "已发货",
+      "current_location": "北京中转站",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "C032",
+    "user_id": "U00231",
+    "user_query": "订单 2024010100231 购物车里有多件商品，现在分别到哪了？",
+    "order_id": "2024010100231",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order"
+    ],
+    "expected_answer_keywords": [
+      "待发货"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {
+      "order_id": "2024010100231",
+      "status": "待发货"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "C033",
+    "user_id": "U00232",
+    "user_query": "订单 2024010100232 购物车里有多件商品，现在分别到哪了？",
+    "order_id": "2024010100232",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "已发货",
+      "预计"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {
+      "order_id": "2024010100232",
+      "status": "已发货",
+      "current_location": "广州转运中心",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "C034",
+    "user_id": "U00233",
+    "user_query": "订单 2024010100233 购物车里有多件商品，现在分别到哪了？",
+    "order_id": "2024010100233",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "已发货",
+      "预计"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {
+      "order_id": "2024010100233",
+      "status": "已发货",
+      "current_location": "成都集散仓",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "C035",
+    "user_id": "U00234",
+    "user_query": "订单 2024010100234 购物车里有多件商品，现在分别到哪了？",
+    "order_id": "2024010100234",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order"
+    ],
+    "expected_answer_keywords": [
+      "待发货"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {
+      "order_id": "2024010100234",
+      "status": "待发货"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "C036",
+    "user_id": "U00235",
+    "user_query": "订单 2024010100235 购物车里有多件商品，现在分别到哪了？",
+    "order_id": "2024010100235",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "已发货",
+      "预计"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {
+      "order_id": "2024010100235",
+      "status": "已发货",
+      "current_location": "北京中转站",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "C037",
+    "user_id": "U00236",
+    "user_query": "订单 2024010100236 购物车里有多件商品，现在分别到哪了？",
+    "order_id": "2024010100236",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "已发货",
+      "预计"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {
+      "order_id": "2024010100236",
+      "status": "已发货",
+      "current_location": "上海分拨中心",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "C038",
+    "user_id": "U00237",
+    "user_query": "订单 2024010100237 购物车里有多件商品，现在分别到哪了？",
+    "order_id": "2024010100237",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order"
+    ],
+    "expected_answer_keywords": [
+      "待发货"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {
+      "order_id": "2024010100237",
+      "status": "待发货"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "C039",
+    "user_id": "U00238",
+    "user_query": "订单 2024010100238 购物车里有多件商品，现在分别到哪了？",
+    "order_id": "2024010100238",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "已发货",
+      "预计"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {
+      "order_id": "2024010100238",
+      "status": "已发货",
+      "current_location": "成都集散仓",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "C040",
+    "user_id": "U00239",
+    "user_query": "订单 2024010100239 购物车里有多件商品，现在分别到哪了？",
+    "order_id": "2024010100239",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "已发货",
+      "预计"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {
+      "order_id": "2024010100239",
+      "status": "已发货",
+      "current_location": "武汉网关站",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "E001",
+    "user_id": "U90000000",
+    "user_query": "订单 9999999999999 现在到哪了？",
+    "order_id": "",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order"
+    ],
+    "expected_answer_keywords": [
+      "没有查询到"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {},
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "E002",
+    "user_id": "U90000001",
+    "user_query": "订单 9999999999999 现在到哪了？",
+    "order_id": "",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order"
+    ],
+    "expected_answer_keywords": [
+      "没有查询到"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {},
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "E003",
+    "user_id": "U90000002",
+    "user_query": "订单 9999999999999 现在到哪了？",
+    "order_id": "",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order"
+    ],
+    "expected_answer_keywords": [
+      "没有查询到"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {},
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "E004",
+    "user_id": "U90000003",
+    "user_query": "订单 9999999999999 现在到哪了？",
+    "order_id": "",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order"
+    ],
+    "expected_answer_keywords": [
+      "没有查询到"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {},
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "E005",
+    "user_id": "U90000004",
+    "user_query": "订单 9999999999999 现在到哪了？",
+    "order_id": "",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order"
+    ],
+    "expected_answer_keywords": [
+      "没有查询到"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {},
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "E006",
+    "user_id": "U90000005",
+    "user_query": "订单 9999999999999 现在到哪了？",
+    "order_id": "",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order"
+    ],
+    "expected_answer_keywords": [
+      "没有查询到"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {},
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "E007",
+    "user_id": "U90000006",
+    "user_query": "订单 9999999999999 现在到哪了？",
+    "order_id": "",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order"
+    ],
+    "expected_answer_keywords": [
+      "没有查询到"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {},
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "E008",
+    "user_id": "U90000007",
+    "user_query": "订单 9999999999999 现在到哪了？",
+    "order_id": "",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order"
+    ],
+    "expected_answer_keywords": [
+      "没有查询到"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {},
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "E009",
+    "user_id": "U90000008",
+    "user_query": "订单 9999999999999 现在到哪了？",
+    "order_id": "",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order"
+    ],
+    "expected_answer_keywords": [
+      "没有查询到"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {},
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "E010",
+    "user_id": "U90000009",
+    "user_query": "订单 9999999999999 现在到哪了？",
+    "order_id": "",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order"
+    ],
+    "expected_answer_keywords": [
+      "没有查询到"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {},
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "E011",
+    "user_id": "U90000010",
+    "user_query": "运单 SF90000010 派送进度如何？",
+    "order_id": "",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "没有查询到"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {},
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "E012",
+    "user_id": "U90000011",
+    "user_query": "运单 SF90000011 派送进度如何？",
+    "order_id": "",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "没有查询到"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {},
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "E013",
+    "user_id": "U90000012",
+    "user_query": "运单 SF90000012 派送进度如何？",
+    "order_id": "",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "没有查询到"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {},
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "E014",
+    "user_id": "U90000013",
+    "user_query": "运单 SF90000013 派送进度如何？",
+    "order_id": "",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "没有查询到"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {},
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "E015",
+    "user_id": "U90000014",
+    "user_query": "运单 SF90000014 派送进度如何？",
+    "order_id": "",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "没有查询到"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {},
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "E016",
+    "user_id": "U90000015",
+    "user_query": "运单 SF90000015 派送进度如何？",
+    "order_id": "",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "没有查询到"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {},
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "E017",
+    "user_id": "U90000016",
+    "user_query": "运单 SF90000016 派送进度如何？",
+    "order_id": "",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "没有查询到"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {},
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "E018",
+    "user_id": "U90000017",
+    "user_query": "运单 SF90000017 派送进度如何？",
+    "order_id": "",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "没有查询到"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {},
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "E019",
+    "user_id": "U90000018",
+    "user_query": "运单 SF90000018 派送进度如何？",
+    "order_id": "",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "没有查询到"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {},
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "E020",
+    "user_id": "U90000019",
+    "user_query": "运单 SF90000019 派送进度如何？",
+    "order_id": "",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "没有查询到"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {},
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "E021",
+    "user_id": "U90000020",
+    "user_query": "订单 2024010100720 的物流显示异常退回，是什么原因？",
+    "order_id": "2024010100720",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "物流信息"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {
+      "order_id": "2024010100720",
+      "status": "已发货",
+      "current_location": "北京中转站",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "E022",
+    "user_id": "U90000021",
+    "user_query": "订单 2024010100721 的物流显示异常退回，是什么原因？",
+    "order_id": "2024010100721",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "物流信息"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {
+      "order_id": "2024010100721",
+      "status": "已发货",
+      "current_location": "上海分拨中心",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "E023",
+    "user_id": "U90000022",
+    "user_query": "订单 2024010100722 的物流显示异常退回，是什么原因？",
+    "order_id": "2024010100722",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "物流信息"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {
+      "order_id": "2024010100722",
+      "status": "已发货",
+      "current_location": "广州转运中心",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "E024",
+    "user_id": "U90000023",
+    "user_query": "订单 2024010100723 的物流显示异常退回，是什么原因？",
+    "order_id": "2024010100723",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "物流信息"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {
+      "order_id": "2024010100723",
+      "status": "已发货",
+      "current_location": "成都集散仓",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "E025",
+    "user_id": "U90000024",
+    "user_query": "订单 2024010100724 的物流显示异常退回，是什么原因？",
+    "order_id": "2024010100724",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "物流信息"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {
+      "order_id": "2024010100724",
+      "status": "已发货",
+      "current_location": "武汉网关站",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "E026",
+    "user_id": "U90000025",
+    "user_query": "订单 2024010100725 的物流显示异常退回，是什么原因？",
+    "order_id": "2024010100725",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "物流信息"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {
+      "order_id": "2024010100725",
+      "status": "已发货",
+      "current_location": "北京中转站",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "E027",
+    "user_id": "U90000026",
+    "user_query": "订单 2024010100726 的物流显示异常退回，是什么原因？",
+    "order_id": "2024010100726",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "物流信息"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {
+      "order_id": "2024010100726",
+      "status": "已发货",
+      "current_location": "上海分拨中心",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "E028",
+    "user_id": "U90000027",
+    "user_query": "订单 2024010100727 的物流显示异常退回，是什么原因？",
+    "order_id": "2024010100727",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "物流信息"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {
+      "order_id": "2024010100727",
+      "status": "已发货",
+      "current_location": "广州转运中心",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "E029",
+    "user_id": "U90000028",
+    "user_query": "订单 2024010100728 的物流显示异常退回，是什么原因？",
+    "order_id": "2024010100728",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "物流信息"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {
+      "order_id": "2024010100728",
+      "status": "已发货",
+      "current_location": "成都集散仓",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "E030",
+    "user_id": "U90000029",
+    "user_query": "订单 2024010100729 的物流显示异常退回，是什么原因？",
+    "order_id": "2024010100729",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "物流信息"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {
+      "order_id": "2024010100729",
+      "status": "已发货",
+      "current_location": "武汉网关站",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "M001",
+    "user_id": "U99000000",
+    "user_query": "那个东西到哪了",
+    "order_id": "",
+    "expected_intent": "clarification",
+    "expected_tools": [],
+    "expected_answer_keywords": [],
+    "expected_behavior": "提供订单号",
+    "difficulty": "hard",
+    "expected_facts": {},
+    "expected_agents": [
+      "supervisor"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "clarification"
+    ],
+    "expected_branch": "clarification"
+  },
+  {
+    "ticket_id": "M002",
+    "user_id": "U99000001",
+    "user_query": "帮我看看物流",
+    "order_id": "",
+    "expected_intent": "clarification",
+    "expected_tools": [],
+    "expected_answer_keywords": [],
+    "expected_behavior": "提供订单号",
+    "difficulty": "hard",
+    "expected_facts": {},
+    "expected_agents": [
+      "supervisor"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "clarification"
+    ],
+    "expected_branch": "clarification"
+  },
+  {
+    "ticket_id": "M003",
+    "user_id": "U99000002",
+    "user_query": "快递怎么回事",
+    "order_id": "",
+    "expected_intent": "clarification",
+    "expected_tools": [],
+    "expected_answer_keywords": [],
+    "expected_behavior": "提供订单号",
+    "difficulty": "hard",
+    "expected_facts": {},
+    "expected_agents": [
+      "supervisor"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "clarification"
+    ],
+    "expected_branch": "clarification"
+  },
+  {
+    "ticket_id": "M004",
+    "user_id": "U99000003",
+    "user_query": "我买的啥时候到",
+    "order_id": "",
+    "expected_intent": "clarification",
+    "expected_tools": [],
+    "expected_answer_keywords": [],
+    "expected_behavior": "提供订单号",
+    "difficulty": "hard",
+    "expected_facts": {},
+    "expected_agents": [
+      "supervisor"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "clarification"
+    ],
+    "expected_branch": "clarification"
+  },
+  {
+    "ticket_id": "M005",
+    "user_id": "U99000004",
+    "user_query": "查一下我的单",
+    "order_id": "",
+    "expected_intent": "clarification",
+    "expected_tools": [],
+    "expected_answer_keywords": [],
+    "expected_behavior": "提供订单号",
+    "difficulty": "hard",
+    "expected_facts": {},
+    "expected_agents": [
+      "supervisor"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "clarification"
+    ],
+    "expected_branch": "clarification"
+  },
+  {
+    "ticket_id": "M006",
+    "user_id": "U99000005",
+    "user_query": "订单状态帮我看看",
+    "order_id": "",
+    "expected_intent": "clarification",
+    "expected_tools": [],
+    "expected_answer_keywords": [],
+    "expected_behavior": "提供订单号",
+    "difficulty": "hard",
+    "expected_facts": {},
+    "expected_agents": [
+      "supervisor"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "clarification"
+    ],
+    "expected_branch": "clarification"
+  },
+  {
+    "ticket_id": "M007",
+    "user_id": "U99000006",
+    "user_query": "那个东西到哪了",
+    "order_id": "",
+    "expected_intent": "clarification",
+    "expected_tools": [],
+    "expected_answer_keywords": [],
+    "expected_behavior": "提供订单号",
+    "difficulty": "hard",
+    "expected_facts": {},
+    "expected_agents": [
+      "supervisor"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "clarification"
+    ],
+    "expected_branch": "clarification"
+  },
+  {
+    "ticket_id": "M008",
+    "user_id": "U99000007",
+    "user_query": "帮我看看物流",
+    "order_id": "",
+    "expected_intent": "clarification",
+    "expected_tools": [],
+    "expected_answer_keywords": [],
+    "expected_behavior": "提供订单号",
+    "difficulty": "hard",
+    "expected_facts": {},
+    "expected_agents": [
+      "supervisor"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "clarification"
+    ],
+    "expected_branch": "clarification"
+  },
+  {
+    "ticket_id": "M009",
+    "user_id": "U99000008",
+    "user_query": "快递怎么回事",
+    "order_id": "",
+    "expected_intent": "clarification",
+    "expected_tools": [],
+    "expected_answer_keywords": [],
+    "expected_behavior": "提供订单号",
+    "difficulty": "hard",
+    "expected_facts": {},
+    "expected_agents": [
+      "supervisor"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "clarification"
+    ],
+    "expected_branch": "clarification"
+  },
+  {
+    "ticket_id": "M010",
+    "user_id": "U99000009",
+    "user_query": "我买的啥时候到",
+    "order_id": "",
+    "expected_intent": "clarification",
+    "expected_tools": [],
+    "expected_answer_keywords": [],
+    "expected_behavior": "提供订单号",
+    "difficulty": "hard",
+    "expected_facts": {},
+    "expected_agents": [
+      "supervisor"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "clarification"
+    ],
+    "expected_branch": "clarification"
+  },
+  {
+    "ticket_id": "M011",
+    "user_id": "U99000010",
+    "user_query": "查一下我的单",
+    "order_id": "",
+    "expected_intent": "clarification",
+    "expected_tools": [],
+    "expected_answer_keywords": [],
+    "expected_behavior": "提供订单号",
+    "difficulty": "hard",
+    "expected_facts": {},
+    "expected_agents": [
+      "supervisor"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "clarification"
+    ],
+    "expected_branch": "clarification"
+  },
+  {
+    "ticket_id": "M012",
+    "user_id": "U99000011",
+    "user_query": "订单状态帮我看看",
+    "order_id": "",
+    "expected_intent": "clarification",
+    "expected_tools": [],
+    "expected_answer_keywords": [],
+    "expected_behavior": "提供订单号",
+    "difficulty": "hard",
+    "expected_facts": {},
+    "expected_agents": [
+      "supervisor"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "clarification"
+    ],
+    "expected_branch": "clarification"
+  },
+  {
+    "ticket_id": "M013",
+    "user_id": "U99000012",
+    "user_query": "那个东西到哪了",
+    "order_id": "",
+    "expected_intent": "clarification",
+    "expected_tools": [],
+    "expected_answer_keywords": [],
+    "expected_behavior": "提供订单号",
+    "difficulty": "hard",
+    "expected_facts": {},
+    "expected_agents": [
+      "supervisor"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "clarification"
+    ],
+    "expected_branch": "clarification"
+  },
+  {
+    "ticket_id": "M014",
+    "user_id": "U99000013",
+    "user_query": "帮我看看物流",
+    "order_id": "",
+    "expected_intent": "clarification",
+    "expected_tools": [],
+    "expected_answer_keywords": [],
+    "expected_behavior": "提供订单号",
+    "difficulty": "hard",
+    "expected_facts": {},
+    "expected_agents": [
+      "supervisor"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "clarification"
+    ],
+    "expected_branch": "clarification"
+  },
+  {
+    "ticket_id": "M015",
+    "user_id": "U99000014",
+    "user_query": "快递怎么回事",
+    "order_id": "",
+    "expected_intent": "clarification",
+    "expected_tools": [],
+    "expected_answer_keywords": [],
+    "expected_behavior": "提供订单号",
+    "difficulty": "hard",
+    "expected_facts": {},
+    "expected_agents": [
+      "supervisor"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "clarification"
+    ],
+    "expected_branch": "clarification"
+  },
+  {
+    "ticket_id": "M016",
+    "user_id": "U99000015",
+    "user_query": "我买的啥时候到",
+    "order_id": "",
+    "expected_intent": "clarification",
+    "expected_tools": [],
+    "expected_answer_keywords": [],
+    "expected_behavior": "提供订单号",
+    "difficulty": "hard",
+    "expected_facts": {},
+    "expected_agents": [
+      "supervisor"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "clarification"
+    ],
+    "expected_branch": "clarification"
+  },
+  {
+    "ticket_id": "M017",
+    "user_id": "U99000016",
+    "user_query": "查一下我的单",
+    "order_id": "",
+    "expected_intent": "clarification",
+    "expected_tools": [],
+    "expected_answer_keywords": [],
+    "expected_behavior": "提供订单号",
+    "difficulty": "hard",
+    "expected_facts": {},
+    "expected_agents": [
+      "supervisor"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "clarification"
+    ],
+    "expected_branch": "clarification"
+  },
+  {
+    "ticket_id": "M018",
+    "user_id": "U99000017",
+    "user_query": "订单状态帮我看看",
+    "order_id": "",
+    "expected_intent": "clarification",
+    "expected_tools": [],
+    "expected_answer_keywords": [],
+    "expected_behavior": "提供订单号",
+    "difficulty": "hard",
+    "expected_facts": {},
+    "expected_agents": [
+      "supervisor"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "clarification"
+    ],
+    "expected_branch": "clarification"
+  },
+  {
+    "ticket_id": "M019",
+    "user_id": "U99000018",
+    "user_query": "那个东西到哪了",
+    "order_id": "",
+    "expected_intent": "clarification",
+    "expected_tools": [],
+    "expected_answer_keywords": [],
+    "expected_behavior": "提供订单号",
+    "difficulty": "hard",
+    "expected_facts": {},
+    "expected_agents": [
+      "supervisor"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "clarification"
+    ],
+    "expected_branch": "clarification"
+  },
+  {
+    "ticket_id": "M020",
+    "user_id": "U99000019",
+    "user_query": "帮我看看物流",
+    "order_id": "",
+    "expected_intent": "clarification",
+    "expected_tools": [],
+    "expected_answer_keywords": [],
+    "expected_behavior": "提供订单号",
+    "difficulty": "hard",
+    "expected_facts": {},
+    "expected_agents": [
+      "supervisor"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "clarification"
+    ],
+    "expected_branch": "clarification"
+  },
+  {
+    "ticket_id": "V001",
+    "user_id": "U95000000",
+    "user_query": "查询订单 2024010100020 的物流信息",
+    "order_id": "2024010100020",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "物流信息",
+      "预计"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {
+      "order_id": "2024010100020",
+      "status": "已发货",
+      "current_location": "北京中转站",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "V002",
+    "user_id": "U95000001",
+    "user_query": "查询订单 2024010100020 的物流信息",
+    "order_id": "2024010100020",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "物流信息",
+      "预计"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {
+      "order_id": "2024010100020",
+      "status": "已发货",
+      "current_location": "北京中转站",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "V003",
+    "user_id": "U95000002",
+    "user_query": "查询订单 2024010100020 的物流信息",
+    "order_id": "2024010100020",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "物流信息",
+      "预计"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {
+      "order_id": "2024010100020",
+      "status": "已发货",
+      "current_location": "北京中转站",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "V004",
+    "user_id": "U95000003",
+    "user_query": "查询订单 2024010100020 的物流信息",
+    "order_id": "2024010100020",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "物流信息",
+      "预计"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {
+      "order_id": "2024010100020",
+      "status": "已发货",
+      "current_location": "北京中转站",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "V005",
+    "user_id": "U95000004",
+    "user_query": "查询订单 2024010100020 的物流信息",
+    "order_id": "2024010100020",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "物流信息",
+      "预计"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {
+      "order_id": "2024010100020",
+      "status": "已发货",
+      "current_location": "北京中转站",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "V006",
+    "user_id": "U95000005",
+    "user_query": "查询订单 2024010100020 的物流信息",
+    "order_id": "2024010100020",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "物流信息",
+      "预计"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {
+      "order_id": "2024010100020",
+      "status": "已发货",
+      "current_location": "北京中转站",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "V007",
+    "user_id": "U95000006",
+    "user_query": "查询订单 2024010100020 的物流信息",
+    "order_id": "2024010100020",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "物流信息",
+      "预计"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {
+      "order_id": "2024010100020",
+      "status": "已发货",
+      "current_location": "北京中转站",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "V008",
+    "user_id": "U95000007",
+    "user_query": "查询订单 2024010100020 的物流信息",
+    "order_id": "2024010100020",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "物流信息",
+      "预计"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {
+      "order_id": "2024010100020",
+      "status": "已发货",
+      "current_location": "北京中转站",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "V009",
+    "user_id": "U95000008",
+    "user_query": "查询订单 2024010100020 的物流信息",
+    "order_id": "2024010100020",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "物流信息",
+      "预计"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {
+      "order_id": "2024010100020",
+      "status": "已发货",
+      "current_location": "北京中转站",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "V010",
+    "user_id": "U95000009",
+    "user_query": "查询订单 2024010100020 的物流信息",
+    "order_id": "2024010100020",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "物流信息",
+      "预计"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {
+      "order_id": "2024010100020",
+      "status": "已发货",
+      "current_location": "北京中转站",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "X001",
+    "user_id": "U00810",
+    "user_query": "订单 2024010100810 的金额好像不对，帮我核对一下实际支付金额。",
+    "order_id": "2024010100810",
+    "expected_intent": "order_info",
+    "expected_tools": [
+      "query_order"
+    ],
+    "expected_answer_keywords": [
+      "订单金额"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {
+      "order_id": "2024010100810",
+      "status": "已发货",
+      "total_amount": "3748"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "X002",
+    "user_id": "U00811",
+    "user_query": "订单 2024010100811 我付的钱和订单显示的不一致，请帮我确认订单金额。",
+    "order_id": "2024010100811",
+    "expected_intent": "order_info",
+    "expected_tools": [
+      "query_order"
+    ],
+    "expected_answer_keywords": [
+      "订单金额"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {
+      "order_id": "2024010100811",
+      "status": "已发货",
+      "total_amount": "14999"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "X003",
+    "user_id": "U00820",
+    "user_query": "如何申请退款？",
+    "order_id": "",
+    "expected_intent": "return_policy",
+    "expected_tools": [
+      "search_knowledge"
+    ],
+    "expected_answer_keywords": [
+      "退款"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {},
+    "expected_agents": [
+      "supervisor",
+      "knowledge_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "knowledge_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "X004",
+    "user_id": "U00821",
+    "user_query": "商品有质量问题，我要退货。",
+    "order_id": "",
+    "expected_intent": "return_policy",
+    "expected_tools": [
+      "search_knowledge"
+    ],
+    "expected_answer_keywords": [
+      "退货"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {},
+    "expected_agents": [
+      "supervisor",
+      "knowledge_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "knowledge_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "X005",
+    "user_id": "U00814",
+    "user_query": "订单 2024010100814 金额不对，物流也一直没更新，到底怎么回事？",
+    "order_id": "2024010100814",
+    "expected_intent": "logistics_query",
+    "expected_tools": [
+      "query_order",
+      "query_logistics"
+    ],
+    "expected_answer_keywords": [
+      "物流信息",
+      "预计"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {
+      "order_id": "2024010100814",
+      "status": "已发货",
+      "current_location": "武汉网关站",
+      "estimated_delivery": "明天 20:00 前"
+    },
+    "expected_agents": [
+      "supervisor",
+      "order_agent",
+      "logistics_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "data_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "X006",
+    "user_id": "U00830",
+    "user_query": "商品不想要了，怎么申请退货？",
+    "order_id": "",
+    "expected_intent": "return_policy",
+    "expected_tools": [
+      "search_knowledge"
+    ],
+    "expected_answer_keywords": [
+      "退货"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {},
+    "expected_agents": [
+      "supervisor",
+      "knowledge_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "knowledge_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "X007",
+    "user_id": "U00831",
+    "user_query": "退货流程麻烦说一下。",
+    "order_id": "",
+    "expected_intent": "return_policy",
+    "expected_tools": [
+      "search_knowledge"
+    ],
+    "expected_answer_keywords": [
+      "退货"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {},
+    "expected_agents": [
+      "supervisor",
+      "knowledge_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "knowledge_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "X008",
+    "user_id": "U00832",
+    "user_query": "我想退货，具体怎么操作？",
+    "order_id": "",
+    "expected_intent": "return_policy",
+    "expected_tools": [
+      "search_knowledge"
+    ],
+    "expected_answer_keywords": [
+      "退货"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {},
+    "expected_agents": [
+      "supervisor",
+      "knowledge_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "knowledge_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "X009",
+    "user_id": "U00833",
+    "user_query": "下单后还能退货吗？退货步骤是什么？",
+    "order_id": "",
+    "expected_intent": "return_policy",
+    "expected_tools": [
+      "search_knowledge"
+    ],
+    "expected_answer_keywords": [
+      "退货"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {},
+    "expected_agents": [
+      "supervisor",
+      "knowledge_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "knowledge_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "X010",
+    "user_id": "U00834",
+    "user_query": "帮我介绍下退货的办理方式。",
+    "order_id": "",
+    "expected_intent": "return_policy",
+    "expected_tools": [
+      "search_knowledge"
+    ],
+    "expected_answer_keywords": [
+      "退货"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {},
+    "expected_agents": [
+      "supervisor",
+      "knowledge_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "knowledge_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "X011",
+    "user_id": "U00835",
+    "user_query": "收到货不满意想退回去，退货怎么申请？",
+    "order_id": "",
+    "expected_intent": "return_policy",
+    "expected_tools": [
+      "search_knowledge"
+    ],
+    "expected_answer_keywords": [
+      "退货"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {},
+    "expected_agents": [
+      "supervisor",
+      "knowledge_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "knowledge_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "X012",
+    "user_id": "U00836",
+    "user_query": "退货需要满足什么条件？",
+    "order_id": "",
+    "expected_intent": "return_policy",
+    "expected_tools": [
+      "search_knowledge"
+    ],
+    "expected_answer_keywords": [
+      "退货"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {},
+    "expected_agents": [
+      "supervisor",
+      "knowledge_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "knowledge_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "X013",
+    "user_id": "U00837",
+    "user_query": "申请退货后多久能有结果？",
+    "order_id": "",
+    "expected_intent": "return_policy",
+    "expected_tools": [
+      "search_knowledge"
+    ],
+    "expected_answer_keywords": [
+      "退货"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {},
+    "expected_agents": [
+      "supervisor",
+      "knowledge_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "knowledge_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "X014",
+    "user_id": "U00838",
+    "user_query": "我要退货，请告知退货注意事项。",
+    "order_id": "",
+    "expected_intent": "return_policy",
+    "expected_tools": [
+      "search_knowledge"
+    ],
+    "expected_answer_keywords": [
+      "退货"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {},
+    "expected_agents": [
+      "supervisor",
+      "knowledge_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "knowledge_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "X015",
+    "user_id": "U00839",
+    "user_query": "退货申请提交后商品要寄到哪里？",
+    "order_id": "",
+    "expected_intent": "return_policy",
+    "expected_tools": [
+      "search_knowledge"
+    ],
+    "expected_answer_keywords": [
+      "退货"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {},
+    "expected_agents": [
+      "supervisor",
+      "knowledge_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "knowledge_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "X016",
+    "user_id": "U00840",
+    "user_query": "退款要怎么申请？",
+    "order_id": "",
+    "expected_intent": "return_policy",
+    "expected_tools": [
+      "search_knowledge"
+    ],
+    "expected_answer_keywords": [
+      "退款"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {},
+    "expected_agents": [
+      "supervisor",
+      "knowledge_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "knowledge_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "X017",
+    "user_id": "U00841",
+    "user_query": "申请退款的条件是什么？",
+    "order_id": "",
+    "expected_intent": "return_policy",
+    "expected_tools": [
+      "search_knowledge"
+    ],
+    "expected_answer_keywords": [
+      "退款"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {},
+    "expected_agents": [
+      "supervisor",
+      "knowledge_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "knowledge_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "X018",
+    "user_id": "U00842",
+    "user_query": "退款一般多久能处理完？",
+    "order_id": "",
+    "expected_intent": "return_policy",
+    "expected_tools": [
+      "search_knowledge"
+    ],
+    "expected_answer_keywords": [
+      "退款"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {},
+    "expected_agents": [
+      "supervisor",
+      "knowledge_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "knowledge_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "X019",
+    "user_id": "U00843",
+    "user_query": "我不想要了，帮我说明退款流程。",
+    "order_id": "",
+    "expected_intent": "return_policy",
+    "expected_tools": [
+      "search_knowledge"
+    ],
+    "expected_answer_keywords": [
+      "退款"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {},
+    "expected_agents": [
+      "supervisor",
+      "knowledge_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "knowledge_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "X020",
+    "user_id": "U00844",
+    "user_query": "退款申请提交后需要注意什么？",
+    "order_id": "",
+    "expected_intent": "return_policy",
+    "expected_tools": [
+      "search_knowledge"
+    ],
+    "expected_answer_keywords": [
+      "退款"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {},
+    "expected_agents": [
+      "supervisor",
+      "knowledge_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "knowledge_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "X021",
+    "user_id": "U00845",
+    "user_query": "收到的尺码不合适，怎么申请换货？",
+    "order_id": "",
+    "expected_intent": "exchange_policy",
+    "expected_tools": [
+      "search_knowledge"
+    ],
+    "expected_answer_keywords": [
+      "换货"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {},
+    "expected_agents": [
+      "supervisor",
+      "knowledge_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "knowledge_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "X022",
+    "user_id": "U00846",
+    "user_query": "换货流程是什么？",
+    "order_id": "",
+    "expected_intent": "exchange_policy",
+    "expected_tools": [
+      "search_knowledge"
+    ],
+    "expected_answer_keywords": [
+      "换货"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {},
+    "expected_agents": [
+      "supervisor",
+      "knowledge_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "knowledge_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "X023",
+    "user_id": "U00847",
+    "user_query": "我想换货，具体怎么操作？",
+    "order_id": "",
+    "expected_intent": "exchange_policy",
+    "expected_tools": [
+      "search_knowledge"
+    ],
+    "expected_answer_keywords": [
+      "换货"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {},
+    "expected_agents": [
+      "supervisor",
+      "knowledge_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "knowledge_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "X024",
+    "user_id": "U00848",
+    "user_query": "商品有瑕疵想换货，麻烦说下换货步骤。",
+    "order_id": "",
+    "expected_intent": "exchange_policy",
+    "expected_tools": [
+      "search_knowledge"
+    ],
+    "expected_answer_keywords": [
+      "换货"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {},
+    "expected_agents": [
+      "supervisor",
+      "knowledge_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "knowledge_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "X025",
+    "user_id": "U00849",
+    "user_query": "帮我介绍下换货的办理方式。",
+    "order_id": "",
+    "expected_intent": "exchange_policy",
+    "expected_tools": [
+      "search_knowledge"
+    ],
+    "expected_answer_keywords": [
+      "换货"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {},
+    "expected_agents": [
+      "supervisor",
+      "knowledge_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "knowledge_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "X026",
+    "user_id": "U00850",
+    "user_query": "衣服尺码买错了可以换货吗？",
+    "order_id": "",
+    "expected_intent": "exchange_policy",
+    "expected_tools": [
+      "search_knowledge"
+    ],
+    "expected_answer_keywords": [
+      "换货"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {},
+    "expected_agents": [
+      "supervisor",
+      "knowledge_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "knowledge_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "X027",
+    "user_id": "U00851",
+    "user_query": "换货需要运费吗？",
+    "order_id": "",
+    "expected_intent": "exchange_policy",
+    "expected_tools": [
+      "search_knowledge"
+    ],
+    "expected_answer_keywords": [
+      "换货"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {},
+    "expected_agents": [
+      "supervisor",
+      "knowledge_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "knowledge_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "X028",
+    "user_id": "U00852",
+    "user_query": "换货一般多久能收到新商品？",
+    "order_id": "",
+    "expected_intent": "exchange_policy",
+    "expected_tools": [
+      "search_knowledge"
+    ],
+    "expected_answer_keywords": [
+      "换货"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {},
+    "expected_agents": [
+      "supervisor",
+      "knowledge_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "knowledge_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "X029",
+    "user_id": "U00853",
+    "user_query": "我要换货，请告知换货注意事项。",
+    "order_id": "",
+    "expected_intent": "exchange_policy",
+    "expected_tools": [
+      "search_knowledge"
+    ],
+    "expected_answer_keywords": [
+      "换货"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {},
+    "expected_agents": [
+      "supervisor",
+      "knowledge_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "knowledge_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "X030",
+    "user_id": "U00854",
+    "user_query": "质量有问题，能申请换货吗？",
+    "order_id": "",
+    "expected_intent": "exchange_policy",
+    "expected_tools": [
+      "search_knowledge"
+    ],
+    "expected_answer_keywords": [
+      "换货"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {},
+    "expected_agents": [
+      "supervisor",
+      "knowledge_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "knowledge_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "X031",
+    "user_id": "U00855",
+    "user_query": "换货的处理周期是几天？",
+    "order_id": "",
+    "expected_intent": "exchange_policy",
+    "expected_tools": [
+      "search_knowledge"
+    ],
+    "expected_answer_keywords": [
+      "换货"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {},
+    "expected_agents": [
+      "supervisor",
+      "knowledge_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "knowledge_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "X032",
+    "user_id": "U00856",
+    "user_query": "申请换货后怎么寄回商品？",
+    "order_id": "",
+    "expected_intent": "exchange_policy",
+    "expected_tools": [
+      "search_knowledge"
+    ],
+    "expected_answer_keywords": [
+      "换货"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {},
+    "expected_agents": [
+      "supervisor",
+      "knowledge_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "knowledge_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "X033",
+    "user_id": "U00857",
+    "user_query": "大小不合适，帮我说下换货办法。",
+    "order_id": "",
+    "expected_intent": "exchange_policy",
+    "expected_tools": [
+      "search_knowledge"
+    ],
+    "expected_answer_keywords": [
+      "换货"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {},
+    "expected_agents": [
+      "supervisor",
+      "knowledge_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "knowledge_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "X034",
+    "user_id": "U00858",
+    "user_query": "换货支持哪些原因？",
+    "order_id": "",
+    "expected_intent": "exchange_policy",
+    "expected_tools": [
+      "search_knowledge"
+    ],
+    "expected_answer_keywords": [
+      "换货"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {},
+    "expected_agents": [
+      "supervisor",
+      "knowledge_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "knowledge_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "X035",
+    "user_id": "U00859",
+    "user_query": "收到的东西坏了，我要换货。",
+    "order_id": "",
+    "expected_intent": "exchange_policy",
+    "expected_tools": [
+      "search_knowledge"
+    ],
+    "expected_answer_keywords": [
+      "换货"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {},
+    "expected_agents": [
+      "supervisor",
+      "knowledge_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "knowledge_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "X036",
+    "user_id": "U00860",
+    "user_query": "人工客服电话是多少？",
+    "order_id": "",
+    "expected_intent": "contact_info",
+    "expected_tools": [
+      "search_knowledge"
+    ],
+    "expected_answer_keywords": [
+      "400"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {},
+    "expected_agents": [
+      "supervisor",
+      "knowledge_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "knowledge_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "X037",
+    "user_id": "U00861",
+    "user_query": "你们的联系方式是什么？",
+    "order_id": "",
+    "expected_intent": "contact_info",
+    "expected_tools": [
+      "search_knowledge"
+    ],
+    "expected_answer_keywords": [
+      "客服电话"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {},
+    "expected_agents": [
+      "supervisor",
+      "knowledge_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "knowledge_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "X038",
+    "user_id": "U00862",
+    "user_query": "客服电话多少？",
+    "order_id": "",
+    "expected_intent": "contact_info",
+    "expected_tools": [
+      "search_knowledge"
+    ],
+    "expected_answer_keywords": [
+      "400"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {},
+    "expected_agents": [
+      "supervisor",
+      "knowledge_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "knowledge_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "X039",
+    "user_id": "U00863",
+    "user_query": "怎么联系客服？请提供电话。",
+    "order_id": "",
+    "expected_intent": "contact_info",
+    "expected_tools": [
+      "search_knowledge"
+    ],
+    "expected_answer_keywords": [
+      "400"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {},
+    "expected_agents": [
+      "supervisor",
+      "knowledge_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "knowledge_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "X040",
+    "user_id": "U00864",
+    "user_query": "想先电话咨询再决定，客服电话号码是什么？",
+    "order_id": "",
+    "expected_intent": "contact_info",
+    "expected_tools": [
+      "search_knowledge"
+    ],
+    "expected_answer_keywords": [
+      "客服电话"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {},
+    "expected_agents": [
+      "supervisor",
+      "knowledge_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "knowledge_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "X041",
+    "user_id": "U00865",
+    "user_query": "请告诉我客服联系方式。",
+    "order_id": "",
+    "expected_intent": "contact_info",
+    "expected_tools": [
+      "search_knowledge"
+    ],
+    "expected_answer_keywords": [
+      "客服电话"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {},
+    "expected_agents": [
+      "supervisor",
+      "knowledge_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "knowledge_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "X042",
+    "user_id": "U00866",
+    "user_query": "打哪个电话能找到人工客服？",
+    "order_id": "",
+    "expected_intent": "contact_info",
+    "expected_tools": [
+      "search_knowledge"
+    ],
+    "expected_answer_keywords": [
+      "400"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {},
+    "expected_agents": [
+      "supervisor",
+      "knowledge_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "knowledge_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "X043",
+    "user_id": "U00867",
+    "user_query": "400 电话是免费的吗？",
+    "order_id": "",
+    "expected_intent": "contact_info",
+    "expected_tools": [
+      "search_knowledge"
+    ],
+    "expected_answer_keywords": [
+      "400"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {},
+    "expected_agents": [
+      "supervisor",
+      "knowledge_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "knowledge_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "X044",
+    "user_id": "U00868",
+    "user_query": "客服在线时间外怎么联系你们？电话有人接吗？",
+    "order_id": "",
+    "expected_intent": "contact_info",
+    "expected_tools": [
+      "search_knowledge"
+    ],
+    "expected_answer_keywords": [
+      "400"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {},
+    "expected_agents": [
+      "supervisor",
+      "knowledge_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "knowledge_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  },
+  {
+    "ticket_id": "X045",
+    "user_id": "U00869",
+    "user_query": "帮我查下官方客服的联系电话。",
+    "order_id": "",
+    "expected_intent": "contact_info",
+    "expected_tools": [
+      "search_knowledge"
+    ],
+    "expected_answer_keywords": [
+      "客服电话"
+    ],
+    "difficulty": "medium",
+    "expected_facts": {},
+    "expected_agents": [
+      "supervisor",
+      "knowledge_agent",
+      "validation_agent"
+    ],
+    "expected_path": [
+      "intent_recognition",
+      "knowledge_retrieval",
+      "response_generation",
+      "confidence_check"
+    ],
+    "expected_branch": "auto_reply"
+  }
+]

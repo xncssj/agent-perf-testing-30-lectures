@@ -1,0 +1,51 @@
+:root {
+  --brand: #2563eb;
+  --brand-dk: #1d4ed8;
+  --ok: #16a34a;
+  --warn: #d97706;
+  --bad: #dc2626;
+  --ink: #1f2937;
+  --ink-2: #6b7280;
+  --line: #e5e7eb;
+  --bg: #f4f6fa;
+  --panel: #ffffff;
+  --chip: #eef2ff;
+  --mono: 'SFMono-Regular', Consolas, Menlo, monospace;
+  --header-h: 56px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#app {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font: 14px/1.6 -apple-system, 'PingFang SC', 'Microsoft YaHei', 'Segoe UI', sans-serif;
+  color: var(--ink);
+  background: var(--bg);
+  overflow: hidden;
+}
+
+.mono {
+  font-family: var(--mono);
+}
+
+.badge-demo {
+  font-size: 10.5px;
+  padding: 1px 7px;
+  border-radius: 20px;
+  background: #f8fafc;
+  color: #94a3b8;
+  border: 1px dashed var(--line);
+}
+
+.text-sm {
+  font-size: 12px;
+  color: var(--ink-2);
+}

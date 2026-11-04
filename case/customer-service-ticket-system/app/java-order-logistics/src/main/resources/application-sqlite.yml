@@ -1,0 +1,11 @@
+spring:
+  datasource:
+    url: "jdbc:sqlite::memory:"
+    driver-class-name: org.sqlite.JDBC
+
+# SQLite 特定配置
+sqlite:
+  # 是否在启动时导入测试数据
+  import-test-data: true
+  # 测试数据文件路径
+  test-data-path: ../../testing/test-data/

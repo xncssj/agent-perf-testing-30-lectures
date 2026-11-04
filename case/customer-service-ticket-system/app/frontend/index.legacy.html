@@ -1,0 +1,1310 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>客服工单系统 · Agent 工作台</title>
+<style>
+/* ============================================================
+   客服工单系统 · 前端原型 vue3 需要添加有一个添加模型
+   范围：阶段一 Single-Agent
+   布局参考：美洽 / 七鱼 / Intercom 三栏客服工作台 + Kanban 工单看板
+   数据口径：与 课程性能指标口径（v2）对齐，
+             ttft_ms/tpot_ms 置空、first_answer_ms 为片段级必测指标
+   可靠性：仅标注「演示」的数据为 UI 示意；对话、指标、健康态均来自真实后端
+   ============================================================ */
+:root {
+  --brand: #2563eb;
+  --brand-dk: #1d4ed8;
+  --ok: #16a34a;
+  --warn: #d97706;
+  --bad: #dc2626;
+  --ink: #1f2937;
+  --ink-2: #6b7280;
+  --line: #e5e7eb;
+  --bg: #f4f6fa;
+  --panel: #ffffff;
+  --chip: #eef2ff;
+  --mono: "SFMono-Regular", Consolas, Menlo, monospace;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; }
+body {
+  font: 14px/1.6 -apple-system, "PingFang SC", "Microsoft YaHei", "Segoe UI", sans-serif;
+  color: var(--ink); background: var(--bg); overflow: hidden;
+}
+button { font: inherit; cursor: pointer; }
+input, textarea { font: inherit; }
+
+/* ---------- 顶部导航 ---------- */
+header {
+  height: 56px; background: #0f172a; color: #e2e8f0;
+  display: flex; align-items: center; padding: 0 16px; gap: 8px; flex-shrink: 0;
+}
+.brand { font-weight: 700; letter-spacing: .5px; white-space: nowrap; }
+.brand .sub { font-size: 11px; color: #94a3b8; font-weight: 400; margin-left: 8px; }
+nav { display: flex; gap: 4px; margin: 0 auto; }
+nav button {
+  background: transparent; border: 0; color: #cbd5e1;
+  padding: 7px 14px; border-radius: 8px; font-size: 13.5px;
+}
+nav button.active { background: #1e293b; color: #fff; font-weight: 600; }
+nav button:hover { background: #1e293b; }
+.conn { display: flex; align-items: center; gap: 8px; font-size: 12px; white-space: nowrap; }
+.conn .dot { width: 8px; height: 8px; border-radius: 50%; background: #64748b; }
+.conn .dot.up { background: #22c55e; box-shadow: 0 0 0 3px #22c55e33; }
+.conn .dot.down { background: #f43f5e; }
+.conn .url { color: #94a3b8; }
+
+/* ---------- 视图容器 ---------- */
+main { height: calc(100vh - 56px); display: flex; }
+.view { display: none; width: 100%; height: 100%; }
+.view.active { display: flex; flex-direction: column; }
+
+/* ============================================================
+   工作台（三栏）
+   ============================================================ */
+#view-workbench { display: none; flex-direction: row; }
+#view-workbench.active { display: flex; }
+
+/* ----- 会话列表（左栏） ----- */
+.cx-list {
+  width: 300px; min-width: 300px; background: var(--panel);
+  border-right: 1px solid var(--line); display: flex; flex-direction: column; height: 100%;
+}
+.cx-toolbar { display: flex; gap: 8px; padding: 12px 12px 8px; align-items: center; }
+.cx-toolbar .search {
+  flex: 1; border: 1px solid var(--line); border-radius: 8px; padding: 7px 10px; font-size: 12.5px;
+}
+.cx-toolbar .new {
+  background: var(--brand); color: #fff; border: 0; border-radius: 8px;
+  padding: 7px 12px; font-weight: 600;
+}
+.cx-status-tabs { display: flex; gap: 2px; padding: 0 12px 8px; border-bottom: 1px solid var(--line); }
+.cx-status-tabs button {
+  flex: 1; border: 0; background: transparent; color: var(--ink-2);
+  padding: 6px 0; border-radius: 6px; font-size: 12.5px;
+}
+.cx-status-tabs button.active { background: var(--chip); color: var(--brand-dk); font-weight: 600; }
+.cx-scroll { flex: 1; overflow-y: auto; padding: 6px 0; }
+.cx-item {
+  padding: 10px 14px; border-bottom: 1px solid #f1f5f9; cursor: pointer; position: relative;
+}
+.cx-item:hover { background: #f8fafc; }
+.cx-item.active { background: var(--chip); box-shadow: inset 3px 0 0 var(--brand); }
+.cx-item .row1 { display: flex; align-items: center; gap: 6px; }
+.cx-item .person { font-weight: 600; font-size: 13px; flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.cx-item .time { font-size: 11px; color: var(--ink-2); }
+.cx-item .preview {
+  font-size: 12px; color: var(--ink-2); margin-top: 2px;
+  display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden;
+}
+.cx-item .badges { margin-top: 4px; display: flex; gap: 4px; flex-wrap: wrap; }
+.cx-item .pr- { display: none; }
+.badge {
+  font-size: 10.5px; padding: 1px 7px; border-radius: 20px; background: #f1f5f9; color: var(--ink-2);
+}
+.badge.pr-high { background: #fee2e2; color: var(--bad); }
+.badge.pr-urgent { background: #fef3c7; color: var(--warn); }
+.badge.b-ai { background: var(--chip); color: var(--brand-dk); }
+.badge.b-transfer { background: #f3e8ff; color: #7c3aed; }
+.badge.b-resolved { background: #dcfce7; color: var(--ok); }
+.badge.demo { background: #f8fafc; color: #94a3b8; border: 1px dashed var(--line); }
+
+/* ----- 对话区（中栏） ----- */
+.cx-chat { flex: 1; display: flex; flex-direction: column; min-width: 0; height: 100%; background: #fbfcfe; }
+.chat-top {
+  height: 52px; border-bottom: 1px solid var(--line); background: var(--panel);
+  display: flex; align-items: center; padding: 0 16px; gap: 10px;
+}
+.chat-top .title { font-weight: 600; flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.chat-top .st { font-size: 12px; color: var(--ink-2); }
+.ops { display: flex; gap: 6px; }
+.op-btn {
+  border: 1px solid var(--line); background: #fff; border-radius: 8px;
+  padding: 6px 12px; font-size: 12.5px; color: var(--ink);
+}
+.op-btn:hover { border-color: var(--brand); color: var(--brand-dk); }
+#cx-messages { flex: 1; overflow-y: auto; padding: 18px 20px; display: flex; flex-direction: column; gap: 12px; }
+
+.msg { max-width: 86%; display: flex; flex-direction: column; gap: 4px; }
+.msg.user { align-self: flex-end; align-items: flex-end; }
+.msg.agent { align-self: flex-start; align-items: stretch; }
+.bubble {
+  padding: 10px 14px; border-radius: 14px; font-size: 13.5px; line-height: 1.65; white-space: pre-wrap; word-break: break-word;
+}
+.msg.user .bubble { background: var(--brand); color: #fff; border-bottom-right-radius: 4px; }
+.msg.agent .bubble { background: var(--panel); border: 1px solid var(--line); border-bottom-left-radius: 4px; }
+.msg .meta { font-size: 10.5px; color: #9ca3af; }
+
+/* Agent 输出块 */
+.ab { width: 100%; }
+.ab-box {
+  background: var(--panel); border: 1px solid var(--line); border-radius: 14px;
+  border-bottom-left-radius: 4px; overflow: hidden; box-shadow: 0 1px 2px #00000008;
+}
+.ab-kind {
+  display: flex; align-items: center; gap: 8px; padding: 8px 14px; font-size: 12px;
+  color: var(--ink-2); border-bottom: 1px solid #f1f5f9; background: #fbfcfe;
+}
+.ab-kind .ttl { font-weight: 600; color: var(--brand-dk); }
+.ab-intent { margin-left: auto; display: flex; gap: 6px; align-items: center; }
+.chip2 { font-size: 10.5px; padding: 1px 8px; border-radius: 20px; background: var(--chip); color: var(--brand-dk); }
+.chip2.done { background: #dcfce7; color: var(--ok); }
+.chip2.fail { background: #fee2e2; color: var(--bad); }
+.ab-body { padding: 10px 14px 12px; }
+.ab-proc-toggle {
+  display: block; width: 100%; text-align: left; border: 0; background: transparent;
+  color: var(--ink-2); font-size: 12px; padding: 6px 2px; border-radius: 6px;
+}
+.ab-proc-toggle:hover { color: var(--brand-dk); }
+.tl { border-left: 2px solid var(--line); margin: 6px 0 4px 7px; padding-left: 12px; display: none; flex-direction: column; gap: 8px; }
+.tl.open { display: flex; }
+.tl-item { position: relative; font-size: 12.5px; }
+.tl-item::before {
+  content: ""; position: absolute; left: -17px; top: 5px; width: 8px; height: 8px;
+  border-radius: 50%; background: #fff; border: 2px solid var(--ink-2);
+}
+.tl-item.think::before { border-color: #94a3b8; }
+.tl-item.tool::before { border-color: var(--brand); }
+.tl-item.res::before { border-color: var(--ok); background: var(--ok); }
+.tl-head { font-weight: 600; margin-bottom: 2px; }
+.tl-item.think .tl-head { color: var(--ink-2); font-weight: 500; }
+.tl-item.tool .tl-head { color: var(--brand-dk); }
+.tl-item.res .tl-head { color: var(--ok); }
+.tl-sub { color: var(--ink-2); }
+.tl-sub .mono { font-family: var(--mono); font-size: 11.5px; color: var(--ink); margin-right: 6px; }
+.tl-uri {
+  display: inline-block; font-family: var(--mono); font-size: 11px; background: #f1f5f9;
+  border-radius: 5px; padding: 1px 7px; margin: 3px 0 2px; color: #475569;
+}
+.tl-data { margin: 4px 0 2px; font-family: var(--mono); font-size: 11px; color: #475569; background: #f8fafc; border-radius: 6px; padding: 6px 9px; white-space: pre-wrap; word-break: break-word; }
+.ab-answer { background: var(--panel); margin-top: 8px; padding: 10px 12px; border: 1px dashed var(--brand-dk); border-radius: 10px; font-size: 13.5px; white-space: pre-wrap; word-break: break-word; opacity: 1; transition: opacity .2s; }
+.ab-answer.hidden { display: none; }
+.cursor::after { content: "▍"; color: var(--brand); animation: blink 1s infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+.ab-tail { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 10px; }
+.text-card { padding: 8px 12px; border: 1px solid var(--line); border-radius: 10px; background: #fff; font-size: 12.5px; }
+
+/* ----- 右侧信息面板 ----- */
+.cx-side {
+  width: 330px; min-width: 330px; background: var(--panel); border-left: 1px solid var(--line);
+  height: 100%; overflow-y: auto; display: flex; flex-direction: column; gap: 12px; padding: 14px;
+}
+.panel-title { font-size: 11px; color: var(--ink-2); font-weight: 700; letter-spacing: .8px; display: flex; align-items: center; gap: 6px; }
+.kv { display: grid; grid-template-columns: 74px 1fr; gap: 7px 10px; font-size: 12.5px; }
+.kv dt { color: var(--ink-2); }
+.kv dd { color: var(--ink); word-break: break-all; }
+.tool-card { border: 1px solid var(--line); border-radius: 10px; background: var(--bg); padding: 10px 12px; }
+.tool-card h5 { font-size: 12.5px; margin-bottom: 6px; display: flex; gap: 6px; align-items: center; }
+.tool-card .kv { font-size: 12px; }
+.tool-card .kv dt { color: var(--ink-2); }
+.stepflow { display: flex; flex-direction: column; gap: 2px; }
+.step { display: flex; gap: 10px; align-items: flex-start; opacity: .45; }
+.step .idx {
+  width: 20px; height: 20px; border-radius: 50%; border: 2px solid var(--line);
+  display: flex; align-items: center; justify-content: center; font-size: 11px;
+  color: var(--ink-2); background: #fff; flex-shrink: 0; margin-top: 1px;
+}
+.step .desc { font-size: 12.5px; color: var(--ink-2); }
+.step.done { opacity: 1; }
+.step.done .idx { background: var(--ok); border-color: var(--ok); color: #fff; }
+.step.done .desc { color: var(--ink); font-weight: 600; }
+.step.active { opacity: 1; }
+.step.active .idx { border-color: var(--brand); color: var(--brand-dk); background: var(--chip); animation: pulse 1.4s infinite; }
+.step.active .desc { color: var(--brand-dk); }
+@keyframes pulse { 50% { opacity: .55; } }
+
+/* 输入区 */
+.cx-input { border-top: 1px solid var(--line); background: var(--panel); padding: 10px 14px 12px; }
+.quick { display: flex; gap: 6px; overflow-x: auto; padding-bottom: 8px; }
+.quick button {
+  border: 1px solid var(--line); background: #fff; border-radius: 16px;
+  padding: 4px 11px; font-size: 12px; color: var(--ink-2); white-space: nowrap;
+}
+.quick button:hover { border-color: var(--brand); color: var(--brand-dk); }
+.input-row { display: flex; gap: 8px; align-items: flex-end; }
+.input-row textarea {
+  flex: 1; resize: none; border: 1px solid var(--line); border-radius: 10px;
+  padding: 9px 12px; min-height: 42px; max-height: 140px; outline: none;
+}
+.input-row textarea:focus { border-color: var(--brand); }
+.send-btn { background: var(--brand); color: #fff; border: 0; border-radius: 10px; padding: 10px 18px; font-weight: 600; }
+.send-btn:disabled { background: #93c5fd; cursor: not-allowed; }
+.mode-row { display: flex; align-items: center; gap: 10px; margin-top: 8px; font-size: 12px; color: var(--ink-2); }
+.mode-row label { display: flex; gap: 4px; align-items: center; cursor: pointer; margin-right: 8px; }
+
+/* ============================================================
+   工单看板
+   ============================================================ */
+.board-head { display: flex; align-items: center; gap: 10px; padding: 14px 18px; border-bottom: 1px solid var(--line); background: var(--panel); }
+.board-head h2 { font-size: 16px; flex: 1; }
+.board-col-wrap { flex: 1; display: flex; gap: 14px; padding: 16px; overflow-x: auto; }
+.board-col {
+  width: 260px; min-width: 260px; background: #f1f5f9; border-radius: 12px;
+  display: flex; flex-direction: column; max-height: 100%;
+}
+.board-col .col-head { padding: 10px 12px; font-weight: 600; font-size: 13px; display: flex; gap: 6px; align-items: center; }
+.board-col .col-head .n { font-size: 11px; background: #e2e8f0; border-radius: 20px; padding: 0 8px; }
+.board-col .col-body { padding: 0 10px 10px; overflow-y: auto; display: flex; flex-direction: column; gap: 8px; }
+.tk-card {
+  background: #fff; border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; cursor: pointer;
+  box-shadow: 0 1px 2px #00000006;
+}
+.tk-card:hover { border-color: var(--brand); }
+.tk-card .id { font-family: var(--mono); font-size: 11px; color: var(--ink-2); }
+.tk-card .q { font-size: 12.5px; margin: 4px 0 6px; }
+.tk-card .row { display: flex; gap: 5px; flex-wrap: wrap; }
+.tk-detail { padding: 16px; background: var(--panel); border-top: 1px solid var(--line); overflow-y: auto; }
+.tk-detail .kv { grid-template-columns: 90px 1fr; }
+.tk-detail h3 { margin-bottom: 12px; }
+
+/* ============================================================
+   数据分析
+   ============================================================ */
+.kpi-wrap { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 14px; padding: 16px; }
+.kpi { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 14px 16px; }
+.kpi .lbl { font-size: 12px; color: var(--ink-2); }
+.kpi .val { font-size: 24px; font-weight: 700; margin-top: 4px; }
+.kpi .sub { font-size: 11px; color: var(--ink-2); margin-top: 2px; }
+.kpi .val.good { color: var(--ok); }
+.kpi .val.warn { color: var(--warn); }
+.kpi .val.bad { color: var(--bad); }
+.panel-row { display: flex; gap: 14px; padding: 0 16px 16px; flex: 1; min-height: 0; }
+.panel-box { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; flex: 1; display: flex; flex-direction: column; min-height: 0; overflow-y: auto; }
+.panel-box .pb-head { padding: 12px 16px; border-bottom: 1px solid var(--line); font-weight: 600; display: flex; align-items: center; gap: 8px; }
+.panel-box .pb-body { padding: 14px 16px; overflow-y: auto; }
+.pb-head .src { font-size: 10.5px; color: var(--ok); padding: 1px 8px; border-radius: 20px; background: #dcfce7; }
+.pb-head .src.demo { background: #fef3c7; color: var(--warn); }
+.metrics-table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+.metrics-table th, .metrics-table td { text-align: left; padding: 6px 8px; border-bottom: 1px solid #f1f5f9; }
+.metrics-table th { color: var(--ink-2); font-weight: 600; font-size: 11.5px; }
+.bar-row { display: grid; grid-template-columns: 120px 1fr 50px; gap: 8px; align-items: center; font-size: 12px; padding: 4px 0; }
+.bar-track { background: #f1f5f9; border-radius: 6px; height: 10px; }
+.bar-fill { height: 10px; border-radius: 6px; background: linear-gradient(90deg, var(--brand), #60a5fa); }
+
+/* ============================================================
+   客户库 / 知识库
+   ============================================================ */
+.tbl-wrap { flex: 1; padding: 16px; overflow-y: auto; }
+table.tbl { width: 100%; border-collapse: collapse; background: var(--panel); border-radius: 12px; overflow: hidden; font-size: 12.5px; }
+.tbl th { text-align: left; padding: 10px 14px; background: #f8fafc; color: var(--ink-2); font-size: 11.5px; border-bottom: 1px solid var(--line); }
+.tbl td { padding: 9px 14px; border-bottom: 1px solid #f1f5f9; }
+.tbl tr:hover td { background: #f8fafc; }
+.tbl .act { color: var(--brand); cursor: pointer; }
+.kb-toolbar { padding: 16px 16px 0; display: flex; gap: 10px; }
+.kb-toolbar input { flex: 1; border: 1px solid var(--line); border-radius: 10px; padding: 9px 14px; }
+.kb-cols { flex: 1; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 14px; padding: 16px; overflow-y: auto; }
+.kb-item { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; }
+.kb-item h5 { font-size: 13px; margin-bottom: 4px; }
+.kb-item .cat { font-family: var(--mono); font-size: 10.5px; color: var(--brand-dk); background: var(--chip); padding: 1px 8px; border-radius: 20px; }
+.kb-item p { font-size: 12.5px; color: var(--ink-2); margin-top: 6px; }
+.kb-item .kw { font-size: 11px; color: #94a3b8; margin-top: 6px; }
+
+/* ============================================================
+   关于
+   ============================================================ */
+.about-wrap { padding: 18px; overflow-y: auto; display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.about-box { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 16px; }
+.about-box.wide { grid-column: 1 / -1; }
+.about-box h3 { font-size: 14px; margin-bottom: 10px; }
+.about-box .kv { font-size: 12.5px; }
+.mono { font-family: var(--mono); }
+.text-sm { font-size: 12px; color: var(--ink-2); }
+.scroll-y { overflow-y: auto; }
+
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+</style>
+</head>
+<body>
+<header>
+  <div class="brand">客服工单系统<span class="sub">阶段一 · Single-Agent 工作台</span></div>
+  <nav id="nav">
+    <button data-view="workbench" class="active">工作台</button>
+    <button data-view="board">工单看板</button>
+    <button data-view="analytics">数据分析</button>
+    <button data-view="customers">客户库</button>
+    <button data-view="kb">知识库</button>
+    <button data-view="about">关于</button>
+  </nav>
+  <div class="conn">
+    <span class="dot" id="conn-dot"></span>
+    <span id="conn-txt">检测后端…</span>
+    <span class="url" id="conn-url"></span>
+  </div>
+</header>
+
+<main>
+<!-- ============ 工作台 ============ -->
+<section id="view-workbench" class="view active">
+  <!-- 会话列表 -->
+  <aside class="cx-list">
+    <div class="cx-toolbar">
+      <input class="search" id="cx-search" placeholder="搜索用户 / 订单号" />
+      <button class="new" id="btn-new-chat">＋ 新会话</button>
+    </div>
+    <div class="cx-status-tabs" id="cx-status-tabs">
+      <button data-st="all" class="active">全部</button>
+      <button data-st="ai">AI 处理中</button>
+      <button data-st="transfer">待转人工</button>
+      <button data-st="resolved">已解决</button>
+    </div>
+    <div class="cx-scroll" id="cx-list"></div>
+  </aside>
+
+  <!-- 对话 -->
+  <div class="cx-chat">
+    <div class="chat-top">
+      <span class="title" id="chat-title">请选择或新建一个会话</span>
+      <span class="st" id="chat-status"></span>
+      <div class="ops">
+        <button class="op-btn" id="btn-transfer"><span class="badge b-transfer" style="background:none;padding:0;font-size:11px;color:#7c3aed;">转人工</span></button>
+        <button class="op-btn" id="btn-done"><span class="badge b-resolved" style="background:none;padding:0;font-size:11px;color:#16a34a;">完成</span></button>
+      </div>
+    </div>
+    <div id="cx-messages"></div>
+    <div class="cx-input">
+      <div class="quick" id="quick-list"></div>
+      <div class="input-row">
+        <textarea id="query-input" rows="1" placeholder="输入提问，例如：帮我查一下订单 2024010100001 的物流状态"></textarea>
+        <button class="send-btn" id="btn-send">发送</button>
+      </div>
+      <div class="mode-row">
+        <label><input type="radio" name="mode" value="stream" checked /> 流式（SSE）</label>
+        <label><input type="radio" name="mode" value="complete" /> 完整（一次性）</label>
+        <span id="mode-hint"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 右侧信息面板 -->
+  <aside class="cx-side">
+    <div>
+      <div class="panel-title">客户信息</div>
+      <div class="tool-card" style="margin-top:8px;">
+        <div class="kv">
+          <dt>用户</dt><dd id="si-user">—</dd>
+          <dt>最近订单</dt><dd id="si-order">—</dd>
+          <dt>状态</dt><dd id="si-order-status">—</dd>
+          <dt>物流</dt><dd id="si-logistics">—</dd>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="panel-title">Agent 处理流程</div>
+      <div class="stepflow" style="margin-top:8px;" id="stepflow">
+        <div class="step" data-k="1"><span class="idx">1</span><div class="desc">意图识别</div></div>
+        <div class="step" data-k="2"><span class="idx">2</span><div class="desc">参数提取</div></div>
+        <div class="step" data-k="3"><span class="idx">3</span><div class="desc">订单/物流查询</div></div>
+        <div class="step" data-k="4"><span class="idx">4</span><div class="desc">知识库检索</div></div>
+        <div class="step" data-k="5"><span class="idx">5</span><div class="desc">答复生成</div></div>
+      </div>
+    </div>
+    <div>
+      <div class="panel-title">运行指标 · v2 口径</div>
+      <div class="tool-card" style="margin-top:8px;">
+        <div class="kv" id="si-metrics">
+          <dt>终态</dt><dd id="si-status">—</dd>
+          <dt>停止原因</dt><dd id="si-stop">—</dd>
+          <dt>E2E</dt><dd id="si-e2e">—</dd>
+          <dt>首片段</dt><dd id="si-first">—</dd>
+          <dt>Token</dt><dd id="si-token">—</dd>
+          <dt>用量来源</dt><dd id="si-usage-src">—</dd>
+          <dt>证据类型</dt><dd id="si-evidence">—</dd>
+        </div>
+      </div>
+    </div>
+  </aside>
+</section>
+
+<!-- ============ 工单看板 ============ -->
+<section id="view-board" class="view">
+  <div class="board-head">
+    <h2>工单看板</h2>
+    <span class="text-sm">状态流转对齐 <code style="white-space:nowrap;">docs/01-business-requirements.md</code> 状态图 · 卡片为 UI 演示数据</span>
+    <span class="badge demo">演示</span>
+    <button class="op-btn" id="btn-board-sync">同步已办会话</button>
+  </div>
+  <div class="board-col-wrap" id="board-cols"></div>
+  <div class="tk-detail" id="tk-detail" style="display:none;"></div>
+</section>
+
+<!-- ============ 数据分析 ============ -->
+<section id="view-analytics" class="view">
+  <div class="kpi-wrap" id="kpi-grid"></div>
+  <div class="panel-row">
+    <div class="panel-box">
+      <div class="pb-head">SLO 达标对照 <span class="src demo">口径固定 · 演示</span></div>
+      <div class="pb-body" id="slo-table"></div>
+    </div>
+    <div class="panel-box">
+      <div class="pb-head">E2E 分布（P50/P90 演示） <span class="src demo">演示</span></div>
+      <div class="pb-body" id="e2e-chart"></div>
+    </div>
+    <div class="panel-box">
+      <div class="pb-head">实时终态计数 <span class="src" id="src-real">来自 /metrics</span></div>
+      <div class="pb-body" id="real-metrics"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 客户库 ============ -->
+<section id="view-customers" class="view">
+  <div class="tbl-wrap">
+    <table class="tbl">
+      <thead><tr>
+        <th>用户</th><th>最近订单</th><th>工单编号</th><th>提问</th><th>难度</th><th>操作</th>
+      </tr></thead>
+      <tbody id="customer-tbody"></tbody>
+    </table>
+    <p class="text-sm" style="margin-top:10px;">数据取样自共享数据集 <code class="mono">test-data/tickets.json</code>，点击「对话」会把该提问送入真实 Agent 运行。</p>
+  </div>
+</section>
+
+<!-- ============ 知识库 ============ -->
+<section id="view-kb" class="view">
+  <div class="kb-toolbar">
+    <input id="kb-query" placeholder="输入问题发起检索（触发 search_knowledge 真实调用），如：如何申请退货" />
+    <button class="send-btn" id="btn-kb-search">检索</button>
+    <span class="text-sm" style="align-self:center;">文档快照来自共享数据集 <code class="mono">test-data/knowledge-base/</code></span>
+  </div>
+  <div class="kb-cols" id="kb-cols"></div>
+</section>
+
+<!-- ============ 关于 ============ -->
+<section id="view-about" class="view">
+  <div class="about-wrap">
+    <div class="about-box">
+      <h3>后端连接</h3>
+      <div class="kv">
+        <dt>服务</dt><dd id="ab-health">—</dd>
+        <dt>版本</dt><dd id="ab-version">—</dd>
+        <dt>指纹</dt><dd id="ab-fingerprint" class="mono">—</dd>
+        <dt>文档</dt><dd><a id="ab-docs" href="#">/docs</a></dd>
+      </div>
+    </div>
+    <div class="about-box">
+      <h3>工具 → Java 微服务映射</h3>
+      <div class="kv" id="ab-tools"></div>
+      <p class="text-sm" style="margin-top:8px;">当前阶段一工具实际读本地 SQLite；REST 网关由 <code class="mono">java-order-logistics</code> 提供，供后续阶段替换。</p>
+    </div>
+    <div class="about-box">
+      <h3>指标口径（v2）</h3>
+      <ul class="text-sm" style="padding-left:18px;">
+        <li><code class="mono">ttft_ms / tpot_ms</code> 仅在具备 token 级时间证据时填写，本期置空。</li>
+        <li><code class="mono">first_answer_ms / chunk_intervals_ms</code> 片段级实测，本期必测。</li>
+        <li>每次运行随响应返回 <code class="mono">status / stop_reason</code> 终态，评测以终态判定。</li>
+        <li>用量 <code class="mono">usage_source</code> ∈ reported / estimated / missing / mixed。</li>
+        <li>证据 <code class="mono">evidence_kind</code> ∈ mock / provider_stream / replay / non_stream。</li>
+      </ul>
+    </div>
+    <div class="about-box wide">
+      <h3>SLO 目标分档（课程性能指标口径）</h3>
+      <div id="ab-slo"></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<script>
+"use strict";
+/* ============================================================
+   客服工单系统前端 JS —— 数据来源约定：
+   - 标注「演示」：UI 示意，非实测结果；
+   - 对话 / metrics / health / version：实时来自所连后端。
+   ============================================================ */
+
+/* ---------- 基础工具 ---------- */
+const $ = (sel, root) => (root || document).querySelector(sel);
+const $$ = (sel, root) => Array.from((root || document).querySelectorAll(sel));
+const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) =>
+  ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const fmtMs = (ms) => (ms == null ? "—" : ms < 1000 ? ms + " ms" : (ms / 1000).toFixed(2) + " s");
+const nowTime = () => new Date().toLocaleTimeString("zh-CN", { hour12: false });
+
+/* ---------- 后端连接（可覆盖） ---------- */
+const DEFAULT_BASE = (location.protocol === "file:")
+  ? "http://localhost:8000"
+  : location.origin;
+let BASE = DEFAULT_BASE;
+const hdr = () => ({ "Content-Type": "application/json" });
+
+/* 工具 → Java 微服务 REST 映射（对齐 java-order-logistics 网关约定） */
+const TOOL_URI = {
+  query_order:      (a) => "GET /api/orders/" + (a.order_id ?? "?"),
+  query_logistics:  (a) => a.tracking_no
+    ? "GET /api/logistics/" + a.tracking_no
+    : "GET /api/logistics/order/" + (a.order_id ?? "?"),
+  search_knowledge: (a) => "GET /api/kb/search?q=" + encodeURIComponent(a.query ?? a.query_text ?? ""),
+};
+
+/* ---------- 演示数据（UI 示意） ---------- */
+const DEMO = {
+  conversations: [
+    { id: "c1", person: "张三", order: "2024010100001", time: "09:12", unread: 1, priority: "urgent",
+      status: "transfer", preview: "我的订单 2024010100001 现在到哪了？" },
+    { id: "c2", person: "李四", order: "2024010100002", time: "09:05", unread: 0, priority: "high",
+      status: "ai", preview: "帮我查一下订单 2024010100002 的物流状态" },
+    { id: "c3", person: "王五", order: "",           time: "昨天", unread: 0, priority: "normal",
+      status: "resolved", preview: "那个东西到哪了（模糊提问 → 引导澄清）" },
+    { id: "c4", person: "赵六", order: "",           time: "昨天", unread: 0, priority: "normal",
+      status: "resolved", preview: "如何申请退款？" },
+  ],
+  tickets: [ // 来自共享数据集真实工单（用于客户库与快捷示例）
+    { ui: "user_1001", tid: "T00001", d: "easy",   q: "我的订单 2024010100001 现在到哪了？" },
+    { ui: "user_1002", tid: "T00002", d: "easy",   q: "帮我查一下订单 2024010100002 的物流状态" },
+    { ui: "user_1003", tid: "M001",   d: "hard",   q: "那个东西到哪了" },
+    { ui: "user_1004", tid: "X003",   d: "medium", q: "如何申请退款？" },
+    { ui: "user_1005", tid: "X004",   d: "medium", q: "商品有质量问题，我要退货。" },
+    { ui: "user_1006", tid: "E·异常",  d: "异常",   q: "帮我看下订单 2024010100123 到哪了" },
+  ],
+  quick: [
+    "查一下我的订单 2024010100001 到哪了",
+    "2024010100002 的物流状态",
+    "查一下订单 2024010100123 怎么样了",
+    "那个东西到哪了",
+    "如何申请退货",
+  ],
+  board: [
+    { id: "SW-2201", q: "订单 2024010100001 物流咨询",   pri: "urgent",  src: "Web",  st: "todo",   sla: "剩余 18 分钟" },
+    { id: "SW-2202", q: "退货流程咨询",                  pri: "normal",  src: "App",   st: "todo",   sla: "剩余 46 分钟" },
+    { id: "SW-2119", q: "订单 2024010100002 状态询问",   pri: "high",    src: "Web",   st: "ai",     sla: "AI 处理中 · 自动回复" },
+    { id: "SW-2113", q: "身份证号涉及隐私担忧",          pri: "high",    src: "API",   st: "human",  sla: "人工处理中" },
+    { id: "SW-2102", q: "模糊提问 → 引导补充订单号",     pri: "normal",  src: "Web",   st: "clarify", sla: "待澄清" },
+    { id: "SW-2088", q: "查询我上个订单到哪了",          pri: "normal",  src: "App",   st: "done",   sla: "已自动回复并关闭" },
+    { id: "SW-2071", q: "可以退换货吗",                  pri: "urgent",  src: "App",   st: "human",  sla: "人工处理中" },
+    { id: "SW-2055", q: "退款到账时间询问",              pri: "normal",  src: "Web",   st: "done",   sla: "已自动回复并关闭" },
+  ],
+  kpi: [
+    { lbl: "E2E 时延 (P90)", val: "3.2s",  sub: "目标 ≤ 5s（本机）", cls: "good" },
+    { lbl: "首片段 (P90)",   val: "0.9s",  sub: "first_answer_ms",  cls: "good" },
+    { lbl: "业务完成率",     val: "96.4%", sub: "终态 status=completed", cls: "good" },
+    { lbl: "人工转接率",     val: "9.8%",  sub: "目标 ≤ 20%",        cls: "good" },
+    { lbl: "单均 Token",     val: "214",   sub: "含失败业务浪费",    cls: "normal" },
+    { lbl: "成本节省率",     val: "72%",   sub: "目标 ≥ 60%",        cls: "good" },
+  ],
+  e2e: [
+    { k: "P50", v: 1.6 }, { k: "P90", v: 3.2 }, { k: "P99", v: 6.4 },
+  ],
+};
+
+const BOARD_COLS = [
+  { k: "todo",    t: "待处理",    color: "#64748b" },
+  { k: "ai",      t: "AI 处理中", color: "#2563eb" },
+  { k: "clarify", t: "待澄清",    color: "#d97706" },
+  { k: "human",   t: "人工处理中",color: "#7c3aed" },
+  { k: "done",    t: "已解决",    color: "#16a34a" },
+  { k: "closed",  t: "已关闭",    color: "#94a3b8" },
+];
+
+const SLO_COLS = [
+  ["指标", "生产", "实验室", "本机校准"],
+  ["TTFT (P90)", "≤ 2s", "≤ 1.5s", "≤ 1s"],
+  ["TPOT (P90)", "≤ 100ms", "≤ 80ms", "≤ 50ms"],
+  ["E2E (P90)", "≤ 15s", "≤ 10s", "≤ 5s"],
+  ["工具准确率", "≥ 90%", "≥ 95%", "≥ 98%"],
+  ["结果合格率", "≥ 85%", "≥ 90%", "≥ 95%"],
+  ["错误率", "≤ 1%", "≤ 0.5%", "—"],
+  ["超时率", "≤ 2%", "≤ 1%", "—"],
+  ["人工转接率", "≤ 20%", "≤ 15%", "—"],
+  ["成本节省率", "≥ 60%", "≥ 70%", "—"],
+];
+
+/* ---------- 运行时状态 ---------- */
+let RUNNING = false;
+let currentConv = null;
+const realConv = []; // 本次会话内真实运行历史 → 可同步进看板
+let metricsWindow = []; // 真实 e2e 采样
+
+/* ---------- Agent 信息 ---------- */
+const UNIFIED_STEPS = [
+  { k: "1", t: "意图识别" },
+  { k: "2", t: "参数提取" },
+  { k: "3", t: "订单/物流查询" },
+  { k: "4", t: "知识库检索" },
+  { k: "5", t: "答复生成" },
+];
+
+function stepSet(k, state) {
+  $$("#stepflow .step").forEach((el) => {
+    if (el.dataset.k === k) {
+      el.classList.toggle("done", state === "done");
+      el.classList.toggle("active", state === "active");
+    }
+  });
+}
+function stepReset() {
+  $$("#stepflow .step").forEach((el) => {
+    el.classList.remove("done", "active");
+    const k = el.dataset.k;
+    if (k === "1") el.classList.add("active");
+  });
+}
+
+/* ---------- 后端 API ---------- */
+async function checkHealth() {
+  const dot = $("#conn-dot"), txt = $("#conn-txt");
+  const url = $("#conn-url");
+  dot.className = "dot down"; txt.textContent = "后端未连接"; url.textContent = BASE;
+  try {
+    const r = await fetch(BASE + "/health");
+    const j = await r.json();
+    if (j && j.status === "ok") {
+      dot.className = "dot up";
+      txt.textContent = "后端已连接 · " + (j.mode || "running");
+      $("#mode-hint").textContent = "";
+      return true;
+    }
+    return false;
+  } catch (e) {
+    dot.className = "dot down"; txt.textContent = "后端未连接";
+    return false;
+  }
+}
+
+async function loadVersion() {
+  try {
+    const r = await fetch(BASE + "/version");
+    const j = await r.json();
+    $("#ab-health").textContent = "ok · " + (j.name || "");
+    $("#ab-version").textContent = j.version || "—";
+    $("#ab-fingerprint").textContent = (j.fingerprint || "—").slice(0, 40);
+    $("#ab-docs").href = BASE + "/docs";
+  } catch (e) {
+    $("#ab-health").textContent = "未连接";
+  }
+}
+
+async function loadRealMetrics() {
+  try {
+    const r = await fetch(BASE + "/metrics");
+    const text = await r.text();
+    renderRealMetrics(parseProm(text));
+    $("#src-real").textContent = "来自 /metrics · " + nowTime();
+  } catch (e) {
+    $("#real-metrics").innerHTML = '<p class="text-sm">后端未连接，无法获取实时指标。</p>';
+  }
+}
+
+function parseProm(text) {
+  const counters = {}, hist = {};
+  const reC = /^agent_run_terminal_total\{([^}]*)\}\s+([\d.]+)/m;
+  for (const m of text.matchAll(/^agent_run_terminal_total\{([^}]*)\}\s+([\d.]+)/gm)) {
+    const label = m[1].replace(/\s/g, "");
+    counters[label] = Number(m[2]);
+  }
+  let buckets = [], sum = 0, count = 0;
+  for (const m of text.matchAll(/^agent_e2e_latency_seconds_bucket\{([^}]*)\}\s+([\d.]+)/gm)) {
+    const le = /le="([^"]*)"/.exec(m[1]);
+    const val = Number(m[2]);
+    if (le) {
+      const L = le[1] === "+Inf" ? "Inf" : le[1];
+      buckets.push({ le: L, n: val });
+    }
+  }
+  const mSum = /^agent_e2e_latency_seconds_sum\{[^}]*\}\s+([\d.]+)/m.exec(text);
+  const mCnt = /^agent_e2e_latency_seconds_count\{[^}]*\}\s+([\d.]+)/m.exec(text);
+  sum = mSum ? Number(mSum[1]) : 0;
+  count = mCnt ? Number(mCnt[1]) : 0;
+  return { counters, hist: { buckets, sum, count } };
+}
+
+function renderRealMetrics({ counters, hist }) {
+  const box = $("#real-metrics");
+  const rows = Object.keys(counters).sort().map((k) => {
+    const [st, sr] = k.split(",").map((x) => x.split("=")[1].replace(/"/g, ""));
+    return `<tr><td><span class="badge b-${st === "completed" ? "resolved" : "transfer"}">${esc(st)}</span></td>
+            <td class="mono">${esc(sr)}</td><td>${counters[k]}</td></tr>`;
+  });
+  const cnt = hist.count, avg = cnt ? (hist.sum / cnt).toFixed(3) : "—";
+  const bk = hist.buckets.map((b) =>
+    `<div class="bar-row"><span>≤ ${esc(b.le)}s</span>
+      <div class="bar-track"><div class="bar-fill" style="width:${Math.min(100, (b.n / (cnt || 1)) * 100)}%"></div></div>
+      <span>${b.n}</span></div>`).join("");
+  box.innerHTML =
+    `<table class="metrics-table"><thead><tr><th>终态</th><th>stop_reason</th><th>次数</th></tr></thead>
+     <tbody>${rows.length ? rows.join("") : '<tr><td colspan="3" class="text-sm">暂无运行样本</td></tr>'}</tbody></table>
+     <div style="height:10px"></div>
+     <div style="font-weight:600;font-size:12px;margin:6px 0 4px;">agent_e2e_latency_seconds</div>
+     <div class="text-sm" style="margin-bottom:6px;">计数 ${cnt} · 累计 ${hist.sum.toFixed(2)}s · 均值 ${avg}s</div>
+     ${bk}`;
+}
+
+/* ---------- SSE 流式对话 ---------- */
+function streamChat(payload, handlers) {
+  return fetch(BASE + "/api/v1/chat/stream", {
+    method: "POST", headers: hdr(), body: JSON.stringify(payload),
+  }).then(async (res) => {
+    if (!res.ok || !res.body) throw new Error("HTTP " + res.status);
+    const reader = res.body.getReader();
+    const decoder = new TextDecoder("utf-8");
+    let buf = "";
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      buf += decoder.decode(value, { stream: true });
+      const idx = buf.indexOf("\n\n");
+      while (idx >= 0) {
+        const raw = buf.slice(0, idx);
+        buf = buf.slice(idx + 2);
+        const line = raw.split("\n").find((l) => l.startsWith("data:"));
+        if (line) {
+          try { handlers.onMessage(JSON.parse(line.slice(5).trim())); }
+          catch (e) { /* 忽略无法解析的碎片 */ }
+        }
+      }
+    }
+  });
+}
+
+async function completeChat(payload) {
+  const r = await fetch(BASE + "/api/v1/chat/complete", {
+    method: "POST", headers: hdr(), body: JSON.stringify(payload),
+  });
+  if (!r.ok) throw new Error("HTTP " + r.status);
+  return await r.json();
+}
+
+/* ---------- 工作台：消息与 Agent 块渲染 ---------- */
+const msgBox = () => $("#cx-messages");
+const META = {
+  intent: { label: "处理过程", cls: "b-ai" },
+  status: { completed: { t: "业务完成", cls: "b-resolved" },
+            error:    { t: "运行异常", cls: "b-transfer" } },
+};
+
+function addMsg(role, html, cls) {
+  const el = document.createElement("div");
+  el.className = "msg " + role + (cls ? " " + cls : "");
+  el.innerHTML = html;
+  msgBox().appendChild(el);
+  msgBox().scrollTop = msgBox().scrollHeight;
+  return el;
+}
+function userBubble(text) {
+  return addMsg("user",
+    `<div class="bubble">${esc(text)}</div><div class="meta">${nowTime()} · 用户</div>`, "u-" + Date.now());
+}
+function emptyAgent() {
+  return addMsg("agent",
+    `<div class="ab">
+       <div class="ab-box">
+         <div class="ab-kind">
+           <span class="ttl">AI 客服助手</span>
+           <span class="chip2">运行中…</span>
+           <div class="ab-intent"></div>
+         </div>
+         <div class="ab-body">
+           <button class="ab-proc-toggle">▸ 处理过程（事件日志）</button>
+           <div class="tl"></div>
+           <div class="ab-answer hidden"></div>
+           <div class="ab-tail"></div>
+         </div>
+       </div>
+     </div>`, "a-" + Date.now());
+}
+function fmtArgs(args) {
+  try { return JSON.stringify(args, null, 1); } catch (e) { return String(args); }
+}
+function tlItem(type, html) {
+  const cl = type === "thinking" ? "think" : type === "tool_call" ? "tool" : "res";
+  return `<div class="tl-item ${cl}">${html}</div>`;
+}
+
+/* 单条消息事件处理（贯穿流式与完整两种模式） */
+function handleRun(block, ctx) {
+  const ab = block.querySelector(".ab-box") || block,
+        kind = ab.querySelector(".ab-kind"),
+        toggle = ab.querySelector(".ab-proc-toggle"),
+        tl = ab.querySelector(".tl"),
+        answer = ab.querySelector(".ab-answer"),
+        tail = ab.querySelector(".ab-tail");
+  let intentEl = kind.querySelector(".ab-intent");
+
+  let R = { intent: null, status: null, stop_reason: null, metrics: null, toolCalls: [] };
+
+  const setKind = (txt, cls) => {
+    kind.innerHTML =
+      `<span class="ttl">AI 客服助手</span>
+       <span class="chip2 ${cls || ""}">${esc(txt)}</span>
+       <div class="ab-intent"></div>`;
+    intentEl = kind.querySelector(".ab-intent");
+  };
+
+  const onIntent = (intent) => {
+    R.intent = intent;
+    intentEl.innerHTML = `<span class="chip2">意图 · ${esc(intent || "unknown")}</span>`;
+    stepDone1(intent);
+  };
+  const stepDone1 = (intent) => {
+    stepSet("1", "done"); stepSet("2", "done");
+    stepSet("3", intent === "refund_policy" || intent === "knowledge_query" ? "pending" : "active");
+    stepSet("4", "pending"); stepSet("5", "pending");
+  };
+  const onThinking = (txt) => {
+    tl.insertAdjacentHTML("beforeend", tlItem("thinking",
+      `<div class="tl-head">🧠 LLM 思考</div><div class="tl-sub">${esc(txt || "")}</div>`));
+    tl.classList.add("open"); toggle.textContent = "▾ 处理过程（事件日志）";
+  };
+  const onToolCall = (tool, args) => {
+    R.toolCalls.push({ tool, args });
+    const uri = TOOL_URI[tool] ? TOOL_URI[tool](args || {}) : "—";
+    tl.insertAdjacentHTML("beforeend", tlItem("tool_call",
+      `<div class="tl-head">🔧 工具调用 · ${esc(tool)}</div>
+       <div class="tl-uri">${esc(uri)}</div>
+       <div class="tl-sub mono">args: ${esc(fmtArgs(args || {}))}</div>`));
+    tl.classList.add("open"); toggle.textContent = "▾ 处理过程（事件日志）";
+    if (tool === "query_order" || tool === "query_logistics") stepSet("3", "active");
+    if (tool === "search_knowledge") stepSet("4", "active");
+  };
+  const onToolResult = (tool, data, duration, found, error) => {
+    const item = tl.lastElementChild;
+    const ok = found && !error;
+    const icon = ok ? "✅" : error ? "⚠️" : "❌";
+    const sub = [];
+    if (duration != null) sub.push("耗时 " + fmtMs(duration));
+    if (error) sub.push("error: " + error);
+    if (ok && tool === "search_knowledge" && data) {
+      const docs = data.hits || data.docs || data.results || [];
+      sub.push("命中 " + docs.length + " 条");
+    }
+    tl.insertAdjacentHTML("beforeend", tlItem("tool_result",
+      `<div class="tl-head">${icon} 工具结果 · ${esc(tool)}</div>
+       <div class="tl-sub">${esc(sub.join(" · "))}</div>
+       <div class="tl-data">${esc(fmtArgs(data))}</div>`));
+    if (ok && tool === "query_order") {
+      stepSet("3", "done"); stepSet("4", "pending"); stepSet("5", "pending");
+      renderCustomerInfo("order", data);
+    } else if (ok && tool === "query_logistics") {
+      stepSet("3", "done"); stepSet("4", "pending");
+      renderCustomerInfo("logistics", data);
+    } else if (ok && tool === "search_knowledge") {
+      stepSet("4", "done"); stepSet("5", "active");
+    } else if (!ok) {
+      renderCustomerInfo("miss", data);
+    }
+  };
+  const onAnswer = (txt) => {
+    answer.classList.remove("hidden");
+    answer.classList.add("cursor");
+    answer.textContent += txt;
+    msgBox().scrollTop = msgBox().scrollHeight;
+  };
+  const onDone = (run) => {
+    R.status = run.status || "unknown";
+    R.stop_reason = run.stop_reason || "—";
+    R.metrics = run.metrics || {};
+    answer.classList.remove("cursor");
+    const st = META.status[R.status];
+    setKind(st ? st.t : R.status, st ? st.cls : "fail");
+    intentEl.innerHTML = `<span class="chip2" style="background:#e0e7ff;color:#3730a3;">intent · ${esc(R.intent || "—")}</span>`;
+
+    /* 终态徽标 */
+    tail.innerHTML = [
+      `<span class="text-card">status <b>${esc(R.status)}</b></span>`,
+      `<span class="text-card">stop_reason <b>${esc(R.stop_reason)}</b></span>`,
+      `<span class="text-card">E2E <b>${fmtMs(R.metrics.e2e_ms)}</b></span>`,
+      R.metrics.first_answer_ms != null ? `<span class="text-card">首片段 <b>${fmtMs(R.metrics.first_answer_ms)}</b></span>` : "",
+      `<span class="text-card">Token <b>${R.metrics.total_tokens ?? R.metrics.token_count ?? "—"}</b></span>`,
+      `<span class="text-card">工具调用 <b>${(run.trace && run.trace.tool_calls ? run.trace.tool_calls.length : R.toolCalls.length)}</b></span>`,
+      run.trace && run.trace.tool_calls ? `<span class="text-card">回合 <b>${run.trace.tool_calls.length || "—"}</b></span>` : "",
+      `<span class="text-card">用量来源 <b>${esc(R.metrics.usage_source || "—")}</b></span>`,
+      `<span class="text-card">证据类型 <b>${esc(R.metrics.evidence_kind || "—")}</b></span>`,
+    ].filter(Boolean).join("");
+
+    /* 右侧运行指标面板 */
+    $("#si-status").textContent = R.status;
+    $("#si-stop").textContent = R.stop_reason;
+    $("#si-e2e").textContent = fmtMs(R.metrics.e2e_ms);
+    $("#si-first").textContent = R.metrics.first_answer_ms != null ? fmtMs(R.metrics.first_answer_ms)
+      : R.metrics.ttft_ms != null ? "ttft " + fmtMs(R.metrics.ttft_ms) : "—";
+    $("#si-token").textContent = R.metrics.total_tokens ?? R.metrics.token_count ?? "—";
+    $("#si-usage-src").textContent = R.metrics.usage_source || "—";
+    $("#si-evidence").textContent = R.metrics.evidence_kind || "—";
+    stepSet("2", "done"); stepSet("3", "done"); stepSet("4", "done"); stepSet("5", "done");
+
+    /* 记录真实运行 → 同步看板 */
+    const conv = {
+      id: "RUN-" + Date.now(),
+      person: currentConv && currentConv.person ? currentConv.person : "user_" + Date.now(),
+      q: (ctx && ctx.q) || "",
+      st: R.status === "completed" ? "done" : "closed",
+      time: nowTime(),
+      pri: "high",
+    };
+    realConv.push(conv);
+  };
+
+  return { onIntent, onThinking, onToolCall, onToolResult, onAnswer, onDone, get: () => R };
+}
+
+/* 左侧会话列表 */
+function cxItemHtml(c) {
+  const pr = c.priority
+    ? ` <span class="badge pr-${c.priority}">${c.priority === "urgent" ? "紧急" : c.priority === "high" ? "高优" : ""}</span>` : "";
+  const stMap = { ai: "AI 处理中", transfer: "待转人工", resolved: "已解决", closed: "已关闭", done: "已解决" };
+  return `<div class="cx-item" data-id="${c.id}" data-st="${c.status}" data-q="${esc(c.preview)}">
+    <div class="row1">
+      <span class="person">${esc(c.person)}</span>
+      ${c.unread ? `<span class="badge">${c.unread} 未读</span>` : ""}
+      <span class="time">${esc(c.time)}</span>
+    </div>
+    <div class="preview">${esc(c.preview)}</div>
+    <div class="badges">
+      <span class="badge b-${c.status}">${stMap[c.status] || c.status}</span>${pr}
+      <span class="badge demo">演示</span>
+    </div>
+  </div>`;
+}
+function renderConvList() {
+  const st = ($("#cx-status-tabs .active") || {}).dataset && $("#cx-status-tabs .active").dataset.st;
+  const kw = ($("#cx-search").value || "").trim().toLowerCase();
+  let list = [...DEMO.conversations, ...realConv.map((c) => ({
+    id: c.id, person: c.person, order: "", time: c.time, unread: 0, priority: "normal",
+    status: c.st === "done" ? "resolved" : c.st, preview: c.q,
+  }))];
+  const last = realConv.map((c) => c.id);
+  list = list.filter((c) => {
+    if (st && st !== "all" && c.status !== st) return false;
+    if (kw) {
+      const hay = (c.person + c.preview + (c.order || "")).toLowerCase();
+      if (!hay.includes(kw)) return false;
+    }
+    return true;
+  });
+  $("#cx-list").innerHTML = list.map(cxItemHtml).join("");
+}
+function bindConvList() {
+  $$("#cx-list .cx-item").forEach((el) => {
+    el.addEventListener("click", () => {
+      $$("#cx-list .cx-item").forEach((x) => x.classList.remove("active"));
+      el.classList.add("active");
+      currentConv = {
+        id: el.dataset.id, person: el.querySelector(".person").textContent,
+        preview: el.dataset.q, status: el.dataset.st,
+      };
+      $("#chat-title").textContent = currentConv.person;
+      $("#chat-status").textContent = "会话 " + currentConv.id;
+    });
+  });
+}
+
+/* 客服信息面板（从工具结果衍生，真实） */
+function renderCustomerInfo(kind, data) {
+  if (kind === "order" && data && (data.order || data)) {
+    const o = data.order || data;
+    $("#si-user").textContent = currentConv && currentConv.person ? currentConv.person : "—";
+    if (o.order_id) {
+      $("#si-order").textContent = o.order_id;
+      $("#si-order-status").textContent = o.status || "—";
+      const t = o.tracking_no || o.trackingNo || "";
+      $("#si-logistics").textContent = t ? "已发货 · " + t : "—";
+    }
+  } else if (kind === "logistics" && data) {
+    const l = data.logistics || data;
+    if (l.tracking_no || l.trackingNo) {
+      $("#si-logistics").textContent =
+        (l.current_location || l.currentLocation || l.location || "—") + " · " +
+        (l.status || "—");
+    }
+  } else if (kind === "miss") {
+    $("#si-order-status").textContent = "not_found";
+    $("#si-logistics").textContent = "—";
+  }
+}
+
+/* 提交提问（stream / complete 两种模式） */
+function sendQuery(q, mode) {
+  if (!q || RUNNING) return;
+  RUNNING = true;
+  $("#btn-send").disabled = true;
+  stepReset();
+  userBubble(q);
+
+  const block = emptyAgent();
+  block.querySelector(".ab-proc-toggle").addEventListener("click", (e) => {
+    const tl = block.querySelector(".tl"), tog = e.currentTarget;
+    tl.classList.toggle("open");
+    tog.textContent = tl.classList.contains("open")
+      ? "▾ 处理过程（事件日志）" : "▸ 处理过程（事件日志）";
+  });
+  const run = handleRun(block, { q });
+  const payload = {
+    conversation_id: "web-" + Date.now(),
+    task_id: "fe-" + Date.now(),
+    user_query: q,
+    stream: mode === "stream",
+  };
+
+  const finish = (f) => {
+    RUNNING = false;
+    $("#btn-send").disabled = false;
+    msgBox().scrollTop = msgBox().scrollHeight;
+    renderConvList(); bindConvList();
+    metricsWindow = metricsWindow.slice(-50);
+    if (typeof f === "function") f();
+  };
+
+  const feed = (ev) => {
+    if (ev.type === "message") {
+      const d = ev.data || {};
+      if (d.type === "thinking") run.onThinking(d.content);
+      else if (d.type === "tool_call") run.onToolCall(d.tool || "tool", d.args);
+      else if (d.type === "tool_result") {
+        run.onToolResult(d.tool, d.data, d.duration_ms, d.found, d.error);
+      } else if (d.type === "answer") run.onAnswer(d.content || d.text || "");
+    } else if (ev.type === "done") {
+      run.onDone(ev.data || {});
+    }
+  };
+
+  const handleDoneEvent = (data) => {
+    const intent = (data.intent) || (data.trace && data.trace.intent);
+    if (intent) run.onIntent(intent);
+    const trace = (data.trace && data.trace.tool_calls) || [];
+    // 补渲染：终态里携带的 trace（完整模式一次到位）
+    for (const tc of trace) {
+      run.onToolCall(tc.tool || "tool", tc.args);
+      run.onToolResult(tc.tool, tc.data, tc.duration_ms, tc.found, tc.error);
+    }
+    const answers = data.response || data.answer || "";
+    if (answers && !block.querySelector(".ab-answer").textContent) run.onAnswer(answers);
+    run.onDone(data);
+  };
+
+  if (mode === "stream") {
+    streamChat(payload, {
+      onMessage: (raw) => {
+        // SSE data: 行即事件/终态本体；message 事件带 type，done 事件带 status
+        if (raw && raw.type) feed({ type: "message", data: raw });
+        else if (raw && (raw.status || raw.stop_reason)) feed({ type: "done", data: raw });
+      },
+    }).catch((e) => {
+      run.onDone({ status: "error", stop_reason: e.message, metrics: {} });
+    }).then(finish);
+  } else {
+    completeChat(payload).then((data) => {
+      handleDoneEvent(data);
+      metricsWindow.push({ t: nowTime(), e2e: (data.metrics && data.metrics.e2e_ms) || 0 });
+    }).catch((e) => {
+      run.onDone({ status: "error", stop_reason: e.message, metrics: {} });
+    }).then(finish);
+  }
+}
+
+/* ---------- 视图切换 ---------- */
+function switchView(name) {
+  $$(".view").forEach((v) => v.classList.toggle("active", v.id === "view-" + name));
+  $$("#nav button").forEach((b) => b.classList.toggle("active", b.dataset.view === name));
+  if (name === "workbench") { renderConvList(); bindConvList(); }
+  if (name === "board") renderBoard();
+  if (name === "analytics") { renderKPIs(); renderSLO(); renderE2E(); loadRealMetrics(); }
+  if (name === "customers") renderCustomers();
+  if (name === "kb") renderKB();
+  if (name === "about") { loadVersion(); renderTools(); renderSLOAbout(); }
+}
+
+/* ---------- 工单看板 ---------- */
+function renderBoard() {
+  const cols = $("#board-cols");
+  cols.innerHTML = BOARD_COLS.map((c) => {
+    const cards = DEMO.board.filter((b) => b.st === c.k);
+    return `<div class="board-col">
+      <div class="col-head" style="color:${c.color};">
+        <span>●</span> ${c.t} <span class="n">${cards.length}</span>
+      </div>
+      <div class="col-body">${cards.map((tk) => tkCard(tk)).join("") || '<p class="text-sm" style="padding:8px;">空</p>'}</div>
+    </div>`;
+  }).join("");
+  $$("#board-cols .tk-card").forEach((el) => {
+    el.addEventListener("click", () => {
+      const id = el.dataset.id;
+      const tk = [...DEMO.board, ...realConv.map((r) => ({
+        id: r.id, q: r.q, pri: r.pri, src: "Web", st: "done", sla: "已自动回复并关闭",
+      }))].find((x) => x.id === id);
+      const det = $("#tk-detail");
+      det.style.display = "block";
+      det.innerHTML = `<h3>${esc(tk.id)}</h3>
+        <div class="kv"><dt>提问</dt><dd>${esc(tk.q)}</dd>
+        <dt>优先级</dt><dd>${esc(tk.pri)}</dd>
+        <dt>来源</dt><dd>${esc(tk.src)}</dd>
+        <dt>SLA</dt><dd>${esc(tk.sla)}</dd>
+        <dt>状态列</dt><dd>${esc(BOARD_COLS.find((c) => c.k === tk.st)?.t || tk.st)}</dd></div>
+        <button class="op-btn" style="margin-top:12px" onclick="document.getElementById('tk-detail').style.display='none'">关闭</button>`;
+    });
+  });
+}
+function tkCard(tk) {
+  return `<div class="tk-card" data-id="${esc(tk.id)}">
+    <div class="id">${esc(tk.id)}</div>
+    <div class="q">${esc(tk.q)}</div>
+    <div class="row">
+      <span class="badge pr-${tk.pri}">${tk.pri === "urgent" ? "紧急" : tk.pri === "high" ? "高优" : "普通"}</span>
+      <span class="badge">${esc(tk.src)}</span>
+      <span class="badge demo">演示</span>
+    </div>
+  </div>`;
+}
+
+/* ---------- 数据分析 ---------- */
+function renderKPIs() {
+  $("#kpi-grid").innerHTML = DEMO.kpi.map((k) =>
+    `<div class="kpi"><div class="lbl">${esc(k.lbl)} <span class="badge demo">演示</span></div>
+     <div class="val ${k.cls}">${esc(k.val)}</div><div class="sub">${esc(k.sub)}</div></div>`).join("");
+}
+function renderSLO() {
+  $("#slo-table").innerHTML = tableHtml(SLO_COLS);
+}
+function renderE2E() {
+  const max = Math.max(...DEMO.e2e.map((x) => x.v));
+  $("#e2e-chart").innerHTML = DEMO.e2e.map((x) =>
+    `<div class="bar-row"><span>${esc(x.k)}</span>
+      <div class="bar-track"><div class="bar-fill" style="width:${(x.v / max) * 100}%"></div></div>
+      <span>${x.v}s</span></div>`).join("")
+    + '<p class="text-sm" style="margin-top:8px;">演示分布；真实 E2E 见左侧实时直方图与每次运行的终态指标。</p>';
+}
+function tableHtml(rows) {
+  const head = rows[0], body = rows.slice(1);
+  return `<table class="metrics-table">
+    <thead><tr>${head.map((h) => `<th>${esc(h)}</th>`).join("")}</tr></thead>
+    <tbody>${body.map((r) => `<tr>${r.map((c) => `<td>${esc(c)}</td>`).join("")}</tr>`).join("")}</tbody>
+  </table>`;
+}
+
+/* ---------- 客户库 ---------- */
+function renderCustomers() {
+  $("#customer-tbody").innerHTML = DEMO.tickets.map((t) => `
+    <tr>
+      <td>${esc(t.ui)}</td>
+      <td class="mono">${/(000000)/.test(t.q) ? t.q.match(/202401010000\d/)[0] : "—"}</td>
+      <td class="mono">${esc(t.tid)}</td>
+      <td>${esc(t.q)}</td>
+      <td>${esc(t.d)}</td>
+      <td><span class="act" data-q="${esc(t.q)}">对话 →</span></td>
+    </tr>`).join("");
+  $$("#customer-tbody .act").forEach((el) => {
+    el.addEventListener("click", () => {
+      switchView("workbench");
+      const q = el.dataset.q;
+      setTimeout(() => { $("#query-input").value = q; sendQuery(q, modeVal()); }, 50);
+    });
+  });
+}
+function modeVal() {
+  return document.querySelector('input[name="mode"]:checked').value;
+}
+
+/* ---------- 知识库 ---------- */
+const DEMO_KB = [
+  { cat: "faq",      title: "如何申请退货",          kw: ["退货", "申请退货"],       content: "退货流程：1. 订单详情页点击申请退货；2. 选择退货原因并提交；3. 审核通过后寄回；4. 收货后退款原路返回。" },
+  { cat: "faq",      title: "退款到账时间",          kw: ["退款", "到账"],           content: "退款在仓库确认收货后 1-3 个工作日原路退回，银行卡支付 2-5 个工作日。" },
+  { cat: "faq",      title: "客服联系电话",          kw: ["电话", "400"],             content: "官方客服电话 400-800-8000，服务时间 9:00-21:00，全年无休。" },
+  { cat: "products", title: "产品质保说明",          kw: ["质保", "产品"],           content: "商品质保期与保修范围以销售页面与发票为准，质量问题 15 天内可退换。" },
+  { cat: "policies", title: "售后服务政策",          kw: ["售后", "保修", "政策"],     content: "签收 7 天内无理由退换货，15 天内质量问题可退换，保修期内维修免费。" },
+  { cat: "policies", title: "隐私保护承诺",          kw: ["隐私", "安全"],           content: "平台对用户订单、物流与个人信息加密存储，绝不向第三方泄露。" },
+];
+function renderKB() {
+  $("#kb-cols").innerHTML = DEMO_KB.map((k) =>
+    `<div class="kb-item">
+      <h5>${esc(k.title)} <span class="cat">${esc(k.cat)}</span></h5>
+      <p>${esc(k.content)}</p>
+      <div class="kw">关键词：${k.kw.map((w) => " #" + esc(w)).join("")}</div>
+    </div>`).join("");
+}
+async function kbSearch(q) {
+  if (!q) return;
+  switchView("workbench");
+  setTimeout(() => { $("#query-input").value = q; sendQuery(q, "stream"); }, 50);
+}
+
+/* ---------- 关于 ---------- */
+function renderTools() {
+  const rows = [
+    ["query_order",       "GET /api/orders/{order_id}",        "Order Service"],
+    ["query_logistics",   "GET /api/logistics/{trackingNo}",   "Logistics Service"],
+    ["query_logistics",   "GET /api/logistics/order/{orderId}","Logistics Service（无运单号）"],
+    ["search_knowledge",  "GET /api/kb/search?q=…",            "Knowledge RAG"],
+  ];
+  $("#ab-tools").innerHTML = rows.map((r) =>
+    `<dt class="mono">${esc(r[0])}</dt><dd><code class="mono">${esc(r[1])}</code><br/><span class="text-sm">${esc(r[2])}</span></dd>`).join("");
+}
+function renderSLOAbout() {
+  $("#ab-slo").innerHTML = tableHtml(SLO_COLS);
+}
+
+/* ---------- 初始化 ---------- */
+function init() {
+  renderConvList(); bindConvList();
+  renderQuick();
+  bindEvents();
+  checkHealth();
+  setInterval(checkHealth, 15000);
+  setInterval(() => {
+    if (!$("#view-analytics").classList.contains("active")) return;
+    loadRealMetrics();
+  }, 8000);
+}
+function renderQuick() {
+  $("#quick-list").innerHTML = DEMO.quick.map((q) =>
+    `<button data-q="${esc(q)}">${esc(q)}</button>`).join("");
+  $$("#quick-list button").forEach((b) => b.addEventListener("click", () => {
+    $("#query-input").value = "";
+    sendQuery(b.dataset.q, modeVal());
+  }));
+}
+function bindEvents() {
+  $$("#nav button").forEach((b) => b.addEventListener("click", () => switchView(b.dataset.view)));
+  $("#btn-send").addEventListener("click", () => {
+    const q = $("#query-input").value.trim();
+    $("#query-input").value = "";
+    sendQuery(q, modeVal());
+  });
+  $("#query-input").addEventListener("keydown", (e) => {
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault();
+      const q = $("#query-input").value.trim();
+      $("#query-input").value = "";
+      sendQuery(q, modeVal());
+    }
+  });
+  $("#cx-search").addEventListener("input", () => { renderConvList(); bindConvList(); });
+  $$("#cx-status-tabs button").forEach((b) => b.addEventListener("click", () => {
+    $("#cx-status-tabs button").forEach((x) => x.classList.remove("active"));
+    b.classList.add("active");
+    renderConvList(); bindConvList();
+  }));
+  $("#btn-new-chat").addEventListener("click", () => {
+    currentConv = { id: "new", person: "新会话", preview: "新会话已就绪", status: "ai" };
+    $("#chat-title").textContent = "新会话";
+    $("#chat-status").textContent = "AI 处理中";
+    msgBox().innerHTML = "";
+    stepReset();
+  });
+  $("#btn-transfer").addEventListener("click", () => {
+    alert("阶段一 Single-Agent 仅做 AI 自动应答；转人工分支在阶段三 Workflow（expected_branch=human_transfer）接入。");
+  });
+  $("#btn-done").addEventListener("click", () => {
+    msgBox().innerHTML = "";
+    stepReset();
+    currentConv = null;
+    $("#chat-title").textContent = "请选择或新建一个会话";
+    $("#chat-status").textContent = "";
+    renderConvList(); bindConvList();
+  });
+  $("#btn-board-sync").addEventListener("click", () => {
+    const runs = realConv.filter((r) => !DEMO.board.some((b) => b.id === r.id));
+    runs.forEach((r) => DEMO.board.push({ ...r, st: "done", src: "Web", sla: "已自动回复并关闭" }));
+    renderBoard();
+  });
+  $("#btn-kb-search").addEventListener("click", () => kbSearch($("#kb-query").value.trim()));
+  $("#kb-query").addEventListener("keydown", (e) => {
+    if (e.key === "Enter") kbSearch($("#kb-query").value.trim());
+  });
+}
+
+document.addEventListener("DOMContentLoaded", init);
+</script>
+</body>
+</html>

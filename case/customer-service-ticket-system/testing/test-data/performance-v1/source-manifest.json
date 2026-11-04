@@ -1,0 +1,42 @@
+{
+  "schema_version": "agent-performance-data-v1",
+  "rule_version": "agent-performance-rule-v1",
+  "source_baseline_version": "v2.1.0",
+  "default_seed": 42,
+  "golden_case_count": 64,
+  "source_sha256": {
+    "tickets.json": "d0569de0ceb7222b4902347bacde5bdf65213ef010e6a4b5a1b3f3d6fe921e1a",
+    "orders.json": "4949815e79b46056b19accf14ba478709cfe5c54914c7e02d30d9e18ce8c318b",
+    "logistics.json": "9a7a2849a7c95c084b1e23068f8da60acb88d8d0919436543798af72028f9e2b",
+    "knowledge-base/faq.json": "0bb8b1bb7276926aad24693f14fe9ee89ea85bc0a8df99379d893b7b64711699",
+    "knowledge-base/policies.json": "67c89e2c054bb95b7f343cf4ece7ff73b55e471fff2572916e7ae29bd5fca3bf",
+    "knowledge-base/products.json": "3bf62d8bfec8eae315b7f0d36c40718a382b8b71d5c45c35f8ac0ed5e1a2619d",
+    "performance-v1/cases.json": "11e927b48a6b137ac3e12fdcf186e4e49ad95edaa7b3c31b91cc6a8b18c066f3"
+  },
+  "profiles": {
+    "reference": [
+      1,
+      1
+    ],
+    "db10": [
+      10,
+      1
+    ],
+    "kb10": [
+      1,
+      10
+    ],
+    "db100": [
+      100,
+      1
+    ],
+    "kb100": [
+      1,
+      100
+    ],
+    "combined10": [
+      10,
+      10
+    ]
+  }
+}

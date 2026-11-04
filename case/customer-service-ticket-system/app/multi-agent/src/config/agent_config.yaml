@@ -1,0 +1,92 @@
+# Agent 服务配置（Multi-Agent 案例）
+agent:
+  name: "客服工单Multi-Agent"
+  version: "2.0.0"
+  model: "mock"
+  temperature: 0
+  max_tokens: 2000
+  streaming: true
+  # 流式接口模式：
+  #   real   # 真实流式：答复逐 token 产出，TTFT/TPOT 为实测值（默认）
+  #   replay # 回放校准：先完整执行再按记录节奏回放，仅用于采集器时序校准，
+  #           # 其数据不得作为真实流式性能证据
+  stream_mode: "real"
+
+# LLM 接入配置
+# provider: mock          # 无密钥确定性模型，保证性能基线可复现
+#            openai        # OpenAI 兼容端点（DeepSeek 等），需 LLM_API_KEY / LLM_BASE_URL
+llm:
+  provider: "mock"
+  base_url: ""
+  api_key: ""
+  mock:
+    seed: 42
+    plan_latency_ms: 600       # 模拟“超管规划”决策的基础延迟
+    plan_jitter_ms: 120
+    agent_latency_ms: 350      # 子 Agent 单次任务决策延迟（Multi-Agent）
+    agent_jitter_ms: 70
+    validation_latency_ms: 200 # 聚合校验 Agent 决策延迟（Multi-Agent）
+    token_latency_ms: 40       # 模拟流式输出时每个 token 的延迟
+
+# Multi-Agent 编排
+orchestration:
+  supervisor:
+    timeout_ms: 8000           # 全流程总超时（含规划+扇出+校验+生成）
+    agent_timeout_ms: 3000     # 单个子 Agent 超时
+    max_retries: 3             # 子 Agent 失败重试次数（指数退避）
+    breaker_threshold: 5       # 连续失败熔断阈值
+    breaker_window_ms: 30000   # 熔断后恢复窗口（半开探测）
+    parallel_limit: 8          # 一轮并行扇出的最大子 Agent 数
+    degradation: true          # 允许降级：子 Agent 失败后继续生成答复
+  retry_backoff_ms: 50         # 重试指数退避初始值
+
+# 故障注入（级联故障 / 恢复测试场景；默认关闭）
+fault:
+  inject:
+    enabled: false
+    target: ""                 # supervisor / order_agent / logistics_agent /
+                               # knowledge_agent / validation_agent / llm
+    mode: ""                   # timeout=注入耗时超时 / error=返回错误 / down=服务不可用
+    latency_ms: 3000           # timeout 模式注入的额外耗时
+    limit: 0                   # 故障自愈次数：前 limit 次注入后停止（0=持续注入）
+
+# 工具配置
+tools:
+  query_order:
+    enabled: true
+    timeout: 5
+    retry: 2
+  query_logistics:
+    enabled: true
+    timeout: 5
+    retry: 2
+  search_knowledge:
+    enabled: true
+    timeout: 3
+    retry: 1
+    top_k: 3
+
+# 限制配置
+limits:
+  max_iterations: 10
+  max_tool_calls: 5
+  request_timeout: 30
+  tool_workers: 4            # 单进程同步只读工具并发工作线程上限（所有 Worker 共享）
+  tool_queue_size: 16        # 等待槽上限；满时明确返回过载失败，不无限排队
+  context_window_tokens: 8192  # 上下文窗口上限：占用率指标分母（教学口径，CONTEXT_WINDOW_TOKENS 可覆盖）
+
+# 监控配置
+monitoring:
+  enable_trace: true
+  enable_metrics: true
+  log_level: "info"
+# 观测导出：自托管 Langfuse（见 Langfuse 官方文档）
+# 环境变量 LANGFUSE_ENABLED / LANGFUSE_HOST / LANGFUSE_PUBLIC_KEY /
+# LANGFUSE_SECRET_KEY 优先于本文件；密钥占位符不得提交真实值
+observability:
+  langfuse:
+    enabled: false
+    host: "http://localhost:3000"
+    public_key: ""
+    secret_key: ""
+    timeout_s: 5

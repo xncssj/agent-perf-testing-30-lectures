@@ -1,0 +1,22 @@
+根据用户的问题，选择合适的工具来回答。
+
+用户问题：{user_query}
+
+可用工具：
+1. query_order: 查询订单信息，需要订单ID
+2. query_logistics: 查询物流状态，需要物流单号
+3. search_knowledge: 搜索知识库，需要搜索关键词
+
+请分析用户意图，并返回要使用的工具名称和参数。
+
+返回格式（JSON）：
+{
+  "tool": "工具名称",
+  "args": {"参数名": "参数值"}
+}
+
+如果用户问题不明确，返回：
+{
+  "tool": "ask_clarification",
+  "args": {"question": "需要询问用户的问题"}
+}

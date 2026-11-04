@@ -1,0 +1,11 @@
+# 依赖与产物不进镜像，减小构建上下文并避免污染
+node_modules
+dist
+dist-ssr
+*.log
+npm-debug.log*
+
+.DS_Store
+.vscode
+.idea
+*.local

@@ -1,0 +1,63 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: order-logistics-service
+
+  profiles:
+    active: sqlite
+
+# 管理端点：health 供健康检查，prometheus 供监控采集（/actuator/prometheus）
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,prometheus
+  metrics:
+    distribution:
+      slo:
+        # 接口时延 SLO 直方图桶（http_server_requests_seconds_bucket）：
+        # 桶边界与 Python 侧 agent_e2e_latency_seconds 对齐（0.5/1/2/5/10/20/40/60s）。
+        # 两个实测口径：须为数组形式（逗号单字符串绑定失败）；Spring SIMPLE Duration
+        # 不支持小数秒，0.5s 须写成 500ms
+        http:
+          server:
+            requests: [500ms, 1s, 2s, 5s, 10s, 20s, 40s, 60s]
+
+# SQLite 配置（默认）
+---
+spring:
+  config:
+    activate:
+      on-profile: sqlite
+
+# MySQL 配置
+---
+spring:
+  config:
+    activate:
+      on-profile: mysql
+  datasource:
+    url: "jdbc:mysql://mysql:3306/order_logistics?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true"
+    username: ${SPRING_DATASOURCE_USERNAME:root}
+    password: ${SPRING_DATASOURCE_PASSWORD:change-me}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+# MyBatis-Plus 配置
+mybatis-plus:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.example.orderlogistics.domain.model
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.slf4j.Slf4jImpl
+  global-config:
+    db-config:
+      id-type: assign_id
+
+# 日志配置：默认 info（原 debug 会让 MyBatis SQL 日志刷爆日志采集），排查时用
+# LOGGING_LEVEL_APP=debug 环境变量临时打开；输出格式见 logback-spring.xml
+logging:
+  level:
+    com.example.orderlogistics: ${LOGGING_LEVEL_APP:info}
+    org.springframework: info

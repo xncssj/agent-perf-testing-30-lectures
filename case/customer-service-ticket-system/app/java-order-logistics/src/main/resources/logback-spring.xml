@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  控制台日志格式：竖线分隔结构化字段（时间|级别|线程|logger|消息|agentRunId|toolCallId），
+  供 promtail 采集容器 stdout 后按 level 提取标签（由部署环境采集容器 stdout）。
+  末尾两列为依赖调用上下文（006 R03）：仅 Agent 经 TraceContextFilter 注入 MDC 的
+  请求携带，普通请求输出空列 `||`，不进入指标标签。
+  仍只输出 stdout、不写文件：容器日志由 promtail 经 docker socket 统一采集，
+  本机与云上同一份 promtail 配置，无需服务侧感知部署位置。
+-->
+<configuration>
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS}|%-5level|%thread|%logger{36}|%msg|%X{agentRunId}|%X{toolCallId}%n</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="CONSOLE"/>
+    </root>
+</configuration>

@@ -1,0 +1,35 @@
+{
+  "name": "cs-agent-frontend",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "dev:single": "vite --mode single",
+    "dev:multi": "vite --mode multi",
+    "dev:workflow": "vite --mode workflow",
+    "build": "vue-tsc -b && vite build",
+    "build:single": "vue-tsc -b && vite build --mode single",
+    "build:multi": "vue-tsc -b && vite build --mode multi",
+    "build:workflow": "vue-tsc -b && vite build --mode workflow",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@element-plus/icons-vue": "^2.3.2",
+    "element-plus": "^2.14.6",
+    "pinia": "^4.0.3",
+    "vue": "^3.5.42",
+    "vue-router": "^5.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^24.13.3",
+    "@vitejs/plugin-vue": "^6.0.8",
+    "@vue/tsconfig": "^0.9.1",
+    "sass": "^1.104.1",
+    "typescript": "~6.0.2",
+    "unplugin-auto-import": "^21.1.0",
+    "unplugin-vue-components": "^32.1.0",
+    "vite": "^8.3.0",
+    "vue-tsc": "^3.3.11"
+  }
+}

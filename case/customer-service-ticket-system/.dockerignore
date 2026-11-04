@@ -1,0 +1,28 @@
+# 客服工单系统 · Python Agent 镜像构建上下文排除清单
+# 作用域：docker-compose.yml 中 context = 本目录的三个 Agent 服务
+# （app/java-order-logistics/ 与 app/frontend/ 各自使用子目录内的 .dockerignore）
+# 构建输入（不可排除）：app/*/requirements.txt、app/*/src/**、app/harness/**、testing/test-data/**
+
+# 本地虚拟环境与字节码
+**/.venv
+**/__pycache__
+**/*.pyc
+**/*.pyo
+**/.pytest_cache
+**/.mypy_cache
+
+# 各阶段本地运行产物、文档与测试资产（不进入镜像）
+*/*/out
+*/*/data
+*/*/reports
+*/*/docs
+*/*/tests
+*/*/scripts
+**/*.md
+
+# 与 Agent 镜像无关的其它组件目录
+app/frontend
+app/java-order-logistics
+
+# 系统噪音
+**/.DS_Store

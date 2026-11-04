@@ -1,0 +1,100 @@
+[
+  {
+    "tracking_no": "SF00000001",
+    "order_id": "2024010100001",
+    "carrier": "顺丰速运",
+    "status": "运输中",
+    "current_location": "上海分拨中心",
+    "origin": "上海市仓",
+    "destination": "收货地分拨中心",
+    "trajectory": [
+      {
+        "time": "20240101 08:00:00",
+        "location": "上海市仓",
+        "status": "揽收"
+      },
+      {
+        "time": "20240101 12:00:00",
+        "location": "上海分拨中心",
+        "status": "运输中"
+      },
+      {
+        "time": "20240101 18:00:00",
+        "location": "收货地分拨中心",
+        "status": "派送中"
+      }
+    ],
+    "estimated_delivery": "明天 20:00 前"
+  },
+  {
+    "tracking_no": "SF00000002",
+    "order_id": "2024010100002",
+    "carrier": "顺丰速运",
+    "status": "运输中",
+    "current_location": "广州转运中心",
+    "origin": "广东省仓",
+    "destination": "收货地分拨中心",
+    "trajectory": [
+      {
+        "time": "20240101 08:00:00",
+        "location": "广东省仓",
+        "status": "揽收"
+      },
+      {
+        "time": "20240101 12:00:00",
+        "location": "广州转运中心",
+        "status": "运输中"
+      },
+      {
+        "time": "20240101 18:00:00",
+        "location": "收货地分拨中心",
+        "status": "派送中"
+      }
+    ],
+    "estimated_delivery": "明天 20:00 前"
+  },
+  {
+    "tracking_no": "SF00000003",
+    "order_id": "2024010100003",
+    "carrier": "顺丰速运",
+    "status": "运输中",
+    "current_location": "成都集散仓",
+    "origin": "浙江省仓",
+    "destination": "收货地分拨中心",
+    "trajectory": [
+      {
+        "time": "20240101 08:00:00",
+        "location": "浙江省仓",
+        "status": "揽收"
+      },
+      {
+        "time": "20240101 12:00:00",
+        "location": "成都集散仓",
+        "status": "运输中"
+      },
+      {
+        "time": "20240101 18:00:00",
+        "location": "收货地分拨中心",
+        "status": "派送中"
+      }
+    ],
+    "estimated_delivery": "明天 20:00 前"
+  },
+  {
+    "tracking_no": "SF00000004",
+    "order_id": "2024010100004",
+    "carrier": "顺丰速运",
+    "status": "运输中",
+    "current_location": "武汉网关站",
+    "origin": "四川省仓",
+    "destination": "收货地分拨中心",
+    "trajectory": [
+      {
+        "time": "20240101 08:00:00",
+        "location": "四川省仓",
+        "status": "揽收"
+      },
+      {
+        "time": "20240101 12:00:00",
+        "location": "武汉网关站",
+        "status": "运输中"

@@ -1,0 +1,274 @@
+# 客服工单系统 - 统一 Docker Compose 编排
+#
+# 启动全部服务（案例一）：
+#   docker compose up -d --build
+#
+# 启动案例二（Multi-Agent）：
+#   docker compose --profile multi up -d --build
+#
+# 启动案例三（Workflow+RAG）：
+#   docker compose --profile workflow up -d --build
+#
+# 仅启动 Java 微服务 + MySQL：
+#   docker compose up -d mysql order-logistics --build
+#
+# 停止并清理：
+#   docker compose down
+#
+# 工作台登录：用户名 admin，初始口令 AgentPerf@2026（仅本地演示，部署前必须修改）
+#
+# Langfuse 观测启用（可选）：复制本目录 .env.example 为 .env 并填入
+# LANGFUSE_ENABLED=true 与密钥（见 Langfuse 官方文档），再 up -d 重建容器。
+# 注意容器内访问宿主机 Langfuse 必须用 http://host.docker.internal:3000
+# （默认值已按此设置），写 localhost 会指向容器自身导致上报失败。
+# 宿主机 run_dev.sh 方式运行时改用各阶段目录下的 .env（HOST 为 localhost）。
+#
+# 案例三检查点持久化（可选）：FLOW_CHECKPOINT_STORE=sqlite 时经命名卷
+# cs_agent_flow_checkpoints 保存 /app/data，容器销毁重建后可续跑（课程实验）。
+
+# 固定项目名：显式声明，保持与历史部署一致的项目名与命名卷（cs_agent_*），
+# 避免按目录派生名称变化导致本地数据卷漂移。
+name: cs-agent
+
+services:
+  # ==================== 基础设施 ====================
+  mysql:
+    image: mysql:8.0
+    container_name: cs-agent-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-change-me}
+      MYSQL_DATABASE: ${MYSQL_SERVICE_DATABASE:-order_logistics}
+    ports:
+      - "${MYSQL_BIND_IP:-127.0.0.1}:3306:3306"
+    volumes:
+      - cs_agent_mysql_data:/var/lib/mysql
+      - ./app/java-order-logistics/sql/schema-mysql.sql:/docker-entrypoint-initdb.d/01-schema.sql:ro
+      # Java 微服务快照种子（Agent 经 HTTP 链路查询的订单/物流数据）：
+      # initdb 仅在新数据卷首次初始化时执行，已有数据卷须手工重放一次，
+      # 命令见 app/java-order-logistics/sql/generate-seed.py 头注释
+      - ./app/java-order-logistics/sql/seed-mysql.sql:/docker-entrypoint-initdb.d/02-seed.sql:ro
+      - ./app/single-agent/sql/00-create-cs-agent.mysql.sql:/docker-entrypoint-initdb.d/00-create-cs-agent.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h 127.0.0.1 -uroot -p\"$$MYSQL_ROOT_PASSWORD\""]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+      start_period: 20s
+
+  # ==================== 后端服务 ====================
+  java-service:
+    build:
+      context: ./app/java-order-logistics
+      dockerfile: Dockerfile
+    image: cs-agent-java:1.0.0
+    container_name: cs-agent-java
+    ports:
+      - "${JAVA_BIND_IP:-127.0.0.1}:8080:8080"
+    environment:
+      SPRING_PROFILES_ACTIVE: mysql
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/${MYSQL_SERVICE_DATABASE:-order_logistics}?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+      SPRING_DATASOURCE_USERNAME: ${MYSQL_SERVICE_USER:-root}
+      SPRING_DATASOURCE_PASSWORD: ${MYSQL_ROOT_PASSWORD:-change-me}
+    depends_on:
+      mysql:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-fsS", "http://localhost:8080/actuator/health"]
+      interval: 15s
+      timeout: 5s
+      retries: 12
+      start_period: 60s
+
+  # ==================== 案例一：Single-Agent ====================
+  agent:
+    build:
+      context: .
+      dockerfile: app/single-agent/Dockerfile
+    image: cs-agent-python:1.0.0
+    container_name: cs-agent-python
+    ports:
+      - "${AGENT_BIND_IP:-127.0.0.1}:8000:8000"
+    environment:
+      LLM_PROVIDER: ${LLM_PROVIDER:-mock}
+      JAVA_SERVICE_URL: ${JAVA_SERVICE_URL:-http://java-service:8080}
+      # HTTP 链路开关：置 true 后 query_order/query_logistics 经 Java 微服务取数
+      # （真实用户链路多一跳 HTTP + HikariCP；直读快照库的旧口径基线不可混用）
+      JAVA_SERVICE_ENABLED: "true"
+      # Mock 规则版本（007 数据档战役整改）：缺省 legacy 保持冻结基线；
+      # 数据档切换后随容器重建生效
+      MOCK_RULE_VERSION: ${MOCK_RULE_VERSION:-legacy}
+      DB_DIALECT: mysql
+      MYSQL_HOST: ${MYSQL_HOST:-mysql}
+      MYSQL_PORT: "3306"
+      MYSQL_USER: ${MYSQL_USER:-root}
+      MYSQL_PASSWORD: ${MYSQL_ROOT_PASSWORD:-change-me}
+      MYSQL_DATABASE: cs_agent
+      AGENT_TEST_DATA_DIR: /opt/case/test-data
+      # Langfuse 观测透传（值来自本目录 .env，缺省关闭）
+      LANGFUSE_ENABLED: ${LANGFUSE_ENABLED:-false}
+      LANGFUSE_HOST: ${LANGFUSE_HOST:-http://host.docker.internal:3000}
+      LANGFUSE_PUBLIC_KEY: ${LANGFUSE_PUBLIC_KEY:-}
+      LANGFUSE_SECRET_KEY: ${LANGFUSE_SECRET_KEY:-}
+    extra_hosts:
+      # Linux 主机兼容：容器内经 host.docker.internal 访问宿主机 Langfuse
+      - "host.docker.internal:host-gateway"
+    depends_on:
+      mysql:
+        condition: service_healthy
+      java-service:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-fsS", "http://localhost:8000/health"]
+      interval: 15s
+      timeout: 5s
+      retries: 12
+      start_period: 30s
+
+  # ==================== 案例二：Multi-Agent ====================
+  agent-multi:
+    profiles: ["multi"]
+    build:
+      context: .
+      dockerfile: app/multi-agent/Dockerfile
+    image: cs-agent-python-multi:1.0.0
+    container_name: cs-agent-python-multi
+    ports:
+      - "${AGENT_BIND_IP:-127.0.0.1}:8001:8000"
+    environment:
+      LLM_PROVIDER: ${LLM_PROVIDER:-mock}
+      JAVA_SERVICE_URL: ${JAVA_SERVICE_URL:-http://java-service:8080}
+      # Mock 规则版本：与阶段一同一契约，缺省 legacy（007 数据档战役整改）
+      MOCK_RULE_VERSION: ${MOCK_RULE_VERSION:-legacy}
+      AGENT_TEST_DATA_DIR: /opt/case/test-data
+      # Langfuse 观测透传（值来自本目录 .env，缺省关闭）
+      LANGFUSE_ENABLED: ${LANGFUSE_ENABLED:-false}
+      LANGFUSE_HOST: ${LANGFUSE_HOST:-http://host.docker.internal:3000}
+      LANGFUSE_PUBLIC_KEY: ${LANGFUSE_PUBLIC_KEY:-}
+      LANGFUSE_SECRET_KEY: ${LANGFUSE_SECRET_KEY:-}
+    extra_hosts:
+      # Linux 主机兼容：容器内经 host.docker.internal 访问宿主机 Langfuse
+      - "host.docker.internal:host-gateway"
+    depends_on:
+      java-service:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-fsS", "http://localhost:8000/health"]
+      interval: 15s
+      timeout: 5s
+      retries: 12
+      start_period: 30s
+
+  # ==================== 案例三：Workflow+RAG ====================
+  agent-workflow:
+    profiles: ["workflow"]
+    build:
+      context: .
+      dockerfile: app/workflow-flow-rag/Dockerfile
+    image: cs-agent-python-workflow:1.0.0
+    container_name: cs-agent-python-workflow
+    ports:
+      - "${AGENT_BIND_IP:-127.0.0.1}:8002:8000"
+    environment:
+      LLM_PROVIDER: ${LLM_PROVIDER:-mock}
+      JAVA_SERVICE_URL: ${JAVA_SERVICE_URL:-http://java-service:8080}
+      # Mock 规则版本：与阶段一同一契约，缺省 legacy（007 数据档战役整改）
+      MOCK_RULE_VERSION: ${MOCK_RULE_VERSION:-legacy}
+      FLOW_TEST_DATA_DIR: /opt/case/test-data
+      # 检查点持久化（默认 memory 保持进程内语义；切 sqlite 后跨容器重建
+      # 仍可续跑，配套命名卷保存 /app/data——课程实验）
+      FLOW_CHECKPOINT_STORE: ${FLOW_CHECKPOINT_STORE:-memory}
+      FLOW_CHECKPOINT_DB: ${FLOW_CHECKPOINT_DB:-/app/data/checkpoints.db}
+      # 故障注入（默认关闭；容器级 kill -9/重启恢复实验用，见课程实验
+      # 与阶段三 .env.example 的同名实验口径）
+      FLOW_FAULT_ENABLED: ${FLOW_FAULT_ENABLED:-false}
+      FLOW_FAULT_NODE_ID: ${FLOW_FAULT_NODE_ID:-}
+      FLOW_FAULT_MODE: ${FLOW_FAULT_MODE:-}
+      FLOW_FAULT_LATENCY_MS: ${FLOW_FAULT_LATENCY_MS:-3000}
+      FLOW_FAULT_LIMIT: ${FLOW_FAULT_LIMIT:-0}
+      FLOW_MAX_RETRIES: ${FLOW_MAX_RETRIES:-2}
+      # Langfuse 观测透传（值来自本目录 .env，缺省关闭）
+      LANGFUSE_ENABLED: ${LANGFUSE_ENABLED:-false}
+      LANGFUSE_HOST: ${LANGFUSE_HOST:-http://host.docker.internal:3000}
+      LANGFUSE_PUBLIC_KEY: ${LANGFUSE_PUBLIC_KEY:-}
+      LANGFUSE_SECRET_KEY: ${LANGFUSE_SECRET_KEY:-}
+    volumes:
+      # 检查点 SQLite 落盘卷：容器销毁重建后检查点仍在（memory 模式不写盘，空挂载无害）
+      - cs_agent_flow_checkpoints:/app/data
+    extra_hosts:
+      # Linux 主机兼容：容器内经 host.docker.internal 访问宿主机 Langfuse
+      - "host.docker.internal:host-gateway"
+    depends_on:
+      java-service:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-fsS", "http://localhost:8000/health"]
+      interval: 15s
+      timeout: 5s
+      retries: 12
+      start_period: 30s
+
+  # ==================== 前端（共享） ====================
+  # 构建参数经 FE_<阶段>_* 环境变量注入：云端 .env 写入后设为
+  # 公网网关构建（VITE_PUBLIC_BASE/VITE_API_BASE/VITE_AUTH_MODE/VITE_STAGE，
+  # 见接口契约 §4）；本地不设置则维持本地登录模式。ports 为宿主绑定参数化
+  # （FRONTEND_BIND_IP），主编排保持唯一 ports 声明，overlay 不重复。
+  frontend:
+    build:
+      context: ./app/frontend
+      dockerfile: Dockerfile
+      args:
+        - UPSTREAM_HOST=agent
+        - VITE_API_BASE=${FE_SINGLE_API:-}
+        - VITE_PUBLIC_BASE=${FE_SINGLE_BASE:-}
+        - VITE_AUTH_MODE=${FE_SINGLE_MODE:-}
+        - VITE_STAGE=${FE_SINGLE_STAGE:-}
+    image: cs-agent-frontend:1.0.0
+    container_name: cs-agent-frontend
+    ports:
+      - "${FRONTEND_BIND_IP:-127.0.0.1}:80:80"
+    depends_on:
+      agent:
+        condition: service_healthy
+
+  frontend-multi:
+    profiles: ["multi"]
+    build:
+      context: ./app/frontend
+      dockerfile: Dockerfile
+      args:
+        - UPSTREAM_HOST=agent-multi
+        - VITE_API_BASE=${FE_MULTI_API:-}
+        - VITE_PUBLIC_BASE=${FE_MULTI_BASE:-}
+        - VITE_AUTH_MODE=${FE_MULTI_MODE:-}
+        - VITE_STAGE=${FE_MULTI_STAGE:-}
+    image: cs-agent-frontend-multi:1.0.0
+    container_name: cs-agent-frontend-multi
+    ports:
+      - "${FRONTEND_BIND_IP:-127.0.0.1}:8081:80"
+    depends_on:
+      agent-multi:
+        condition: service_healthy
+
+  frontend-workflow:
+    profiles: ["workflow"]
+    build:
+      context: ./app/frontend
+      dockerfile: Dockerfile
+      args:
+        - UPSTREAM_HOST=agent-workflow
+        - VITE_API_BASE=${FE_WORKFLOW_API:-}
+        - VITE_PUBLIC_BASE=${FE_WORKFLOW_BASE:-}
+        - VITE_AUTH_MODE=${FE_WORKFLOW_MODE:-}
+        - VITE_STAGE=${FE_WORKFLOW_STAGE:-}
+    image: cs-agent-frontend-workflow:1.0.0
+    container_name: cs-agent-frontend-workflow
+    ports:
+      - "${FRONTEND_BIND_IP:-127.0.0.1}:8082:80"
+    depends_on:
+      agent-workflow:
+        condition: service_healthy
+
+volumes:
+  cs_agent_mysql_data:
+  # 案例三检查点持久化卷（FLOW_CHECKPOINT_STORE=sqlite 时使用）
+  cs_agent_flow_checkpoints:

@@ -1,0 +1,88 @@
+# Agent 服务配置
+agent:
+  name: "客服工单Agent"
+  version: "2.0.0"
+  model: "mock"
+  temperature: 0
+  max_tokens: 2000
+  streaming: true
+  # 流式接口模式：
+  #   real   # 真实流式：答复边生成边产出，片段计时为实测值（默认）
+  #   replay # 回放校准：先完整执行再按记录节奏回放，仅用于采集器时序校准，
+  #           # 其数据不得作为真实流式性能证据
+  stream_mode: "real"
+
+# LLM 接入配置
+# provider: mock          # 无密钥确定性模型，保证性能基线可复现
+#            openai        # OpenAI 兼容端点（DeepSeek 等），需 LLM_API_KEY / LLM_BASE_URL
+llm:
+  provider: "mock"
+  base_url: ""
+  api_key: ""
+  # 工具调用协议（LLM_TOOL_CALLING_MODE 环境变量可覆盖）：
+  #   native # OpenAI 原生 tool_calls：提交工具 Schema，解析 tool_calls；
+  #          # 端点不支持原生工具时明确失败，不自动降级
+  #   json   # JSON 兼容：沿用 tool_selection 决策提示词，输出 JSON 决策
+  tool_calling_mode: "native"
+  # 流式答复是否请求端点返回 token 用量（stream_options.include_usage）；
+  # 端点不支持时置为 false，用量保持缺失，不用片段数冒充
+  stream_include_usage: true
+  mock:
+    seed: 42
+    plan_latency_ms: 600      # 模拟“决策/规划”调用的基础延迟
+    plan_jitter_ms: 120       # 决策延迟随机抖动范围（配合 seed 可复现）
+    token_latency_ms: 40      # 模拟流式输出时每个 token 的延迟
+
+# 工具配置
+tools:
+  query_order:
+    enabled: true
+    timeout: 5
+    retry: 2
+  query_logistics:
+    enabled: true
+    timeout: 5
+    retry: 2
+  search_knowledge:
+    enabled: true
+    timeout: 3
+    retry: 1
+    top_k: 3
+
+# Java 订单物流微服务（java-order-logistics）HTTP 链路
+# enabled=true 时 query_order/query_logistics 经 HTTP 调用 Java 微服务
+# （多一跳 HTTP 与 Java 侧 HikariCP，性能基线与直读模式不可混用，须重跑基线）；
+# enabled=false 时进程内直读快照库（默认）。
+# 环境变量 JAVA_SERVICE_ENABLED / JAVA_SERVICE_URL 优先于本文件；
+# docker compose 部署默认已注入 JAVA_SERVICE_URL=http://java-service:8080
+# （云上可通过 .env 覆盖为内部服务地址）。
+# 请求级超时复用 tools.query_order / tools.query_logistics 的 timeout 配置。
+java_service:
+  enabled: false
+  base_url: "http://localhost:8080"
+
+# 限制配置
+limits:
+  max_iterations: 10
+  max_tool_calls: 5
+  request_timeout: 30
+  tool_workers: 4            # 单进程同步只读工具并发工作线程上限
+  tool_queue_size: 16        # 等待槽上限；满时明确返回过载失败，不无限排队
+  context_window_tokens: 8192  # 上下文窗口上限：占用率指标分母（教学口径，CONTEXT_WINDOW_TOKENS 可覆盖）
+
+# 监控配置
+monitoring:
+  enable_trace: true
+  enable_metrics: true
+  log_level: "info"
+
+# 观测导出：自托管 Langfuse（见 Langfuse 官方文档）
+# 环境变量 LANGFUSE_ENABLED / LANGFUSE_HOST / LANGFUSE_PUBLIC_KEY /
+# LANGFUSE_SECRET_KEY 优先于本文件；密钥占位符不得提交真实值
+observability:
+  langfuse:
+    enabled: false
+    host: "http://localhost:3000"
+    public_key: ""
+    secret_key: ""
+    timeout_s: 5
