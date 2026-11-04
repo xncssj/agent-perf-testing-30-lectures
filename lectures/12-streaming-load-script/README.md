@@ -12,6 +12,22 @@
 | [流式三时刻、采集字段与读数指引](templates/stream-metrics-fields.md) | 首字节／首 Token／首个有效内容的边界，九组字段能否进门禁，三批样本与防误读 |
 | [断流处理与脚本自证](templates/interruption-handling.md) | 四类断流的终态标记、留证缺口与“先自证再开跑”的顺序 |
 
+## 案例参考与脚本（公开脱敏版）
+
+| 参考 | 用途 |
+|---|---|
+| [指标口径文档](references/performance-metrics.md) | TTFT、TPOT、Goodput、合格率与成本口径 |
+| [基准脚本](scripts/benchmark.py) | 单笔基准采集 |
+| [容量脚本](scripts/capacity.py) | 容量阶梯与逐档摘要 |
+| [长稳脚本](scripts/stability.py) | 长时间稳定性采集 |
+| [流式基准脚本](scripts/stream_benchmark.py) | SSE 流式 TTFT／TPOT 实测 |
+| [判定与聚合核心](scripts/common.py) | 四级判定、聚合与口径实现 |
+| [Python 自测脚本](scripts/selfcheck.py) | 判定逻辑自测 |
+| [k6 判定公共模块](scripts/judge.js) | k6 侧判定与聚合 |
+| [k6 自测脚本](scripts/k6-selfcheck.mjs) | k6 套件自测 |
+
+> 脚本为公开脱敏参考，保留采集与判定主体；运行所需的完整工程、依赖与数据随讲次节奏开放。云端地址、账号与内部路径已替换为占位符。
+
 ## 使用方式与证据状态
 
 1. 业务线与流式线分开采样、分开计算；三笔账（流式小样本、k6 压力、历史容量）不并列比较。

@@ -24,7 +24,7 @@
 | 贯穿案例 | 一个客服工单系统 + 两次架构升级：Single Agent → Multi-Agent → Workflow/Flow + RAG，业务为「查询并答复指定订单的配送进度」 |
 | 核心指标 | TTFT、TPOT、Goodput（有效吞吐）、成功业务成本与四级业务判定（请求成功 / 流程完成 / 业务完成 / 结果合格） |
 | 仓库用途 | 存放课程配套资产：案例系统、测试数据集、k6 压测套件、脚本与可复用模板，按讲组织 |
-| 当前状态 | 已开放第 01—17 讲的模板与填写区、第 02/03/14/17 讲的 4 份实验数据与第 04—07 讲的 4 张实证图片；导学为概念篇；项目源码、测试数据与脚本随对应讲次逐步开放 |
+| 当前状态 | 已开放第 01—17 讲的模板与填写区、第 02/03/14/17 讲的 4 份实验数据、第 04—07 讲的 4 张实证图片、第 09/11—17 讲的公开脱敏案例参考与第 12 讲的脚本节选；导学为概念篇；完整项目源码、测试数据与脚本随对应讲次逐步开放 |
 
 ## 📖 课程介绍
 
@@ -130,15 +130,15 @@
 | 06 | [lectures/06-concurrency-degradation](lectures/06-concurrency-degradation/) | 四层并发定义表、调用放大系数估算表、负载模型选择表、容量风险表、调用放大填写区、容量风险填写区、2 份并发换算参数填写区、容量阶梯实证图 |
 | 07 | [lectures/07-stability-risk-validation](lectures/07-stability-risk-validation/) | 风险与验证目标地图、五现象检测口径卡、四层注入矩阵、失效模式表、长稳漂移实证图 |
 | 08 | [lectures/08-acceptable-requirements](lectures/08-acceptable-requirements/) | 性能需求表、SLO 卡片、工单构成与判定字段、验收判定顺序表 |
-| 09 | [lectures/09-test-scope](lectures/09-test-scope/) | 三路径对照表、测试范围策略表、SLO 指标落点表、范围风险清单 |
-| 10 | [lectures/10-plan-data-environment](lectures/10-plan-data-environment/) | 方案六件套、数据分层与准备检查、环境清单与版本指纹、方案缺口登记 |
-| 11 | [lectures/11-scenario-combination](lectures/11-scenario-combination/) | 场景矩阵、五类场景设计表、阈值与停止条件 |
-| 12 | [lectures/12-streaming-load-script](lectures/12-streaming-load-script/) | 采集线路与场景映射、流式三时刻与采集字段、断流处理与脚本自证 |
-| 13 | [lectures/13-execution-evidence](lectures/13-execution-evidence/) | 轮次清单与七项记录、证据包与数据质量说明、对比读数与异常归属 |
-| 14 | [lectures/14-pressure-scenario-data](lectures/14-pressure-scenario-data/) | 运行资格核对、四曲线读法、观察项与假设登记、表格明细数据 |
-| 15 | [lectures/15-architecture-risk-paths](lectures/15-architecture-risk-paths/) | 三层核对与风险标记、候选节点九项检查、假设—节点映射 |
-| 16 | [lectures/16-latency-split](lectures/16-latency-split/) | 双口径时间恒等式、单笔时间轴与关键路径、无法归因与成本分母 |
-| 17 | [lectures/17-global-observability](lectures/17-global-observability/) | 四层职责与同期对照、推理侧证据状态、监控缺口与可疑范围、原表数据 |
+| 09 | [lectures/09-test-scope](lectures/09-test-scope/) | 三路径对照表、测试范围策略表、SLO 指标落点表、范围风险清单、公开脱敏架构参考 |
+| 10 | [lectures/10-plan-data-environment](lectures/10-plan-data-environment/) | 方案六件套、数据分层与准备检查、环境清单与版本指纹、方案缺口登记、4 份公开脱敏案例参考 |
+| 11 | [lectures/11-scenario-combination](lectures/11-scenario-combination/) | 场景矩阵、五类场景设计表、阈值与停止条件、公开脱敏场景矩阵／报告／问题清单 |
+| 12 | [lectures/12-streaming-load-script](lectures/12-streaming-load-script/) | 采集线路与场景映射、流式三时刻与采集字段、断流处理与脚本自证、公开脱敏指标文档与脚本节选 |
+| 13 | [lectures/13-execution-evidence](lectures/13-execution-evidence/) | 轮次清单与七项记录、证据包与数据质量说明、对比读数与异常归属、公开脱敏交接单／底稿 |
+| 14 | [lectures/14-pressure-scenario-data](lectures/14-pressure-scenario-data/) | 运行资格核对、四曲线读法、观察项与假设登记、表格明细数据、公开脱敏分析手册 |
+| 15 | [lectures/15-architecture-risk-paths](lectures/15-architecture-risk-paths/) | 三层核对与风险标记、候选节点九项检查、假设—节点映射、公开脱敏 S2 底稿 |
+| 16 | [lectures/16-latency-split](lectures/16-latency-split/) | 双口径时间恒等式、单笔时间轴与关键路径、无法归因与成本分母、公开脱敏 S3 底稿与配对表 |
+| 17 | [lectures/17-global-observability](lectures/17-global-observability/) | 四层职责与同期对照、推理侧证据状态、监控缺口与可疑范围、原表数据、公开脱敏 S4 底稿 |
 
 模板中的空白用于项目填写，“示意”“待测”“未验证”均不代表已完成实验；图片和历史汇总不等同于已提供逐笔原始数据。
 

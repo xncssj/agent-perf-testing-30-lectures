@@ -13,6 +13,12 @@
 | [监控缺口与可疑范围](templates/observability-gap-register.md) | U2—U6 缺口登记、六个嫌疑对象的状态与三类允许结论 |
 | [原表与读数口径](experiments/17-observation-tables-20261025.md) | 四张原表、精度与单位边界、勘误后的时间窗 |
 
+## 案例参考（公开脱敏版）
+
+| 参考 | 用途 |
+|---|---|
+| [S4 全局观测底稿](references/s4-global-observability-20261014v12real1.md) | 看四层同期观测、疑似范围与监控缺口 |
+
 ## 使用方式与证据状态
 
 1. 四层同期对照只回答“哪一层跟着时延动”，不回答“哪个调用”。

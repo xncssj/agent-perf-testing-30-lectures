@@ -13,6 +13,12 @@
 | [观察项与瓶颈可疑点登记](templates/observation-hypothesis-register.md) | AW 观察项三类记法、H1—H7 四要素写法与可证伪纪律 |
 | [表格明细与图表数据](experiments/14-observation-tables-20261018.md) | 运行资格、四曲线、容量六档、观察项与 H1—H7 的原表数字、条件与边界 |
 
+## 案例参考（公开脱敏版）
+
+| 参考 | 用途 |
+|---|---|
+| [性能分析手册](references/performance-analysis-handbook.md) | RESAR 分析的输入、步骤与判定口径 |
+
 ## 使用方式与证据状态
 
 1. 先验明正身再谈曲线；不算数的轮次留档但不进分析。

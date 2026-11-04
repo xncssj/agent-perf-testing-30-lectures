@@ -12,6 +12,14 @@
 | [证据包与数据质量说明](templates/evidence-package.md) | 数据质量说明五段、最小证据包五类、归档核对能证明与不能证明什么 |
 | [对比读数与异常归属](templates/anomaly-attribution.md) | 三轮读数分列口径、三类异常归属、面板与实测的四条规矩 |
 
+## 案例参考（公开脱敏版）
+
+| 参考 | 用途 |
+|---|---|
+| [场景矩阵 20261014v12real1](references/scenario-matrix-20261014v12real1.md) | 看真实模型轮次的场景、口径与运行资格 |
+| [压测收尾交接单](references/closeout-handoff-20261014v12real1.md) | 看收窗时的证据、缺口与待办交接 |
+| [S1 压力数据底稿](references/s1-pressure-data-20261014v12real1.md) | 看压力曲线、异常窗与假设清单的原始记录 |
+
 ## 使用方式与证据状态
 
 1. 跑完不算数，核验过才算数；三态结论、退出码、中止记录与样本完整性一起复核。

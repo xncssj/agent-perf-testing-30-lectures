@@ -12,6 +12,13 @@
 | [候选节点九项检查与优先级](templates/candidate-node-checklist.md) | 走一笔业务的五问、九类候选节点核对与三级优先级 |
 | [假设—节点风险映射](templates/hypothesis-node-mapping.md) | H1—H7 与 AW-O1—O3 逐项落到候选节点，写明依据与下一步验证 |
 
+## 案例参考（公开脱敏版）
+
+| 参考 | 用途 |
+|---|---|
+| [S2 执行架构底稿](references/s2-execution-architecture-20261014v12real1.md) | 看执行架构节点、风险标记与证据映射 |
+| [网关链路核实与勘误](references/gateway-link-verification-20261001.md) | 看链路核对方法、误判与勘误记录 |
+
 ## 使用方式与证据状态
 
 1. 架构图是查了之后画的；每条边背后要有核对来源。

@@ -12,6 +12,16 @@
 | [场景设计表](templates/scenario-design.md) | 基准、容量、稳定性、异常、多轮的逐项设计理由与边界 |
 | [阈值与停止条件](templates/thresholds-and-stop-lines.md) | 从业务承诺、基线实测、成本上限三处倒推阈值，并固定五条暂停线 |
 
+## 案例参考（公开脱敏版）
+
+| 参考 | 用途 |
+|---|---|
+| [场景矩阵 20261001v11pre3](references/scenario-matrix-20261001v11pre3.md) | 看基准、容量、稳定、异常场景如何映射到风险与停止条件 |
+| [实验记录-案例一](references/experiment-record-case-1.md) | 看单 Agent 阶段的真实轮次、读数与口径记录 |
+| [压测问题清单](references/issue-register.md) | 看执行中暴露的问题如何分类、定级与闭环 |
+| [三阶段全场景压测报告](references/three-stage-load-test-report-20260926.md) | 看三阶段场景链的结论与证据组织 |
+| [k6 套件说明](references/k6-suite-readme.md) | 看场景脚本、参数、判定与运行入口 |
+
 ## 使用方式与证据状态
 
 1. 先写业务风险，再填压力参数；组合顺序固定为基准 → 容量 → 稳定 → 异常／恢复。

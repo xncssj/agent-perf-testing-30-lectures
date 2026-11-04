@@ -12,6 +12,15 @@
 | [单笔时间轴与关键路径](templates/timeline-record.md) | 时刻表怎么读、空段怎么标、串并行关键路径与单次慢／调用多的区分 |
 | [无法归因清单与成本分母](templates/unattributed-and-cost.md) | A1—A4 缺口的补证去向，成本三看与真实轮计价示例 |
 
+## 案例参考（公开脱敏版）
+
+| 参考 | 用途 |
+|---|---|
+| [S3 时间拆分底稿](references/s3-time-split-20261014v12real1.md) | 看端到端与服务端双口径拆分、关键路径与无法归因项 |
+| [跨环境配对对照表 20261011](references/cross-env-pairing-20261011v11formal2.md) | 看跨环境复刻轮的配对读数 |
+| [正式轮压测报告 20261011](references/formal2-load-test-report-20261011.md) | 看正式轮结论与证据 |
+| [跨环境配对对照表 20261012](references/cross-env-pairing-20261012v11formal3.md) | 看三方对照复刻轮的配对读数 |
+
 ## 使用方式与证据状态
 
 1. 两列并排摆，不合并取分位；不用两个 P90 相减代替逐笔差值。
