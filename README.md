@@ -19,12 +19,12 @@
 |------|------|
 | 课程系列 | 《Agent 性能测试实战30讲》：开篇词 + 导学 + 直播回放 + 30 讲正文 + 结束语，共 33 讲，[已上架极客时间](https://time.geekbang.org/column/intro/101193401?tab=intro) |
 | 课程讲师 | 高楼 · 盾山科技 CEO，7DGroup 创始人 |
-| 更新节奏 | 连载中，每周一 / 三 / 五更新，已更新 7 / 33 讲 + 直播回放（状态详见下方课程篇目） |
+| 更新节奏 | 连载中，每周一 / 三 / 五更新，已更新 17 / 33 讲 + 直播回放（状态详见下方课程篇目） |
 | 课程定位 | 面向测试 / 性能 / 测试开发工程师、Agent 开发工程师、运维工程师与技术管理者的项目实战课：从性能需求到上线验收，用 RESAR 七步法完整做完一个 Agent 性能项目 |
 | 贯穿案例 | 一个客服工单系统 + 两次架构升级：Single Agent → Multi-Agent → Workflow/Flow + RAG，业务为「查询并答复指定订单的配送进度」 |
 | 核心指标 | TTFT、TPOT、Goodput（有效吞吐）、成功业务成本与四级业务判定（请求成功 / 流程完成 / 业务完成 / 结果合格） |
 | 仓库用途 | 存放课程配套资产：案例系统、测试数据集、k6 压测套件、脚本与可复用模板，按讲组织 |
-| 当前状态 | 已开放第 01—07 讲共 26 份模板与填写区、第 02/03 讲的 2 份实验记录与第 04—07 讲的 4 张实证图片；导学为概念篇；项目源码、测试数据与脚本随对应讲次逐步开放 |
+| 当前状态 | 已开放第 01—17 讲的模板与填写区、第 02/03/14/17 讲的 4 份实验数据与第 04—07 讲的 4 张实证图片；导学为概念篇；项目源码、测试数据与脚本随对应讲次逐步开放 |
 
 ## 📖 课程介绍
 
@@ -88,18 +88,18 @@
 | [03](lectures/03-test-object-layering/) | [测一次请求还是测完整业务，Agent 的测试对象怎么确定？](https://time.geekbang.org/column/article/1028525) | 第一章 必要知识储备 | ✅ 已更新 |
 | [04](lectures/04-metrics-selection/) | [TTFT、TPOT、Goodput、质量和成本指标应该怎么选](https://time.geekbang.org/column/article/1030198) | 第一章 必要知识储备 | ✅ 已更新 |
 | [05](lectures/05-baseline-and-fingerprint/) | [如何建立可信的 Agent 性能基线？](https://time.geekbang.org/column/article/1030533) | 第一章 必要知识储备 | ✅ 已更新 |
-| [06](lectures/06-concurrency-degradation/) | 并发还没有到峰值，为什么 Agent 已经开始退化？ | 第一章 必要知识储备 | 未更新 |
-| [07](lectures/07-stability-risk-validation/) | 服务没有报错，如何发现 Agent 稳定性出了问题 | 第一章 必要知识储备 | 未更新 |
-| 08 | 如何把「快稳准省」变成可验收的需求 | 第二章 主项目需求与方案设计 | 未更新 |
-| 09 | 如何设计合适的测试范围 | 第二章 主项目需求与方案设计 | 未更新 |
-| 10 | 如何准备测试方案、数据和环境 | 第二章 主项目需求与方案设计 | 未更新 |
-| 11 | 如何组合基准、容量和稳定性场景 | 第三章 主项目场景、脚本与测试执行 | 未更新 |
-| 12 | 可运行的流式压测脚本长什么样 | 第三章 主项目场景、脚本与测试执行 | 未更新 |
-| 13 | 测试执行过程中记录什么才能让结果更可信 | 第三章 主项目场景、脚本与测试执行 | 未更新 |
-| 14 | 第一步：如何获取并读懂业务压力场景数据 | 第四章 RESAR 七步分析与优化 | 未更新 |
-| 15 | 第二步：如何分析 Agent 执行架构并找到高风险路径 | 第四章 RESAR 七步分析与优化 | 未更新 |
-| 16 | 第三步：一个任务耗时几十秒，如何拆分端到端任务时间 | 第四章 RESAR 七步分析与优化 | 未更新 |
-| 17 | 第四步：监控指标很多，如何通过全局可观测性缩小范围 | 第四章 RESAR 七步分析与优化 | 未更新 |
+| [06](lectures/06-concurrency-degradation/) | 并发还没有到峰值，为什么 Agent 已经开始退化？ | 第一章 必要知识储备 | ✅ 已更新 |
+| [07](lectures/07-stability-risk-validation/) | 服务没有报错，如何发现 Agent 稳定性出了问题 | 第一章 必要知识储备 | ✅ 已更新 |
+| [08](lectures/08-acceptable-requirements/) | 如何把「快稳准省」变成可验收的需求 | 第二章 主项目需求与方案设计 | ✅ 已更新 |
+| [09](lectures/09-test-scope/) | 如何设计合适的测试范围 | 第二章 主项目需求与方案设计 | ✅ 已更新 |
+| [10](lectures/10-plan-data-environment/) | 如何准备测试方案、数据和环境 | 第二章 主项目需求与方案设计 | ✅ 已更新 |
+| [11](lectures/11-scenario-combination/) | 如何组合基准、容量和稳定性场景 | 第三章 主项目场景、脚本与测试执行 | ✅ 已更新 |
+| [12](lectures/12-streaming-load-script/) | 可运行的流式压测脚本长什么样 | 第三章 主项目场景、脚本与测试执行 | ✅ 已更新 |
+| [13](lectures/13-execution-evidence/) | 测试执行过程中记录什么才能让结果更可信 | 第三章 主项目场景、脚本与测试执行 | ✅ 已更新 |
+| [14](lectures/14-pressure-scenario-data/) | 第一步：如何获取并读懂业务压力场景数据 | 第四章 RESAR 七步分析与优化 | ✅ 已更新 |
+| [15](lectures/15-architecture-risk-paths/) | 第二步：如何分析 Agent 执行架构并找到高风险路径 | 第四章 RESAR 七步分析与优化 | ✅ 已更新 |
+| [16](lectures/16-latency-split/) | 第三步：一个任务耗时几十秒，如何拆分端到端任务时间 | 第四章 RESAR 七步分析与优化 | ✅ 已更新 |
+| [17](lectures/17-global-observability/) | 第四步：监控指标很多，如何通过全局可观测性缩小范围 | 第四章 RESAR 七步分析与优化 | ✅ 已更新 |
 | 18 | 第五步：用定向 Trace 与 Eval 验证性能假设 | 第四章 RESAR 七步分析与优化 | 未更新 |
 | 19 | 第六步：最慢的组件就一定是 Agent 性能瓶颈吗 | 第四章 RESAR 七步分析与优化 | 未更新 |
 | 20 | 第七步：如何确定优化方案并完成可信的回归验证 | 第四章 RESAR 七步分析与优化 | 未更新 |
@@ -115,7 +115,7 @@
 | 30 | 运行三个月，如何制定从脚本到门禁和平台的演进路线 | 第七章 项目落地与演进 | 未更新 |
 | 结束语 | 工具会变，如何沉淀不会过时的项目能力 | 结语 | 未更新 |
 
-第 01—07 讲的配套资料已开放，各讲资料入口和使用说明见下方目录；后续资料随课程进度更新。课程正文请在专栏阅读。
+第 01—17 讲的配套资料已开放，各讲资料入口和使用说明见下方目录；后续资料随课程进度更新。课程正文请在专栏阅读。
 
 ## 📂 配套资料目录
 
@@ -129,6 +129,16 @@
 | 05 | [lectures/05-baseline-and-fingerprint](lectures/05-baseline-and-fingerprint/) | 配对实验计划表、基线指纹表、基线与回归判断填写区、指纹差异实证图 |
 | 06 | [lectures/06-concurrency-degradation](lectures/06-concurrency-degradation/) | 四层并发定义表、调用放大系数估算表、负载模型选择表、容量风险表、调用放大填写区、容量风险填写区、2 份并发换算参数填写区、容量阶梯实证图 |
 | 07 | [lectures/07-stability-risk-validation](lectures/07-stability-risk-validation/) | 风险与验证目标地图、五现象检测口径卡、四层注入矩阵、失效模式表、长稳漂移实证图 |
+| 08 | [lectures/08-acceptable-requirements](lectures/08-acceptable-requirements/) | 性能需求表、SLO 卡片、工单构成与判定字段、验收判定顺序表 |
+| 09 | [lectures/09-test-scope](lectures/09-test-scope/) | 三路径对照表、测试范围策略表、SLO 指标落点表、范围风险清单 |
+| 10 | [lectures/10-plan-data-environment](lectures/10-plan-data-environment/) | 方案六件套、数据分层与准备检查、环境清单与版本指纹、方案缺口登记 |
+| 11 | [lectures/11-scenario-combination](lectures/11-scenario-combination/) | 场景矩阵、五类场景设计表、阈值与停止条件 |
+| 12 | [lectures/12-streaming-load-script](lectures/12-streaming-load-script/) | 采集线路与场景映射、流式三时刻与采集字段、断流处理与脚本自证 |
+| 13 | [lectures/13-execution-evidence](lectures/13-execution-evidence/) | 轮次清单与七项记录、证据包与数据质量说明、对比读数与异常归属 |
+| 14 | [lectures/14-pressure-scenario-data](lectures/14-pressure-scenario-data/) | 运行资格核对、四曲线读法、观察项与假设登记、表格明细数据 |
+| 15 | [lectures/15-architecture-risk-paths](lectures/15-architecture-risk-paths/) | 三层核对与风险标记、候选节点九项检查、假设—节点映射 |
+| 16 | [lectures/16-latency-split](lectures/16-latency-split/) | 双口径时间恒等式、单笔时间轴与关键路径、无法归因与成本分母 |
+| 17 | [lectures/17-global-observability](lectures/17-global-observability/) | 四层职责与同期对照、推理侧证据状态、监控缺口与可疑范围、原表数据 |
 
 模板中的空白用于项目填写，“示意”“待测”“未验证”均不代表已完成实验；图片和历史汇总不等同于已提供逐笔原始数据。
 
