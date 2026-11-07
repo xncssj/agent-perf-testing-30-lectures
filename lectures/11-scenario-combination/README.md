@@ -16,6 +16,7 @@
 
 | 参考 | 用途 |
 |---|---|
+| [性能测试方案（全文见第 10 讲）](../10-plan-data-environment/references/performance-test-plan.md) | 看第 11 讲场景设计继承的目标、指标、阈值与运行资格；场景矩阵引用的方案 §5、§8 即此文件 |
 | [场景矩阵 20261001v11pre3](references/scenario-matrix-20261001v11pre3.md) | 看基准、容量、稳定、异常场景如何映射到风险与停止条件 |
 | [实验记录-案例一](references/experiment-record-case-1.md) | 看单 Agent 阶段的真实轮次、读数与口径记录 |
 | [压测问题清单](references/issue-register.md) | 看执行中暴露的问题如何分类、定级与闭环 |
