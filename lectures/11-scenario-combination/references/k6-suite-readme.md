@@ -8,7 +8,7 @@
 > 判定口径与各阶段 `tests/performance/common.py` + `src/utils/metrics.py` 对齐（四级判定 + 阶段附加维度 +
 > 安全层）；门禁阈值、E2E 双口径与三态门禁统一继承 lib/contract.js
 >（契约版本 `load-test-remediation-v1`，事实源见 目标契约），
-> 由 selfcheck.mjs 做纯 node 断言自测（219 项，无 k6、无服务依赖）。
+> 由 selfcheck.mjs 做纯 node 断言自测（265 项，无 k6、无服务依赖）。
 
 ## 分工边界（重要）
 
