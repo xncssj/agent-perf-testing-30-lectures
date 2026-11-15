@@ -141,7 +141,7 @@
 | 17 | [lectures/17-global-observability](lectures/17-global-observability/) | 四层职责与同期对照、推理侧证据状态、监控缺口与可疑范围、原表数据、公开脱敏 S4 底稿 | ✅ 已更新 |
 | 18 | [lectures/18-directed-trace-eval](lectures/18-directed-trace-eval/) | 公开脱敏 S5 定向验证底稿与跨讲参考 | ✅ 已更新 |
 | 19 | [lectures/19-bottleneck-judgment](lectures/19-bottleneck-judgment/) | 公开脱敏 S6 瓶颈判定底稿、场景链根因分析与跨讲参考 | ✅ 已更新 |
-| 20 | [lectures/20-optimization-regression](lectures/20-optimization-regression/) | 公开脱敏 S7 优化回归底稿与跨讲参考 | ✅ 已更新 |
+| 20 | [lectures/20-optimization-regression](lectures/20-optimization-regression/) | 公开脱敏 S7 优化回归底稿、2026-11-06 补证记录与跨讲参考 | ✅ 已更新 |
 | 23 | [lectures/23-workflow-rag-test-objects](lectures/23-workflow-rag-test-objects/) | 性能数据集说明（契约构成、用例池派生、黄金用例与预检结论） | ✅ 已更新 |
 
 模板中的空白用于项目填写，“示意”“待测”“未验证”均不代表已完成实验；图片和历史汇总不等同于已提供逐笔原始数据。
