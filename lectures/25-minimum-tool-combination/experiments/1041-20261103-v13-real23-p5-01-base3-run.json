@@ -1,0 +1,46 @@
+{
+  "note": "第 25 讲公开脱敏 run 摘要；路径已遮蔽。",
+  "contract_version": "load-test-remediation-v1",
+  "run_id": "1041-20261103-v13-real23-p5-01-base3",
+  "scenario": "b0",
+  "status": "COMPLETED",
+  "windows_actual": {
+    "warmup": null,
+    "measured": {
+      "start": "2026-11-04T02:38:34.743Z",
+      "end": "2026-11-04T02:53:03.004Z"
+    }
+  },
+  "gate": {
+    "verdict": "FAIL",
+    "reason_codes": [
+      "QUALIFIED_RATE_BELOW_MIN",
+      "E2E_SLO_EXCEEDED"
+    ],
+    "evaluated_from": {
+      "qualified_rate": 0.86,
+      "error_rate": 0,
+      "e2e_client_wall_p90_ms": 30016,
+      "e2e_slo_ms": 30000
+    }
+  },
+  "goodput_exclusion": {
+    "excluded_from_qualified_goodput": true,
+    "affected_window": {
+      "start": "2026-11-04T02:38:34.743Z",
+      "end": "2026-11-04T02:53:03.004Z"
+    },
+    "missing_evidence": [],
+    "misaligned_evidence": [],
+    "excluded_scope": "全部合格请求（窗口级排除，FAIL）",
+    "note": "NOT_VERIFIED/FAIL 窗口的合格请求不进入安全约束后的 Goodput（契约 §3.4/§5）"
+  },
+  "k6_exit": {
+    "samples_ref": "raw/k6-samples.ndjson",
+    "summary_ref": "raw/k6-summary.json"
+  },
+  "evidence_keys": [
+    "events/environment.ndjson",
+    "events/business.ndjson"
+  ]
+}

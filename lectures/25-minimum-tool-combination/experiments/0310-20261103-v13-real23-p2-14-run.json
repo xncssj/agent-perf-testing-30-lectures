@@ -1,0 +1,43 @@
+{
+  "note": "第 25 讲公开脱敏 run 摘要；路径已遮蔽。",
+  "contract_version": "load-test-remediation-v1",
+  "run_id": "0310-20261103-v13-real23-p2-14",
+  "scenario": "b0",
+  "status": "COMPLETED",
+  "windows_actual": {
+    "warmup": null,
+    "measured": {
+      "start": "2026-11-02T19:09:19.015Z",
+      "end": "2026-11-02T19:13:34.662Z"
+    }
+  },
+  "gate": {
+    "verdict": "PASS",
+    "reason_codes": [],
+    "evaluated_from": {
+      "qualified_rate": 1,
+      "error_rate": 0,
+      "e2e_client_wall_p90_ms": 7292,
+      "e2e_slo_ms": 30000
+    }
+  },
+  "goodput_exclusion": {
+    "excluded_from_qualified_goodput": false,
+    "affected_window": {
+      "start": "2026-11-02T19:09:19.015Z",
+      "end": "2026-11-02T19:13:34.662Z"
+    },
+    "missing_evidence": [],
+    "misaligned_evidence": [],
+    "excluded_scope": "无",
+    "note": "无排除"
+  },
+  "k6_exit": {
+    "samples_ref": "raw/k6-samples.ndjson",
+    "summary_ref": "raw/k6-summary.json"
+  },
+  "evidence_keys": [
+    "events/environment.ndjson",
+    "events/business.ndjson"
+  ]
+}

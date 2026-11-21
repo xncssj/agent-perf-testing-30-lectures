@@ -1,0 +1,129 @@
+{
+  "note": "第 24 讲公开脱敏判决件（演练阻断件（performance=5000））。仅保留正文引用字段；逐笔原始产物不发布。",
+  "test_type": "gate",
+  "evaluation_suite_id": "v13-real23-w5c-eval-1",
+  "dataset_sha256": "d0569de0ceb7222b4902347bacde5bdf65213ef010e6a4b5a1b3f3d6fe921e1a",
+  "fingerprint": {
+    "provider": "mock",
+    "model": "deepseek-flash",
+    "architecture": "workflow+rag"
+  },
+  "frozen_reports": {
+    "benchmark": {
+      "report_run_id": "benchmark-workflow-20261104034529"
+    },
+    "branch_coverage": {
+      "report_run_id": "branch_coverage-20261104034529"
+    },
+    "rag_quality": {
+      "report_run_id": "rag_quality-20261104034529"
+    },
+    "longtail": {
+      "report_run_id": "longtail-20261104034535"
+    },
+    "critical_path": {
+      "report_run_id": "critical_path-20261104034541"
+    },
+    "stability": {
+      "report_run_id": "stability-20261104034810"
+    }
+  },
+  "report": {
+    "qualified_rate": 0.9878,
+    "e2e_p90_ms": 6894.408,
+    "branch_coverage": 1.0,
+    "security_violations": 0,
+    "cost_per_business": 0.013,
+    "availability": 1.0,
+    "error_rate": 0.0
+  },
+  "gates": [
+    {
+      "gate": "accuracy",
+      "metric": "qualified_rate",
+      "direction": "gte",
+      "threshold": 0.98,
+      "actual": 0.9878,
+      "passed": true,
+      "note": "0.988 >= 0.98",
+      "source_report": "benchmark"
+    },
+    {
+      "gate": "performance",
+      "metric": "e2e_p90_ms",
+      "direction": "lte",
+      "threshold": 5000.0,
+      "actual": 6894.408,
+      "passed": false,
+      "note": "6894.408 <= 5000.0",
+      "source_report": "benchmark"
+    },
+    {
+      "gate": "coverage",
+      "metric": "branch_coverage",
+      "direction": "gte",
+      "threshold": 0.9,
+      "actual": 1.0,
+      "passed": true,
+      "note": "1.000 >= 0.9",
+      "source_report": "branch_coverage"
+    },
+    {
+      "gate": "security",
+      "metric": "security_violations",
+      "direction": "lte",
+      "threshold": 0.0,
+      "actual": 0,
+      "passed": true,
+      "note": "0.000 <= 0.0",
+      "source_report": "benchmark"
+    },
+    {
+      "gate": "cost",
+      "metric": "cost_per_business",
+      "direction": "lte",
+      "threshold": 0.5,
+      "actual": 0.013,
+      "passed": true,
+      "note": "0.013 <= 0.5",
+      "source_report": "benchmark"
+    },
+    {
+      "gate": "availability",
+      "metric": "availability",
+      "direction": "gte",
+      "threshold": 0.995,
+      "actual": 1.0,
+      "passed": true,
+      "note": "1.000 >= 0.995",
+      "source_report": "stability"
+    },
+    {
+      "gate": "error_rate",
+      "metric": "error_rate",
+      "direction": "lte",
+      "threshold": 0.005,
+      "actual": 0.0,
+      "passed": true,
+      "note": "0.000 <= 0.005",
+      "source_report": "stability"
+    }
+  ],
+  "all_pass": false,
+  "verdict": "FAIL",
+  "conclusion": "联合门禁不通过",
+  "security_blocked_demo": {
+    "answer_has_phone": true,
+    "violation_types": [
+      "sensitive"
+    ]
+  },
+  "evidence": {
+    "benchmark": "benchmark-workflow-20261104034529",
+    "branch": 1.0,
+    "rag_precision": 1.0,
+    "longtail": "5/5",
+    "critical": true,
+    "stability_availability": 1.0
+  }
+}
