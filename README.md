@@ -19,7 +19,7 @@
 |------|------|
 | 课程系列 | 《Agent 性能测试实战30讲》：开篇词 + 导学 + 直播回放 + 30 讲正文 + 结束语，共 33 讲，[已上架极客时间](https://time.geekbang.org/column/intro/101193401?tab=intro) |
 | 课程讲师 | 高楼 · 盾山科技 CEO，7DGroup 创始人 |
-| 更新节奏 | 连载中，每周一 / 三 / 五更新，已更新 11 / 33 讲 + 直播回放（状态详见下方课程篇目） |
+| 更新节奏 | 连载中，每周一 / 三 / 五更新，已更新 15 / 33 讲 + 直播回放（状态详见下方课程篇目） |
 | 课程定位 | 面向测试 / 性能 / 测试开发工程师、Agent 开发工程师、运维工程师与技术管理者的项目实战课：从性能需求到上线验收，用 RESAR 七步法完整做完一个 Agent 性能项目 |
 | 贯穿案例 | 一个客服工单系统 + 两次架构升级：Single Agent → Multi-Agent → Workflow/Flow + RAG，业务为「查询并答复指定订单的配送进度」 |
 | 核心指标 | TTFT、TPOT、Goodput（有效吞吐）、成功业务成本与四级业务判定（请求成功 / 流程完成 / 业务完成 / 结果合格） |
@@ -92,10 +92,10 @@
 | [07](lectures/07-stability-risk-validation/) | [服务没有报错，如何发现 Agent 稳定性出了问题](https://time.geekbang.org/column/article/1032284) | 第一章 必要知识储备 | ✅ 已更新 |
 | [08](lectures/08-acceptable-requirements/) | [如何把“快稳准省”变成可验收的需求？](https://time.geekbang.org/column/article/1032920) | 第二章 主项目需求与方案设计 | ✅ 已更新 |
 | [09](lectures/09-test-scope/) | [如何设计合适的测试范围？](https://time.geekbang.org/column/article/1033259) | 第二章 主项目需求与方案设计 | ✅ 已更新 |
-| [10](lectures/10-plan-data-environment/) | 如何准备测试方案、数据和环境 | 第二章 主项目需求与方案设计 | 未更新 |
-| [11](lectures/11-scenario-combination/) | 如何组合基准、容量和稳定性场景 | 第三章 主项目场景、脚本与测试执行 | 未更新 |
-| [12](lectures/12-streaming-load-script/) | 可运行的流式压测脚本长什么样 | 第三章 主项目场景、脚本与测试执行 | 未更新 |
-| [13](lectures/13-execution-evidence/) | 测试执行过程中记录什么才能让结果更可信 | 第三章 主项目场景、脚本与测试执行 | 未更新 |
+| [10](lectures/10-plan-data-environment/) | [如何准备测试方案、数据和环境](https://time.geekbang.org/column/article/1034469) | 第二章 主项目需求与方案设计 | ✅ 已更新 |
+| [11](lectures/11-scenario-combination/) | [如何组合基准、容量和稳定性场景](https://time.geekbang.org/column/article/1035253) | 第三章 主项目场景、脚本与测试执行 | ✅ 已更新 |
+| [12](lectures/12-streaming-load-script/) | [可运行的流式压测脚本长什么样](https://time.geekbang.org/column/article/1036848) | 第三章 主项目场景、脚本与测试执行 | ✅ 已更新 |
+| [13](lectures/13-execution-evidence/) | [测试执行过程中记录什么才能让结果更可信](https://time.geekbang.org/column/article/1037493) | 第三章 主项目场景、脚本与测试执行 | ✅ 已更新 |
 | [14](lectures/14-pressure-scenario-data/) | 第一步：如何获取并读懂业务压力场景数据 | 第四章 RESAR 七步分析与优化 | 未更新 |
 | [15](lectures/15-architecture-risk-paths/) | 第二步：如何分析 Agent 执行架构并找到高风险路径 | 第四章 RESAR 七步分析与优化 | 未更新 |
 | [16](lectures/16-latency-split/) | 第三步：一个任务耗时几十秒，如何拆分端到端任务时间 | 第四章 RESAR 七步分析与优化 | 未更新 |
